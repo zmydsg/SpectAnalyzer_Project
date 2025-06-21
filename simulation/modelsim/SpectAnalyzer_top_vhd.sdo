@@ -1,0 +1,374 @@
+// Copyright (C) 1991-2009 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+
+// 
+// Device: Altera EP20K200EFC672-1 Package FBGA672
+// 
+
+// 
+// This SDF file should be used for ModelSim-Altera (VHDL) only
+// 
+
+(DELAYFILE
+  (SDFVERSION "2.1")
+  (DESIGN "SpectAnalyzer_top")
+  (DATE "06/21/2025 18:50:43")
+  (VENDOR "Altera")
+  (PROGRAM "Quartus II")
+  (VERSION "Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition")
+  (DIVIDER .)
+  (TIMESCALE 1 ps)
+
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[0\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[1\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[2\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[3\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[4\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[5\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[6\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[7\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[8\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2490:2490:2490) (2490:2490:2490))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[9\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[10\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2490:2490:2490) (2490:2490:2490))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[11\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[12\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[13\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[14\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[15\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2490:2490:2490) (2490:2490:2490))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[16\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2490:2490:2490) (2490:2490:2490))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[17\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[18\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[19\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[20\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[21\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[22\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[23\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[24\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[25\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[26\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[27\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[28\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[29\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2490:2490:2490) (2490:2490:2490))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[30\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\mag2_out\[31\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\valid_out\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2490:2490:2490) (2490:2490:2490))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "apex20ke_asynch_io")
+    (INSTANCE \\done\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (PORT datain (0:0:0) (0:0:0))
+        (IOPATH datain padio (2410:2410:2410) (2410:2410:2410))
+      )
+    )
+  )
+)

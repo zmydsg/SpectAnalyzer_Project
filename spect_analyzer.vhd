@@ -34,7 +34,7 @@ architecture rtl of mag_sqr_fft is
     --------------------------------------------------------------------
     -- 类型别名
     --------------------------------------------------------------------
-    subtype d_t  is spect_pkg.data_t;              -- signed(15 downto 0)
+    subtype d_t  is data_t;              -- signed(15 downto 0)
     type vec_t   is array (0 to N-1) of d_t;       -- 8‑element 向量
 
     --------------------------------------------------------------------
@@ -52,7 +52,7 @@ architecture rtl of mag_sqr_fft is
     --------------------------------------------------------------------
     -- 状态机
     --------------------------------------------------------------------
-    type state_t is (IDLE, LOAD, CALC, STORE, DONE);
+    type state_t is (IDLE, LOAD, CALC, STORE, DONE1);
     signal st  : state_t := IDLE;
 
     -- 计数器：LOAD/STORE 用 (0..15) / (0..7)
@@ -221,13 +221,13 @@ begin
                     wr_en   <= '1';
 
                     if cnt = 7 then
-                        st <= DONE;
+                        st <= DONE1;
                     else
                         cnt <= cnt + 1;
                     end if;
 
                 --------------------------------------------------------
-                when DONE =>
+                when DONE1 =>
                     done <= '1';
                     if start = '0' then
                         st <= IDLE;

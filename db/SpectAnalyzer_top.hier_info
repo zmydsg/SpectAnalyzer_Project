@@ -1,0 +1,23 @@
+|SpectAnalyzer_top
+clk => ~NO_FANOUT~
+rst_n => ~NO_FANOUT~
+data_in[0] => ~NO_FANOUT~
+data_in[1] => ~NO_FANOUT~
+data_in[2] => ~NO_FANOUT~
+data_in[3] => ~NO_FANOUT~
+data_in[4] => ~NO_FANOUT~
+data_in[5] => ~NO_FANOUT~
+data_in[6] => ~NO_FANOUT~
+data_in[7] => ~NO_FANOUT~
+data_in[8] => ~NO_FANOUT~
+data_in[9] => ~NO_FANOUT~
+data_in[10] => ~NO_FANOUT~
+data_in[11] => ~NO_FANOUT~
+data_in[12] => ~NO_FANOUT~
+data_in[13] => ~NO_FANOUT~
+data_in[14] => ~NO_FANOUT~
+data_in[15] => ~NO_FANOUT~
+valid_in => ~NO_FANOUT~
+done <= comb~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

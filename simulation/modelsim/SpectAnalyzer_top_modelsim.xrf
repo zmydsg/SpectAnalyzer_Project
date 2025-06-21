@@ -1,8 +1,8 @@
 vendor_name = ModelSim
-source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/spect_analyzer.vhd
-source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/spect_pkg.vhd
+source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd
+source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd
 source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd
-source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/tb/tb_mag_sqr_fft.vhd
+source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/tb_mag_sqr_fft.vhd
 source_file = 1, G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/db/SpectAnalyzer_top.cbx.xml
 design_name = SpectAnalyzer_top
 instance = comp, \clk~I\, clk, SpectAnalyzer_top, 1

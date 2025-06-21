@@ -50,7 +50,7 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 1
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name MISC_FILE "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/SpectAnalyzer_top.dpf"
+set_global_assignment -name VHDL_FILE src/mag_sqr_fft.vhd
 set_global_assignment -name VHDL_FILE src/spect_pkg.vhd
-set_global_assignment -name VHDL_FILE src/spect_analyzer.vhd
-set_global_assignment -name VHDL_FILE src/tb/tb_mag_sqr_fft.vhd
 set_global_assignment -name VHDL_FILE src/SpectAnalyzer_top.vhd
+set_global_assignment -name VHDL_TEST_BENCH_FILE src/tb/tb_mag_sqr_fft.vhd

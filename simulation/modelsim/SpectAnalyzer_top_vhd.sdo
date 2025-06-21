@@ -24,7 +24,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "SpectAnalyzer_top")
-  (DATE "06/21/2025 18:50:43")
+  (DATE "06/21/2025 20:13:33")
   (VENDOR "Altera")
   (PROGRAM "Quartus II")
   (VERSION "Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition")

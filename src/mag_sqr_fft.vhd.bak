@@ -1,10 +1,9 @@
--- =============================================================
---  mag_sqr_fft.vhd  ï¿½C 8?point radix?2 DIT FFT  +  |X(k)|2  (Q1.15)
---  ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö£ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½æ¡£
---  * ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½È»Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
---  * ï¿½ï¿½ï¿½ï¿½ï¿½ã£¬È«ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½
---  * 3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½Ë³ï¿½ï¿½Ð´ï¿½ï¿½ RAM Port?B
--- =============================================================
+-- ====================================================================
+--  File : mag_sqr_fft.vhd   (Ä¿Â¼Ê¾Àý rtl/fft/)
+--  8-point radix-2 DIT FFT  +  |X(k)|2  (Q1.15)
+--  * µ¥¶Ë¿Ú RAM£ºFFT ¼ÆËãÊ±¶ÀÕ¼¶Ë¿Ú
+--  * ÎÞÈÎºÎÐÔÄÜÓÅ»¯£¬Ö»Çó×îÖ±½ÓÊµÏÖ¹¦ÄÜ
+-- ====================================================================
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -13,149 +12,406 @@ use work.spect_pkg.all;
 
 entity mag_sqr_fft is
     generic (
-        WIDTH : natural := DATA_WIDTH;   -- 16
-        N     : natural := N_POINTS);    -- 8
+        WIDTH : natural := DATA_WIDTH;  -- 16
+        N     : natural := N_POINTS     -- 8
+    );
     port (
         clk      : in  std_logic;
         rst_n    : in  std_logic;
-        start    : in  std_logic;
-        done     : out std_logic;
-        -- Port?B (ï¿½ï¿½ ram_dp ï¿½ï¿½ï¿½ï¿½)
-        ram_addr : out addr_t;
-        ram_din  : in  signed(WIDTH-1 downto 0);
-        ram_dout : out signed(WIDTH-1 downto 0);
-        ram_we   : out std_logic);
+
+        -- Óë INPUT µÄÎÕÊÖ
+        start    : in  std_logic;          -- ÊäÈë»º´æÌîÂúºóÀ­¸ß 1 ÅÄ
+        done     : out std_logic;          -- FFT+|X|2 È«²¿Íê³ÉºóÀ­¸ß 1 ÅÄ
+
+        -- µ¥¶Ë¿Ú RAM ½Ó¿Ú£¨Ô­Î»ÔËËã£©
+        ram_addr : out addr_t;                   -- µØÖ·
+        ram_din  : in  signed(WIDTH-1 downto 0); -- ¶ÁÈë
+        ram_dout : out signed(WIDTH-1 downto 0); -- Ð´³ö
+        ram_we   : out std_logic                 -- Ð´Ê¹ÄÜ£¬¸ßÓÐÐ§
+    );
 end entity;
 
+-- ====================================================================
 architecture rtl of mag_sqr_fft is
-    -- ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½
+-- ====================================================================
+    --------------------------------------------------------------------
+    -- Êý¾ÝÀ©Õ¹£º¿í¶È = WIDTH+2 = 18 bit
+    --------------------------------------------------------------------
+    subtype wide_t is signed(WIDTH+1 downto 0);
+
+-- =============================================================
+--  mag_sqr_fft.vhd  ½á¹¹ / ¹Ø¼üÆ¬¶Î
+-- =============================================================
+
+    ----------------------------------------------------------------
+    -- ³£Á¿£ºÐý×ªÏµÊý ROM
+    ----------------------------------------------------------------
+    type coeff_arr_t is array (0 to 3) of signed(WIDTH-1 downto 0);
+
+    constant TW_RE : coeff_arr_t :=
+        ( to_signed( 32767, WIDTH),   --  1
+          to_signed( 23170, WIDTH),   --  0.7071
+          to_signed(     0, WIDTH),   --  0
+          to_signed(-23170, WIDTH) ); -- -0.7071
+
+    constant TW_IM : coeff_arr_t :=
+        ( to_signed(     0, WIDTH),   --  0
+          to_signed(-23170, WIDTH),   -- -0.7071
+          to_signed(-32768, WIDTH),   -- -1
+          to_signed(-23170, WIDTH) ); -- -0.7071
+
+
+    --------------------------------------------------------------------
+    -- ×´Ì¬»ú
+    --------------------------------------------------------------------
+    type st_t is (
+        IDLE,
+        -- Stage-0 (distance 4)
+        S0_RD_TOP_RE, S0_RD_TOP_IM, S0_RD_BOT_RE, S0_RD_BOT_IM,
+        S0_CALC,      S0_WR_TOP_RE, S0_WR_TOP_IM, S0_WR_BOT_RE, S0_WR_BOT_IM,
+        -- Stage-1 (distance 2)
+        S1_RD_TOP_RE, S1_RD_TOP_IM, S1_RD_BOT_RE, S1_RD_BOT_IM,
+        S1_CALC,      S1_WR_TOP_RE, S1_WR_TOP_IM, S1_WR_BOT_RE, S1_WR_BOT_IM,
+        -- Stage-2 (distance 1)
+        S2_RD_TOP_RE, S2_RD_TOP_IM, S2_RD_BOT_RE, S2_RD_BOT_IM,
+        S2_CALC,      S2_WR_TOP_RE, S2_WR_TOP_IM, S2_WR_BOT_RE, S2_WR_BOT_IM,
+        -- Magnitude-square
+        MAG_RD_RE, MAG_RD_IM, MAG_CALC, MAG_WR, DONE1
+    );
+    signal st : st_t := IDLE;
+
+    --------------------------------------------------------------------
+    -- ¼ÆÊý / µØÖ·¼Ä´æÆ÷
+    --------------------------------------------------------------------
+    signal pair_idx  : integer range 0 to (N/2)-1 := 0;  -- 0..3
+    signal mag_idx   : integer range 0 to N-1     := 0;  -- 0..7
+    signal top_cpx   : integer range 0 to N-1     := 0;
+    signal bot_cpx   : integer range 0 to N-1     := 0;
+    signal stage     : integer range 0 to 2       := 0;  -- 3 stages
+
+    --------------------------------------------------------------------
+    -- Êý¾Ý¼Ä´æÆ÷
+    --------------------------------------------------------------------
+    signal a_re, a_im : wide_t := (others=>'0');
+    signal b_re, b_im : wide_t := (others=>'0');
+    signal w_re,  w_im  : signed(WIDTH-1 downto 0);
     
-    -- ï¿½Þ¸ï¿½×´Ì¬ï¿½ï¿½
-    type state_t is (IDLE, STAGE1, STAGE2, STAGE3, MAG_CALC, DONE1);
-    signal st  : state_t := IDLE;
-    
-    -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½Åºï¿½
-    signal cnt : unsigned(3 downto 0) := (others => '0');
-    signal step : unsigned(1 downto 0) := (others => '0'); -- ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½/Ð´ï¿½Ä²ï¿½ï¿½ï¿½
-    
-    -- ï¿½ï¿½Ê±ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½æ´¢ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£©
-    signal t_re, t_im, b_re, b_im : data_t := (others => '0');
-    signal w_re, w_im : data_t := (others => '0');
-    signal res_t_re, res_t_im, res_b_re, res_b_im : data_t := (others => '0');
-    
-    -- RAMï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½
-    signal rd_addr : addr_t := (others => '0');
-    signal wr_addr : addr_t := (others => '0');
-    signal wr_en   : std_logic := '0';
-    signal wr_data : data_t := (others => '0');
-    
-    -- ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½
-    
-    -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ôªï¿½ï¿½Ö·ï¿½Äºï¿½ï¿½ï¿½
-    function calc_butterfly_addr(stage, grp, pair : unsigned) return unsigned is
-        variable distance : integer;
-        variable base_addr : unsigned(3 downto 0);
-        variable result : unsigned(3 downto 0);
+    signal up_re, up_im : wide_t;
+    signal dn_re, dn_im : wide_t;
+
+    --------------------------------------------------------------------
+    -- ¹¤¾ßº¯Êý
+    --------------------------------------------------------------------
+    -- ¸´ÊýË÷Òý ¡ú µ¥¶Ë¿Ú RAM µØÖ·
+    function cpx_to_addr(idx : integer; is_im : boolean) return addr_t is
+        variable a : integer := idx*2;
     begin
-        distance := 2**to_integer(stage);
-        base_addr := grp * 2**(stage+1);
-        if pair = 0 then
-            result := base_addr + grp;
-        else
-            result := base_addr + grp + distance;
+        if is_im then
+            a := a + 1;
         end if;
-        return result;
-    end function;
-    
-    -- ï¿½ï¿½È¡ï¿½ï¿½×ªï¿½ï¿½ï¿½ÓµÄºï¿½ï¿½ï¿½
-    function get_twiddle(stage, grp : unsigned) return integer is
-        variable k : integer;
+        return to_unsigned(a, ADDR_WIDTH);
+    end;
+
+    -- Twiddle index ¼ÆËã
+    function tw_idx(stage : integer; pair : integer) return integer is
+        variable dist   : integer := N / (2**(stage+1)); -- 4/2/1
+        variable within : integer := pair mod dist;
     begin
-        k := to_integer(grp) * (N/2**to_integer(stage+1));
-        return k;
-    end function;
+        return within * N / (2*dist);  -- 0..3
+    end;
+
+    -- Q1.15 ¡Á Q1.15
+    function mul_q15(x, y : signed) return signed is
+        variable tmp : signed(WIDTH*2-1 downto 0);
+    begin
+        tmp := resize(x, tmp'length) * resize(y, tmp'length);
+        return resize(tmp(tmp'high-1 downto WIDTH-1), WIDTH);
+    end;
+    
+    -- ×Ô¶¯·ûºÅÀ©Õ¹µ½ 18 Î»
+    function to_wide(x : signed) return wide_t is
+    begin
+        return resize(x, wide_t'length);
+    end;
     
 begin
-    -- RAMï¿½Ó¿ï¿½
-    ram_we <= wr_en;
-    ram_dout <= wr_data;
-    
+    -- Ä¬ÈÏÊä³ö
+    ram_we   <= '0';
+    ram_dout <= (others=>'0');
+    done     <= '0';
+
+    --------------------------------------------------------------------
+    -- Ö÷×´Ì¬»ú
+    --------------------------------------------------------------------
     process(clk, rst_n)
-        variable mag2 : signed(31 downto 0);
-        variable stage_idx, group_idx, pair_idx : unsigned(2 downto 0);
-        variable addr_t, addr_b : addr_t;
+        variable mag32 : signed(33 downto 0);
+        variable k     : integer;
     begin
-        if rst_n = '0' then
-            st <= IDLE;
-            cnt <= (others => '0');
-            step <= (others => '0');
-            wr_en <= '0';
-            done <= '0';
+        if rst_n='0' then
+            st       <= IDLE;
+            pair_idx <= 0;
+            stage    <= 0;
+            mag_idx  <= 0;
+            ram_addr <= (others=>'0');
         elsif rising_edge(clk) then
-            -- Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½
-            wr_en <= '0';
-            done <= '0';
-            
+            -----------------------------
             case st is
-                when IDLE =>
-                    if start = '1' then
-                        st <= STAGE1;
-                        cnt <= (others => '0');
-                        step <= (others => '0');
-                    end if;
-                
-                -- ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£¨ï¿½ï¿½ï¿½ï¿½=4ï¿½ï¿½
-                when STAGE1 =>
-                    stage_idx := to_unsigned(0, 3);
-                    group_idx := cnt(2 downto 1);
-                    pair_idx := cnt(0 downto 0);
-                    
-                    case step is
-                        when "00" => -- ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½
-                            addr_t := calc_butterfly_addr(stage_idx, group_idx, to_unsigned(0, 1));
-                            ram_addr <= addr_t & '0'; -- Êµï¿½ï¿½ï¿½ï¿½Ö·
-                            step <= step + 1;
-                            
-                        when "01" => -- ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½é²¿
-                            t_re <= ram_din;
-                            ram_addr <= addr_t & '1'; -- ï¿½é²¿ï¿½ï¿½Ö·
-                            step <= step + 1;
-                            
-                        when "10" => -- ï¿½ï¿½È¡ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½
-                            t_im <= ram_din;
-                            addr_b := calc_butterfly_addr(stage_idx, group_idx, to_unsigned(1, 1));
-                            ram_addr <= addr_b & '0'; -- Êµï¿½ï¿½ï¿½ï¿½Ö·
-                            step <= step + 1;
-                            
-                        when "11" => -- ï¿½ï¿½È¡ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½é²¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-                            b_re <= ram_din;
-                            ram_addr <= addr_b & '1'; -- ï¿½é²¿ï¿½ï¿½Ö·
-                            
-                            -- ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
-                            -- ï¿½ï¿½ï¿½ï¿½Ê¼Ð´ï¿½Ø½ï¿½ï¿½
-                            step <= "00";
-                            
-                            if cnt = 7 then
-                                cnt <= (others => '0');
-                                st <= STAGE2;
-                            else
-                                cnt <= cnt + 1;
-                            end if;
-                    end case;
-                    
-                -- ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
-                -- ...
-                
-                -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½
-                when MAG_CALC =>
-                    -- ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ç°STORE×´Ì¬ï¿½ï¿½Êµï¿½ï¿½
-                    -- ï¿½ï¿½Ö±ï¿½Ó´ï¿½RAMï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½
-                    
-                when DONE1 =>
-                    done <= '1';
-                    if start = '0' then
-                        st <= IDLE;
-                    end if;
+            ----------------------------------------------------------------
+            when IDLE =>
+                if start='1' then
+                    stage    <= 0;
+                    pair_idx <= 0;
+                    top_cpx  <= 0;
+                    bot_cpx  <= 0 + N/2;  -- 4
+                    ram_addr <= cpx_to_addr(0, false);
+                    st <= S0_RD_TOP_RE;
+                end if;
+
+            -- ==================== Stage-0 : distance 4 ====================
+            when S0_RD_TOP_RE =>
+                a_re    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(top_cpx, true);
+                st      <= S0_RD_TOP_IM;
+
+            when S0_RD_TOP_IM =>
+                a_im    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(bot_cpx, false);
+                st      <= S0_RD_BOT_RE;
+
+            when S0_RD_BOT_RE =>
+                b_re    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(bot_cpx, true);
+                st      <= S0_RD_BOT_IM;
+
+            when S0_RD_BOT_IM =>
+                b_im    <= to_wide(ram_din);  -- ¡ï
+                w_re    <= TW_RE(0);
+                w_im    <= TW_IM(0);
+                st      <= S0_CALC;
+
+            when S0_CALC =>
+                -- ¼ÆËã W0 == 1
+                up_re <= a_re + b_re;
+                up_im <= a_im + b_im;
+                dn_re <= a_re - b_re;
+                dn_im <= a_im - b_im;
+
+                ram_addr <= cpx_to_addr(top_cpx, false);
+                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S0_WR_TOP_RE;
+
+            when S0_WR_TOP_RE =>
+                ram_addr <= cpx_to_addr(top_cpx, true);
+                ram_dout <= signed(up_im(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S0_WR_TOP_IM;
+
+            when S0_WR_TOP_IM =>
+                ram_addr <= cpx_to_addr(bot_cpx, false);
+                ram_dout <= signed(dn_re(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S0_WR_BOT_RE;
+
+            when S0_WR_BOT_RE =>
+                ram_addr <= cpx_to_addr(bot_cpx, true);
+                ram_dout <= signed(dn_im(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S0_WR_BOT_IM;
+
+            when S0_WR_BOT_IM =>
+                if pair_idx = 3 then    -- stage-0 Íê³É
+                    stage    <= 1;
+                    pair_idx <= 0;
+                    top_cpx  <= 0;
+                    bot_cpx  <= 0 + N/4;    -- distance = 2
+                    ram_addr <= cpx_to_addr(0, false);
+                    st <= S1_RD_TOP_RE;
+                else
+                    pair_idx <= pair_idx + 1;
+                    top_cpx  <= pair_idx+1;
+                    bot_cpx  <= (pair_idx+1) + N/2;
+                    ram_addr <= cpx_to_addr(pair_idx+1, false);
+                    st <= S0_RD_TOP_RE;
+                end if;
+
+            -- ==================== Stage-1 : distance 2 ====================
+            when S1_RD_TOP_RE =>
+                a_re    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(top_cpx, true);
+                st      <= S1_RD_TOP_IM;
+
+            when S1_RD_TOP_IM =>
+                a_im    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(bot_cpx, false);
+                st      <= S1_RD_BOT_RE;
+
+            when S1_RD_BOT_RE =>
+                b_re    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(bot_cpx, true);
+                st      <= S1_RD_BOT_IM;
+
+            when S1_RD_BOT_IM =>
+                b_im    <= to_wide(ram_din);  -- ¡ï
+                k       := tw_idx(1, pair_idx);  -- 0 or 2
+                w_re    <= TW_RE(k/2*2);
+                w_im    <= TW_IM(k/2*2);
+                st      <= S1_CALC;
+
+            when S1_CALC =>
+                -- ¼ÆËã a ¡À b¡¤Wk
+                dn_re <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_re) )
+                       - to_wide( mul_q15( signed(b_im(WIDTH-1 downto 0)), w_im) );
+                dn_im <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_im) )
+                       + to_wide( mul_q15( signed(b_im(WIDTH-1 downto 0)), w_re) );
+                up_re <= a_re + dn_re;
+                up_im <= a_im + dn_im;
+                dn_re <= a_re - dn_re;
+                dn_im <= a_im - dn_im;
+
+                ram_addr <= cpx_to_addr(top_cpx, false);
+                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S1_WR_TOP_RE;
+
+            when S1_WR_TOP_RE =>
+                ram_addr <= cpx_to_addr(top_cpx, true);
+                ram_dout <= signed(up_im(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S1_WR_TOP_IM;
+
+            when S1_WR_TOP_IM =>
+                ram_addr <= cpx_to_addr(bot_cpx, false);
+                ram_dout <= signed(dn_re(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S1_WR_BOT_RE;
+
+            when S1_WR_BOT_RE =>
+                ram_addr <= cpx_to_addr(bot_cpx, true);
+                ram_dout <= signed(dn_im(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S1_WR_BOT_IM;
+
+            when S1_WR_BOT_IM =>
+                if pair_idx = 3 then  -- stage-1 Íê³É
+                    stage    <= 2;
+                    pair_idx <= 0;
+                    top_cpx  <= 0;
+                    bot_cpx  <= 1;
+                    ram_addr <= cpx_to_addr(0, false);
+                    st <= S2_RD_TOP_RE;
+                else
+                    pair_idx <= pair_idx + 1;
+                    top_cpx  <= (pair_idx+1)/2*4 + (pair_idx+1) mod 2;
+                    bot_cpx  <= top_cpx + 2;
+                    ram_addr <= cpx_to_addr(top_cpx, false);
+                    st <= S1_RD_TOP_RE;
+                end if;
+
+            -- ==================== Stage-2 : distance 1 ====================
+            when S2_RD_TOP_RE =>
+                a_re    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(top_cpx, true);
+                st      <= S2_RD_TOP_IM;
+
+            when S2_RD_TOP_IM =>
+                a_im    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(bot_cpx, false);
+                st      <= S2_RD_BOT_RE;
+
+            when S2_RD_BOT_RE =>
+                b_re    <= to_wide(ram_din);  -- ¡ï
+                ram_addr <= cpx_to_addr(bot_cpx, true);
+                st      <= S2_RD_BOT_IM;
+
+            when S2_RD_BOT_IM =>
+                b_im    <= to_wide(ram_din);  -- ¡ï
+                k       := tw_idx(2, pair_idx); -- 0-3
+                w_re    <= TW_RE(k);
+                w_im    <= TW_IM(k);
+                st      <= S2_CALC;
+
+            when S2_CALC =>
+                dn_re <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_re) )
+                       - to_wide( mul_q15( signed(b_im(WIDTH-1 downto 0)), w_im) );
+                dn_im <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_im) )
+                       + to_wide( mul_q15( signed(b_im(WIDTH-1 downto 0)), w_re) );
+                up_re <= a_re + dn_re;
+                up_im <= a_im + dn_im;
+                dn_re <= a_re - dn_re;
+                dn_im <= a_im - dn_im;
+
+                ram_addr <= cpx_to_addr(top_cpx, false);
+                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S2_WR_TOP_RE;
+
+            when S2_WR_TOP_RE =>
+                ram_addr <= cpx_to_addr(top_cpx, true);
+                ram_dout <= signed(up_im(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S2_WR_TOP_IM;
+
+            when S2_WR_TOP_IM =>
+                ram_addr <= cpx_to_addr(bot_cpx, false);
+                ram_dout <= signed(dn_re(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S2_WR_BOT_RE;
+
+            when S2_WR_BOT_RE =>
+                ram_addr <= cpx_to_addr(bot_cpx, true);
+                ram_dout <= signed(dn_im(WIDTH-1 downto 0));
+                ram_we   <= '1';
+                st <= S2_WR_BOT_IM;
+
+            when S2_WR_BOT_IM =>
+                if pair_idx = 7 then      -- È« 8 µûÐÎÍê³É
+                    mag_idx  <= 0;
+                    ram_addr <= cpx_to_addr(0, false);
+                    st <= MAG_RD_RE;
+                else
+                    pair_idx <= pair_idx + 1;
+                    top_cpx  <= pair_idx+1;
+                    bot_cpx  <= top_cpx + 1;
+                    ram_addr <= cpx_to_addr(top_cpx, false);
+                    st <= S2_RD_TOP_RE;
+                end if;
+
+            -- ==================== ¼ÆËã·ù¶ÈÆ½·½ ============================
+            when MAG_RD_RE =>
+                a_re    <= to_wide(ram_din);                 -- ¡ï
+                ram_addr <= cpx_to_addr(mag_idx, true);      -- Im
+                st      <= MAG_RD_IM;
+
+            when MAG_RD_IM =>
+                a_im    <= to_wide(ram_din);                 -- ¡ï
+                st      <= MAG_CALC;
+
+            when MAG_CALC =>
+                mag32 := resize(a_re,34)*resize(a_re,34) +
+                         resize(a_im,34)*resize(a_im,34);
+                -- È¡¸ß 16 Î» (Q1.15)
+                ram_dout <= mag32(33 downto 18);
+                ram_addr <= cpx_to_addr(mag_idx, false);     -- ¸²Ð´Ô­ Re
+                ram_we   <= '1';
+                st <= MAG_WR;
+
+            when MAG_WR =>
+                if mag_idx = N-1 then
+                    st <= DONE1;
+                else
+                    mag_idx <= mag_idx + 1;
+                    ram_addr <= cpx_to_addr(mag_idx+1, false);
+                    st <= MAG_RD_RE;
+                end if;
+
+            -- ==================== DONE ===============================
+            when DONE1 =>
+                done <= '1';
+                if start='0' then
+                    st <= IDLE;
+                end if;
+
             end case;
         end if;
     end process;

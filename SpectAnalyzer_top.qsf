@@ -53,4 +53,6 @@ set_global_assignment -name MISC_FILE "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/
 set_global_assignment -name VHDL_FILE src/mag_sqr_fft.vhd
 set_global_assignment -name VHDL_FILE src/spect_pkg.vhd
 set_global_assignment -name VHDL_FILE src/SpectAnalyzer_top.vhd
-set_global_assignment -name VHDL_TEST_BENCH_FILE src/tb/tb_mag_sqr_fft.vhd
+set_global_assignment -name VHDL_FILE src/input_buffer.vhd
+set_global_assignment -name VHDL_FILE src/output_buffer.vhd
+set_global_assignment -name VHDL_FILE src/ram_sp.vhd

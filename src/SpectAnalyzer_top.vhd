@@ -1,23 +1,95 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+library ieee;        use ieee.std_logic_1164.all; use ieee.numeric_std.all;
+use work.spect_pkg.all;
 
+--------------------------------------------------------------------
+-- 顶层实体：根据你的板卡 IO 自行增删端口
+--------------------------------------------------------------------
 entity SpectAnalyzer_top is
-  port (
-    clk       : in  std_logic;
-    rst_n     : in  std_logic;
-    data_in   : in  std_logic_vector(15 downto 0);
-    valid_in  : in  std_logic;
-    mag2_out  : out std_logic_vector(31 downto 0);
-    valid_out : out std_logic;
-    done      : out std_logic
-  );
-end SpectAnalyzer_top;
+    port (
+        clk        : in  std_logic;
+        rst_n      : in  std_logic;
+        adc_sample : in  signed(DATA_WIDTH-1 downto 0);
+        adc_valid  : in  std_logic;
+        adc_ready  : out std_logic;
 
+        dout       : out signed(DATA_WIDTH-1 downto 0);
+        dout_valid : out std_logic
+    );
+end entity;
+
+--------------------------------------------------------------------
 architecture rtl of SpectAnalyzer_top is
-  -- 以后在这里声明内部信号、组件声明
+--------------------------------------------------------------------
+    -- === 内部公共总线 ===
+    signal ram_addr  : addr_t;
+    signal ram_din   : signed(DATA_WIDTH-1 downto 0);
+    signal ram_dout  : signed(DATA_WIDTH-1 downto 0);
+    signal ram_we    : std_logic;
+
+    -- === 模块间握手 ===
+    signal start_sig : std_logic;  -- INPUT→FFT
+    signal done_sig  : std_logic;  -- FFT→INPUT/OUTPUT
 begin
-  -- 如果暂时没有并发语句，可以留空，也可以：
-  -- dummy: null;  
-  -- 添加了标签 dummy，就不会报错
-end rtl;
+    ----------------------------------------------------------------
+    -- ? 单端口同步 RAM（推断或 IP）
+    ----------------------------------------------------------------
+    ram_inst : entity work.ram_sp
+        port map (
+            clk  => clk,
+            addr => ram_addr,
+            din  => ram_dout,
+            we   => ram_we,
+            dout => ram_din
+        );
+
+    ----------------------------------------------------------------
+    -- ? INPUT 缓冲
+    ----------------------------------------------------------------
+    u_in : entity work.input_buffer
+        port map (
+            clk        => clk,
+            rst_n      => rst_n,
+            din        => adc_sample,
+            din_valid  => adc_valid,
+            din_ready  => adc_ready,
+            start_fft  => start_sig,
+            fft_done   => done_sig,
+            ram_addr   => ram_addr,
+            ram_dout   => ram_dout,
+            ram_we     => ram_we
+        );
+
+    ----------------------------------------------------------------
+    -- ? FFT + |X|2 计算
+    ----------------------------------------------------------------
+    u_fft : entity work.mag_sqr_fft
+        port map (
+            clk      => clk,
+            rst_n    => rst_n,
+            start    => start_sig,
+            done     => done_sig,
+            ram_addr => ram_addr,
+            ram_din  => ram_din,
+            ram_dout => ram_dout,
+            ram_we   => ram_we
+        );
+
+    ----------------------------------------------------------------
+    -- ? OUTPUT 模块（若暂时不用，可注释）
+    ----------------------------------------------------------------
+	u_out : entity work.output_buffer
+		port map (
+			clk        => clk,
+			rst_n      => rst_n,
+			start_in   => done_sig,
+			done_out   => open,
+
+			ram_addr   => ram_addr,
+			ram_din    => ram_din,
+			ram_we     => open,     -- ← 只读，接 OPEN！
+
+			dout       => dout,
+			dout_valid => dout_valid
+		);
+
+end architecture;

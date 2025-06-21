@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpectAnalyzer_top
-Sat Jun 21 20:13:27 2025
+Sat Jun 21 22:23:56 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -10,10 +10,7 @@ Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Analysis & Synthesis Source Files Read
-  5. Analysis & Synthesis Resource Usage Summary
-  6. Analysis & Synthesis Resource Utilization by Entity
-  7. General Register Statistics
-  8. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Messages
 
 
 
@@ -39,16 +36,11 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Jun 21 20:13:27 2025        ;
+; Analysis & Synthesis Status ; Failed - Sat Jun 21 22:23:56 2025            ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; SpectAnalyzer_top                            ;
 ; Top-level Entity Name       ; SpectAnalyzer_top                            ;
 ; Family                      ; APEX20KE                                     ;
-; Total logic elements        ; 0                                            ;
-; Total pins                  ; 53                                           ;
-; Total virtual pins          ; 0                                            ;
-; Total memory bits           ; 0                                            ;
-; Total PLLs                  ; 0                                            ;
 +-----------------------------+----------------------------------------------+
 
 
@@ -128,50 +120,13 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+
+; src/mag_sqr_fft.vhd              ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd       ;
+; src/spect_pkg.vhd                ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd         ;
 ; src/SpectAnalyzer_top.vhd        ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd ;
+; src/input_buffer.vhd             ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd      ;
+; src/output_buffer.vhd            ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd     ;
+; src/ram_sp.vhd                   ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd            ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+
-
-
-+---------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary ;
-+--------------------------------+------------+
-; Resource                       ; Usage      ;
-+--------------------------------+------------+
-; Total logic elements           ; 0          ;
-; Total combinational functions  ; 0          ;
-;     -- Total 4-input functions ; 0          ;
-;     -- Total 3-input functions ; 0          ;
-;     -- Total 2-input functions ; 0          ;
-;     -- Total 1-input functions ; 0          ;
-;     -- Total 0-input functions ; 0          ;
-; Total registers                ; 0          ;
-; I/O pins                       ; 53         ;
-+--------------------------------+------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |SpectAnalyzer_top         ; 0 (0)       ; 0            ; 0           ; 53   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top  ; work         ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
 
 
 +-------------------------------+
@@ -180,7 +135,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sat Jun 21 20:13:27 2025
+    Info: Processing started: Sat Jun 21 22:23:55 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
 Info: Found 2 design units, including 1 entities, in source file src/mag_sqr_fft.vhd
     Info: Found design unit 1: mag_sqr_fft-rtl
@@ -191,72 +146,26 @@ Info: Found 2 design units, including 0 entities, in source file src/spect_pkg.v
 Info: Found 2 design units, including 1 entities, in source file src/SpectAnalyzer_top.vhd
     Info: Found design unit 1: SpectAnalyzer_top-rtl
     Info: Found entity 1: SpectAnalyzer_top
+Info: Found 2 design units, including 1 entities, in source file src/input_buffer.vhd
+    Info: Found design unit 1: input_buffer-rtl
+    Info: Found entity 1: input_buffer
+Info: Found 2 design units, including 1 entities, in source file src/output_buffer.vhd
+    Info: Found design unit 1: output_buffer-rtl
+    Info: Found entity 1: output_buffer
+Info: Found 2 design units, including 1 entities, in source file src/ram_sp.vhd
+    Info: Found design unit 1: ram_sp-rtl
+    Info: Found entity 1: ram_sp
 Info: Elaborating entity "SpectAnalyzer_top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at SpectAnalyzer_top.vhd(11): used implicit default value for signal "mag2_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at SpectAnalyzer_top.vhd(12): used implicit default value for signal "valid_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at SpectAnalyzer_top.vhd(13): used implicit default value for signal "done" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "mag2_out[0]" is stuck at GND
-    Warning (13410): Pin "mag2_out[1]" is stuck at GND
-    Warning (13410): Pin "mag2_out[2]" is stuck at GND
-    Warning (13410): Pin "mag2_out[3]" is stuck at GND
-    Warning (13410): Pin "mag2_out[4]" is stuck at GND
-    Warning (13410): Pin "mag2_out[5]" is stuck at GND
-    Warning (13410): Pin "mag2_out[6]" is stuck at GND
-    Warning (13410): Pin "mag2_out[7]" is stuck at GND
-    Warning (13410): Pin "mag2_out[8]" is stuck at GND
-    Warning (13410): Pin "mag2_out[9]" is stuck at GND
-    Warning (13410): Pin "mag2_out[10]" is stuck at GND
-    Warning (13410): Pin "mag2_out[11]" is stuck at GND
-    Warning (13410): Pin "mag2_out[12]" is stuck at GND
-    Warning (13410): Pin "mag2_out[13]" is stuck at GND
-    Warning (13410): Pin "mag2_out[14]" is stuck at GND
-    Warning (13410): Pin "mag2_out[15]" is stuck at GND
-    Warning (13410): Pin "mag2_out[16]" is stuck at GND
-    Warning (13410): Pin "mag2_out[17]" is stuck at GND
-    Warning (13410): Pin "mag2_out[18]" is stuck at GND
-    Warning (13410): Pin "mag2_out[19]" is stuck at GND
-    Warning (13410): Pin "mag2_out[20]" is stuck at GND
-    Warning (13410): Pin "mag2_out[21]" is stuck at GND
-    Warning (13410): Pin "mag2_out[22]" is stuck at GND
-    Warning (13410): Pin "mag2_out[23]" is stuck at GND
-    Warning (13410): Pin "mag2_out[24]" is stuck at GND
-    Warning (13410): Pin "mag2_out[25]" is stuck at GND
-    Warning (13410): Pin "mag2_out[26]" is stuck at GND
-    Warning (13410): Pin "mag2_out[27]" is stuck at GND
-    Warning (13410): Pin "mag2_out[28]" is stuck at GND
-    Warning (13410): Pin "mag2_out[29]" is stuck at GND
-    Warning (13410): Pin "mag2_out[30]" is stuck at GND
-    Warning (13410): Pin "mag2_out[31]" is stuck at GND
-    Warning (13410): Pin "valid_out" is stuck at GND
-    Warning (13410): Pin "done" is stuck at GND
-Warning: Design contains 19 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-    Warning (15610): No output dependent on input pin "rst_n"
-    Warning (15610): No output dependent on input pin "data_in[0]"
-    Warning (15610): No output dependent on input pin "data_in[1]"
-    Warning (15610): No output dependent on input pin "data_in[2]"
-    Warning (15610): No output dependent on input pin "data_in[3]"
-    Warning (15610): No output dependent on input pin "data_in[4]"
-    Warning (15610): No output dependent on input pin "data_in[5]"
-    Warning (15610): No output dependent on input pin "data_in[6]"
-    Warning (15610): No output dependent on input pin "data_in[7]"
-    Warning (15610): No output dependent on input pin "data_in[8]"
-    Warning (15610): No output dependent on input pin "data_in[9]"
-    Warning (15610): No output dependent on input pin "data_in[10]"
-    Warning (15610): No output dependent on input pin "data_in[11]"
-    Warning (15610): No output dependent on input pin "data_in[12]"
-    Warning (15610): No output dependent on input pin "data_in[13]"
-    Warning (15610): No output dependent on input pin "data_in[14]"
-    Warning (15610): No output dependent on input pin "data_in[15]"
-    Warning (15610): No output dependent on input pin "valid_in"
-Info: Implemented 53 device resources after synthesis - the final resource count might be different
-    Info: Implemented 19 input pins
-    Info: Implemented 34 output pins
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 58 warnings
-    Info: Peak virtual memory: 243 megabytes
-    Info: Processing ended: Sat Jun 21 20:13:27 2025
-    Info: Elapsed time: 00:00:00
-    Info: Total CPU time (on all processors): 00:00:00
+Info: Elaborating entity "ram_sp" for hierarchy "ram_sp:ram_inst"
+Info: Elaborating entity "input_buffer" for hierarchy "input_buffer:u_in"
+Info: Elaborating entity "mag_sqr_fft" for hierarchy "mag_sqr_fft:u_fft"
+Warning (10036): Verilog HDL or VHDL warning at mag_sqr_fft.vhd(93): object "stage" assigned a value but never read
+Error (10344): VHDL expression error at mag_sqr_fft.vhd(176): expression has 16 elements, but must have 18 elements File: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd Line: 176
+Error: Can't elaborate user hierarchy "mag_sqr_fft:u_fft" File: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd Line: 65
+Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
+    Error: Peak virtual memory: 243 megabytes
+    Error: Processing ended: Sat Jun 21 22:23:56 2025
+    Error: Elapsed time: 00:00:01
+    Error: Total CPU time (on all processors): 00:00:00
 
 

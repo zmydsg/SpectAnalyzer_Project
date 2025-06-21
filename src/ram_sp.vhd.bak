@@ -1,0 +1,37 @@
+-- =============================================================
+--  Single-Port Synchronous RAM
+--  推断为 FPGA 片内 Block-RAM，地址/数据宽度由 spect_pkg 参数决定
+-- =============================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library spect_lib;                       -- 常量 WIDTH / DEPTH / addr_t
+use     spect_lib.spect_pkg.all;
+
+entity ram_sp is
+    port (
+        clk  : in  std_logic;
+        addr : in  addr_t;
+        din  : in  signed(DATA_WIDTH-1 downto 0);
+        we   : in  std_logic;
+        dout : out signed(DATA_WIDTH-1 downto 0)
+    );
+end entity;
+
+architecture rtl of ram_sp is
+    type mem_t is array (0 to DEPTH-1)
+                   of signed(DATA_WIDTH-1 downto 0);
+    signal mem : mem_t := (others => (others => '0'));
+begin
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            if we = '1' then
+                mem(to_integer(addr)) <= din;   -- 写
+            end if;
+            dout <= mem(to_integer(addr));      -- 读 (read-first)
+        end if;
+    end process;
+end architecture;

@@ -1,5 +1,5 @@
 Flow report for SpectAnalyzer_top
-Sat Jun 21 22:23:56 2025
+Sat Jun 21 22:29:05 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Flow Summary                                                           ;
 +-------------------------+----------------------------------------------+
-; Flow Status             ; Flow Failed - Sat Jun 21 22:23:56 2025       ;
+; Flow Status             ; Flow Failed - Sat Jun 21 22:29:05 2025       ;
 ; Quartus II Version      ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name           ; SpectAnalyzer_top                            ;
 ; Top-level Entity Name   ; SpectAnalyzer_top                            ;
@@ -54,7 +54,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/21/2025 22:23:55 ;
+; Start date & time ; 06/21/2025 22:29:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SpectAnalyzer_top   ;
 +-------------------+---------------------+
@@ -65,7 +65,7 @@ applicable agreement for further details.
 +------------------------------------+----------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                          ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+----------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 176156949473963.175051583537588                                ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 176156949473963.175051614531788                                ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT             ; Vhdl                                                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                ; ModelSim-Altera (VHDL)                                         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                                             ; --            ; --          ; --             ;
@@ -80,8 +80,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; 243 MB              ; 00:00:00                           ;
-; Total                ; 00:00:01     ; --                      ; --                  ; 00:00:00                           ;
+; Analysis & Synthesis ; 00:00:00     ; 1.0                     ; 242 MB              ; 00:00:00                           ;
+; Total                ; 00:00:00     ; --                      ; --                  ; 00:00:00                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

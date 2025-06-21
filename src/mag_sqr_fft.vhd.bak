@@ -1,8 +1,8 @@
 -- ====================================================================
---  File : mag_sqr_fft.vhd   (Ä¿Â¼Ê¾Àý rtl/fft/)
+--  File : mag_sqr_fft.vhd   (ï¿½ï¿½ï¿½ï¿½Ä¿Â¼Ê¾ï¿½ï¿½ rtl/fft/)
 --  8-point radix-2 DIT FFT  +  |X(k)|2  (Q1.15)
---  * µ¥¶Ë¿Ú RAM£ºFFT ¼ÆËãÊ±¶ÀÕ¼¶Ë¿Ú
---  * ÎÞÈÎºÎÐÔÄÜÓÅ»¯£¬Ö»Çó×îÖ±½ÓÊµÏÖ¹¦ÄÜ
+--  * ï¿½ï¿½ï¿½Ë¿ï¿½ RAMï¿½ï¿½FFT ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Õ¼ï¿½Ë¿ï¿½
+--  * ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Êµï¿½Ö¹ï¿½ï¿½ï¿½
 -- ====================================================================
 
 library ieee;
@@ -12,22 +12,22 @@ use work.spect_pkg.all;
 
 entity mag_sqr_fft is
     generic (
-        WIDTH : natural := DATA_WIDTH;  -- 16
-        N     : natural := N_POINTS     -- 8
+        WIDTH : natural := DATA_WIDTH;     -- 16
+        N     : natural := N_POINTS        -- 8
     );
     port (
         clk      : in  std_logic;
         rst_n    : in  std_logic;
 
-        -- Óë INPUT µÄÎÕÊÖ
-        start    : in  std_logic;          -- ÊäÈë»º´æÌîÂúºóÀ­¸ß 1 ÅÄ
-        done     : out std_logic;          -- FFT+|X|2 È«²¿Íê³ÉºóÀ­¸ß 1 ÅÄ
+        -- ï¿½ï¿½ INPUT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        start    : in  std_logic;          -- ï¿½ï¿½ï¿½ë»ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½
+        done     : out std_logic;          -- FFT+|X|2 È«ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½
 
-        -- µ¥¶Ë¿Ú RAM ½Ó¿Ú£¨Ô­Î»ÔËËã£©
-        ram_addr : out addr_t;                   -- µØÖ·
-        ram_din  : in  signed(WIDTH-1 downto 0); -- ¶ÁÈë
-        ram_dout : out signed(WIDTH-1 downto 0); -- Ð´³ö
-        ram_we   : out std_logic                 -- Ð´Ê¹ÄÜ£¬¸ßÓÐÐ§
+        -- ï¿½ï¿½ï¿½Ë¿ï¿½ RAM ï¿½Ó¿Ú£ï¿½Ô­Î»ï¿½ï¿½ï¿½ã£©
+        ram_addr : out addr_t;                   -- ï¿½ï¿½Ö·
+        ram_din  : in  signed(WIDTH-1 downto 0); -- ï¿½ï¿½ï¿½ï¿½
+        ram_dout : out signed(WIDTH-1 downto 0); -- Ð´ï¿½ï¿½
+        ram_we   : out std_logic                 -- Ð´Ê¹ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
     );
 end entity;
 
@@ -35,19 +35,22 @@ end entity;
 architecture rtl of mag_sqr_fft is
 -- ====================================================================
     --------------------------------------------------------------------
-    -- Êý¾ÝÀ©Õ¹£º¿í¶È = WIDTH+2 = 18 bit
+    -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WIDTH+2 = 18 bit
     --------------------------------------------------------------------
     subtype wide_t is signed(WIDTH+1 downto 0);
 
 -- =============================================================
---  mag_sqr_fft.vhd  ½á¹¹ / ¹Ø¼üÆ¬¶Î
+--  mag_sqr_fft.vhd  ï¿½ï²¹ï¿½ï¿½/ï¿½Þ¸ï¿½Æ¬ï¿½ï¿½
 -- =============================================================
 
     ----------------------------------------------------------------
-    -- ³£Á¿£ºÐý×ªÏµÊý ROM
+    -- ï¿½ï¿½ï¿½â£ºï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     ----------------------------------------------------------------
     type coeff_arr_t is array (0 to 3) of signed(WIDTH-1 downto 0);
 
+    ----------------------------------------------------------------
+    --  Twiddle ROM  (Q1.15)       k = 0..3
+    ----------------------------------------------------------------
     constant TW_RE : coeff_arr_t :=
         ( to_signed( 32767, WIDTH),   --  1
           to_signed( 23170, WIDTH),   --  0.7071
@@ -62,7 +65,7 @@ architecture rtl of mag_sqr_fft is
 
 
     --------------------------------------------------------------------
-    -- ×´Ì¬»ú
+    -- ï¿½ï¿½×´Ì¬
     --------------------------------------------------------------------
     type st_t is (
         IDLE,
@@ -81,28 +84,29 @@ architecture rtl of mag_sqr_fft is
     signal st : st_t := IDLE;
 
     --------------------------------------------------------------------
-    -- ¼ÆÊý / µØÖ·¼Ä´æÆ÷
+    -- ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½Ö·ï¿½Ä´ï¿½
     --------------------------------------------------------------------
-    signal pair_idx  : integer range 0 to (N/2)-1 := 0;  -- 0..3
-    signal mag_idx   : integer range 0 to N-1     := 0;  -- 0..7
-    signal top_cpx   : integer range 0 to N-1     := 0;
-    signal bot_cpx   : integer range 0 to N-1     := 0;
-    signal stage     : integer range 0 to 2       := 0;  -- 3 stages
+    signal pair_idx  : integer range 0 to (N/2)-1 := 0;  -- 0..3 Ã¿ï¿½ï¿½ 4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    signal mag_idx   : integer range 0 to N-1     := 0;  -- 0..7 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2
+    signal top_cpx   : integer range 0 to N-1     := 0;  -- ï¿½ï¿½ï¿½ã¸´ï¿½Â±ï¿½
+    signal bot_cpx   : integer range 0 to N-1     := 0;  -- ï¿½×µã¸´ï¿½Â±ï¿½
+    signal stage     : integer range 0 to 2       := 0;  -- 3 ï¿½ï¿½
 
     --------------------------------------------------------------------
-    -- Êý¾Ý¼Ä´æÆ÷
+    -- ï¿½ï¿½ï¿½Ý¼Ä´ï¿½ï¿½ï¿½
     --------------------------------------------------------------------
     signal a_re, a_im : wide_t := (others=>'0');
     signal b_re, b_im : wide_t := (others=>'0');
     signal w_re,  w_im  : signed(WIDTH-1 downto 0);
     
+    -- ï¿½ï¿½ï¿½
     signal up_re, up_im : wide_t;
     signal dn_re, dn_im : wide_t;
 
     --------------------------------------------------------------------
-    -- ¹¤¾ßº¯Êý
+    -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     --------------------------------------------------------------------
-    -- ¸´ÊýË÷Òý ¡ú µ¥¶Ë¿Ú RAM µØÖ·
+    -- ï¿½ï¿½ï¿½Â±ï¿½×ªï¿½Ö½Úµï¿½Ö·ï¿½ï¿½Êµï¿½ï¿½ï¿½é½»ï¿½ï¿½æ£©
     function cpx_to_addr(idx : integer; is_im : boolean) return addr_t is
         variable a : integer := idx*2;
     begin
@@ -112,15 +116,15 @@ architecture rtl of mag_sqr_fft is
         return to_unsigned(a, ADDR_WIDTH);
     end;
 
-    -- Twiddle index ¼ÆËã
+    -- Twiddle index ï¿½ï¿½ï¿½ã£ºk = (pair mod dist) * N / (2*dist)
     function tw_idx(stage : integer; pair : integer) return integer is
         variable dist   : integer := N / (2**(stage+1)); -- 4/2/1
         variable within : integer := pair mod dist;
     begin
-        return within * N / (2*dist);  -- 0..3
+        return within * N / (2*dist);  -- 0/0/0, 0/2, 0..3
     end;
 
-    -- Q1.15 ¡Á Q1.15
+    -- Q1.15 ï¿½ï¿½ Q1.15 ï¿½ï¿½ Q1.15ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 15 ï¿½Ø¶Ï£ï¿½
     function mul_q15(x, y : signed) return signed is
         variable tmp : signed(WIDTH*2-1 downto 0);
     begin
@@ -128,20 +132,19 @@ architecture rtl of mag_sqr_fft is
         return resize(tmp(tmp'high-1 downto WIDTH-1), WIDTH);
     end;
     
-    -- ×Ô¶¯·ûºÅÀ©Õ¹µ½ 18 Î»
     function to_wide(x : signed) return wide_t is
-    begin
-        return resize(x, wide_t'length);
-    end;
+	begin
+		return resize(x, wide_t'length);
+	end;
     
 begin
-    -- Ä¬ÈÏÊä³ö
-    ram_we   <= '0';
+    -- Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½
+    ram_we <= '0';
     ram_dout <= (others=>'0');
-    done     <= '0';
+    done <= '0';
 
     --------------------------------------------------------------------
-    -- Ö÷×´Ì¬»ú
+    -- ï¿½ï¿½ï¿½ï¿½ï¿½Ì£ï¿½Ò»ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ã¡°ï¿½ï¿½ï¿½Êµï¿½Ö¡ï¿½Ô­ï¿½ï¿½
     --------------------------------------------------------------------
     process(clk, rst_n)
         variable mag32 : signed(33 downto 0);
@@ -161,6 +164,7 @@ begin
                 if start='1' then
                     stage    <= 0;
                     pair_idx <= 0;
+                    -- ï¿½ï¿½ï¿½ï¿½ï¿½×¸ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½Â±ï¿½
                     top_cpx  <= 0;
                     bot_cpx  <= 0 + N/2;  -- 4
                     ram_addr <= cpx_to_addr(0, false);
@@ -169,58 +173,63 @@ begin
 
             -- ==================== Stage-0 : distance 4 ====================
             when S0_RD_TOP_RE =>
-                a_re    <= to_wide(ram_din);  -- ¡ï
+                a_re <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(top_cpx, true);
-                st      <= S0_RD_TOP_IM;
+                st <= S0_RD_TOP_IM;
 
             when S0_RD_TOP_IM =>
-                a_im    <= to_wide(ram_din);  -- ¡ï
+                a_im <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(bot_cpx, false);
-                st      <= S0_RD_BOT_RE;
+                st <= S0_RD_BOT_RE;
 
             when S0_RD_BOT_RE =>
-                b_re    <= to_wide(ram_din);  -- ¡ï
+                b_re <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(bot_cpx, true);
-                st      <= S0_RD_BOT_IM;
+                st <= S0_RD_BOT_IM;
 
             when S0_RD_BOT_IM =>
-                b_im    <= to_wide(ram_din);  -- ¡ï
-                w_re    <= TW_RE(0);
-                w_im    <= TW_IM(0);
-                st      <= S0_CALC;
+                b_im <= wide_t(ram_din);
+                -- stage-0 twiddle always W0 = 1
+                w_re <= TW_RE(0);
+                w_im <= TW_IM(0);
+                st <= S0_CALC;
 
             when S0_CALC =>
-                -- ¼ÆËã W0 == 1
+                -- ï¿½ï¿½ W0 == 1ï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½ï¿½ b
                 up_re <= a_re + b_re;
                 up_im <= a_im + b_im;
                 dn_re <= a_re - b_re;
                 dn_im <= a_im - b_im;
-
+                -- Ð´ï¿½ï¿½ï¿½ï¿½ Re
                 ram_addr <= cpx_to_addr(top_cpx, false);
                 ram_dout <= signed(up_re(WIDTH-1 downto 0));
                 ram_we   <= '1';
                 st <= S0_WR_TOP_RE;
 
             when S0_WR_TOP_RE =>
+                -- Ð´ï¿½ï¿½ï¿½ï¿½ Im
                 ram_addr <= cpx_to_addr(top_cpx, true);
                 ram_dout <= signed(up_im(WIDTH-1 downto 0));
                 ram_we   <= '1';
                 st <= S0_WR_TOP_IM;
 
             when S0_WR_TOP_IM =>
+                -- Ð´ï¿½×µï¿½ Re
                 ram_addr <= cpx_to_addr(bot_cpx, false);
                 ram_dout <= signed(dn_re(WIDTH-1 downto 0));
                 ram_we   <= '1';
                 st <= S0_WR_BOT_RE;
 
             when S0_WR_BOT_RE =>
+                -- Ð´ï¿½×µï¿½ Im
                 ram_addr <= cpx_to_addr(bot_cpx, true);
                 ram_dout <= signed(dn_im(WIDTH-1 downto 0));
                 ram_we   <= '1';
                 st <= S0_WR_BOT_IM;
 
             when S0_WR_BOT_IM =>
-                if pair_idx = 3 then    -- stage-0 Íê³É
+                -- ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+                if pair_idx = 3 then    -- stage-0 ï¿½ï¿½ï¿½
                     stage    <= 1;
                     pair_idx <= 0;
                     top_cpx  <= 0;
@@ -237,29 +246,30 @@ begin
 
             -- ==================== Stage-1 : distance 2 ====================
             when S1_RD_TOP_RE =>
-                a_re    <= to_wide(ram_din);  -- ¡ï
+                a_re <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(top_cpx, true);
-                st      <= S1_RD_TOP_IM;
+                st <= S1_RD_TOP_IM;
 
             when S1_RD_TOP_IM =>
-                a_im    <= to_wide(ram_din);  -- ¡ï
+                a_im <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(bot_cpx, false);
-                st      <= S1_RD_BOT_RE;
+                st <= S1_RD_BOT_RE;
 
             when S1_RD_BOT_RE =>
-                b_re    <= to_wide(ram_din);  -- ¡ï
+                b_re <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(bot_cpx, true);
-                st      <= S1_RD_BOT_IM;
+                st <= S1_RD_BOT_IM;
 
             when S1_RD_BOT_IM =>
-                b_im    <= to_wide(ram_din);  -- ¡ï
-                k       := tw_idx(1, pair_idx);  -- 0 or 2
-                w_re    <= TW_RE(k/2*2);
-                w_im    <= TW_IM(k/2*2);
-                st      <= S1_CALC;
+                b_im <= wide_t(ram_din);
+                k := tw_idx(1, pair_idx);            -- k = 0 or 2
+                w_re <= TW_RE(k/2*2);               -- 0 ï¿½ï¿½ 2
+                w_im <= TW_IM(k/2*2);
+                st <= S1_CALC;
 
             when S1_CALC =>
-                -- ¼ÆËã a ¡À b¡¤Wk
+                -- è®¡ç®— a + b*Wk, a - b*Wk
+                -- b' = b * Wk
                 dn_re <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_re) )
                        - to_wide( mul_q15( signed(b_im(WIDTH-1 downto 0)), w_im) );
                 dn_im <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_im) )
@@ -268,7 +278,7 @@ begin
                 up_im <= a_im + dn_im;
                 dn_re <= a_re - dn_re;
                 dn_im <= a_im - dn_im;
-
+                -- Ð´ï¿½ï¿½ Re
                 ram_addr <= cpx_to_addr(top_cpx, false);
                 ram_dout <= signed(up_re(WIDTH-1 downto 0));
                 ram_we   <= '1';
@@ -293,7 +303,7 @@ begin
                 st <= S1_WR_BOT_IM;
 
             when S1_WR_BOT_IM =>
-                if pair_idx = 3 then  -- stage-1 Íê³É
+                if pair_idx = 3 then       -- stage-1 ï¿½ï¿½ï¿½
                     stage    <= 2;
                     pair_idx <= 0;
                     top_cpx  <= 0;
@@ -310,28 +320,30 @@ begin
 
             -- ==================== Stage-2 : distance 1 ====================
             when S2_RD_TOP_RE =>
-                a_re    <= to_wide(ram_din);  -- ¡ï
+                a_re <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(top_cpx, true);
-                st      <= S2_RD_TOP_IM;
+                st <= S2_RD_TOP_IM;
 
             when S2_RD_TOP_IM =>
-                a_im    <= to_wide(ram_din);  -- ¡ï
+                a_im <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(bot_cpx, false);
-                st      <= S2_RD_BOT_RE;
+                st <= S2_RD_BOT_RE;
 
             when S2_RD_BOT_RE =>
-                b_re    <= to_wide(ram_din);  -- ¡ï
+                b_re <= wide_t(ram_din);
                 ram_addr <= cpx_to_addr(bot_cpx, true);
-                st      <= S2_RD_BOT_IM;
+                st <= S2_RD_BOT_IM;
 
             when S2_RD_BOT_IM =>
-                b_im    <= to_wide(ram_din);  -- ¡ï
-                k       := tw_idx(2, pair_idx); -- 0-3
-                w_re    <= TW_RE(k);
-                w_im    <= TW_IM(k);
-                st      <= S2_CALC;
+                b_im <= wide_t(ram_din);
+                k := tw_idx(2, pair_idx);             -- 0 1 2 3
+                w_re <= TW_RE(k);
+                w_im <= TW_IM(k);
+                st <= S2_CALC;
 
             when S2_CALC =>
+                -- è®¡ç®— a + b*Wk, a - b*Wk
+                -- b' = b * Wk
                 dn_re <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_re) )
                        - to_wide( mul_q15( signed(b_im(WIDTH-1 downto 0)), w_im) );
                 dn_im <= to_wide( mul_q15( signed(b_re(WIDTH-1 downto 0)), w_im) )
@@ -340,7 +352,7 @@ begin
                 up_im <= a_im + dn_im;
                 dn_re <= a_re - dn_re;
                 dn_im <= a_im - dn_im;
-
+                -- Ð´ï¿½ï¿½ Re
                 ram_addr <= cpx_to_addr(top_cpx, false);
                 ram_dout <= signed(up_re(WIDTH-1 downto 0));
                 ram_we   <= '1';
@@ -365,7 +377,7 @@ begin
                 st <= S2_WR_BOT_IM;
 
             when S2_WR_BOT_IM =>
-                if pair_idx = 7 then      -- È« 8 µûÐÎÍê³É
+                if pair_idx = 7 then          -- È« 8 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     mag_idx  <= 0;
                     ram_addr <= cpx_to_addr(0, false);
                     st <= MAG_RD_RE;
@@ -377,22 +389,22 @@ begin
                     st <= S2_RD_TOP_RE;
                 end if;
 
-            -- ==================== ¼ÆËã·ù¶ÈÆ½·½ ============================
+            -- ==================== ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ ============================
             when MAG_RD_RE =>
-                a_re    <= to_wide(ram_din);                 -- ¡ï
-                ram_addr <= cpx_to_addr(mag_idx, true);      -- Im
-                st      <= MAG_RD_IM;
+                a_re <= wide_t(ram_din);                  -- Re
+                ram_addr <= cpx_to_addr(mag_idx, true);   -- Im
+                st <= MAG_RD_IM;
 
             when MAG_RD_IM =>
-                a_im    <= to_wide(ram_din);                 -- ¡ï
-                st      <= MAG_CALC;
+                a_im <= wide_t(ram_din);                  -- Im
+                st <= MAG_CALC;
 
             when MAG_CALC =>
                 mag32 := resize(a_re,34)*resize(a_re,34) +
                          resize(a_im,34)*resize(a_im,34);
-                -- È¡¸ß 16 Î» (Q1.15)
+                -- ï¿½ï¿½ï¿½ï¿½ 15 ï¿½ï¿½ Q1.15
                 ram_dout <= mag32(33 downto 18);
-                ram_addr <= cpx_to_addr(mag_idx, false);     -- ¸²Ð´Ô­ Re
+                ram_addr <= cpx_to_addr(mag_idx, false);  -- ï¿½ï¿½ï¿½ï¿½Ô­ Re
                 ram_we   <= '1';
                 st <= MAG_WR;
 

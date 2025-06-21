@@ -1,9 +1,9 @@
 -- =============================================================
---  mag_sqr_fft.vhd  ¨C 8?point radix?2 DIT FFT  +  |X(k)|2  (Q1.15)
---  ÍêÕûÊµÏÖ£¬¿ÉÖ±½ÓÌæ»»¾ÉÑİÊ¾°æ¡£
---  * µ¹Î»ĞòÊäÈë / ×ÔÈ»Ë³ĞòÊä³ö
---  * ´¿¶¨µã£¬È«²¿Ğı×ªÒò×ÓÓ²±àÂë
---  * 3 ¼¶µûĞÎÒ»´ÎĞÔ×éºÏ¼ÆËã£¬½á¹ûË³ĞòĞ´»Ø RAM Port?B
+--  mag_sqr_fft.vhd  â€“ 8â€‘point radixâ€‘2 DIT FFT  +  |X(k)|Â²  (Q1.15)
+--  å®Œæ•´å®ç°ï¼Œå¯ç›´æ¥æ›¿æ¢æ—§æ¼”ç¤ºç‰ˆã€‚
+--  * å€’ä½åºè¾“å…¥ / è‡ªç„¶é¡ºåºè¾“å‡º
+--  * çº¯å®šç‚¹ï¼Œå…¨éƒ¨æ—‹è½¬å› å­ç¡¬ç¼–ç 
+--  * 3 çº§è¶å½¢ä¸€æ¬¡æ€§ç»„åˆè®¡ç®—ï¼Œç»“æœé¡ºåºå†™å› RAM Portâ€‘B
 -- =============================================================
 
 library ieee;
@@ -20,7 +20,7 @@ entity mag_sqr_fft is
         rst_n    : in  std_logic;
         start    : in  std_logic;
         done     : out std_logic;
-        -- Port?B (Óë ram_dp ÏàÁ¬)
+        -- Portâ€‘B (ä¸ ram_dp ç›¸è¿)
         ram_addr : out addr_t;
         ram_din  : in  signed(WIDTH-1 downto 0);
         ram_dout : out signed(WIDTH-1 downto 0);
@@ -28,17 +28,17 @@ entity mag_sqr_fft is
 end entity;
 
 architecture rtl of mag_sqr_fft is
-    -- Ìí¼ÓÕâÒ»ĞĞ
+    -- æ·»åŠ è¿™ä¸€è¡Œ
     use work.spect_pkg.all;
     
     --------------------------------------------------------------------
-    -- ÀàĞÍ±ğÃû
+    -- ç±»å‹åˆ«å
     --------------------------------------------------------------------
     subtype d_t  is data_t;              -- signed(15 downto 0)
-    type vec_t   is array (0 to N-1) of d_t;       -- 8?element ÏòÁ¿
+    type vec_t   is array (0 to N-1) of d_t;       -- 8â€‘element å‘é‡
 
     --------------------------------------------------------------------
-    -- Twiddle ÏµÊı (Q1.15)
+    -- Twiddle ç³»æ•° (Q1.15)
     --------------------------------------------------------------------
     constant ONE_RE : d_t := to_signed( 32768, 16);  -- 1 + j0
     constant ONE_IM : d_t := to_signed(     0, 16);
@@ -50,23 +50,23 @@ architecture rtl of mag_sqr_fft is
     constant W3_IM  : d_t := to_signed(-23170, 16);
 
     --------------------------------------------------------------------
-    -- ×´Ì¬»ú
+    -- çŠ¶æ€æœº
     --------------------------------------------------------------------
     type state_t is (IDLE, LOAD, CALC, STORE, DONE1);
     signal st  : state_t := IDLE;
 
-    -- ¼ÆÊıÆ÷£ºLOAD/STORE ÓÃ (0..15) / (0..7)
+    -- è®¡æ•°å™¨ï¼šLOAD/STORE ç”¨ (0..15) / (0..7)
     signal cnt : unsigned(3 downto 0) := (others => '0');
 
-    -- ÄÚ²¿¼Ä´æÆ÷ÕóÁĞ
+    -- å†…éƒ¨å¯„å­˜å™¨é˜µåˆ—
     signal xr_buf, xi_buf : vec_t := (others => (others => '0'));
 
-    -- RAM?B Ğ´ĞÅºÅ
+    -- RAMâ€‘B å†™ä¿¡å·
     signal wr_en   : std_logic := '0';
     signal wr_data : d_t       := (others => '0');
 
     --------------------------------------------------------------------
-    -- ¸´Êı³Ë·¨£¨¶¨µã + >>>15£¬²»×ö±¥ºÍ£©
+    -- å¤æ•°ä¹˜æ³•ï¼ˆå®šç‚¹ + >>>15ï¼Œä¸åšé¥±å’Œï¼‰
     --------------------------------------------------------------------
     function cmul_re(ar, ai, br, bi : d_t) return d_t is
         variable tmp : signed(31 downto 0);
@@ -84,13 +84,13 @@ architecture rtl of mag_sqr_fft is
 
 begin
     --------------------------------------------------------------------
-    -- ¶ÔÍâ RAM?B ½Ó¿Ú
+    -- å¯¹å¤– RAMâ€‘B æ¥å£
     --------------------------------------------------------------------
     ram_we   <= wr_en;
     ram_dout <= wr_data;
 
     --------------------------------------------------------------------
-    -- Ö÷Í¬²½½ø³Ì
+    -- ä¸»åŒæ­¥è¿›ç¨‹
     --------------------------------------------------------------------
     process(clk, rst_n)
         variable idx                  : integer;
@@ -107,7 +107,7 @@ begin
             done <= '0';
         elsif rising_edge(clk) then
             ------------------------------------------------------------
-            -- Ä¬ÈÏÊä³ö
+            -- é»˜è®¤è¾“å‡º
             ------------------------------------------------------------
             wr_en <= '0';
             done  <= '0';
@@ -122,13 +122,13 @@ begin
                     end if;
 
                 --------------------------------------------------------
-                -- LOAD£º16 ÅÄ°Ñ Re/Im »º³åÈëÄÚ²¿
+                -- LOADï¼š16 æ‹æŠŠ Re/Im ç¼“å†²å…¥å†…éƒ¨
                 --------------------------------------------------------
                 when LOAD =>
                     ram_addr <= addr_t(cnt);
-                    if cnt(0) = '0' then                       -- Êµ²¿
+                    if cnt(0) = '0' then                       -- å®éƒ¨
                         xr_buf(to_integer(cnt(3 downto 1))) <= ram_din;
-                    else                                       -- Ğé²¿
+                    else                                       -- è™šéƒ¨
                         xi_buf(to_integer(cnt(3 downto 1))) <= ram_din;
                     end if;
 
@@ -139,13 +139,13 @@ begin
                     end if;
 
                 --------------------------------------------------------
-                -- CALC£ºÒ»´ÎĞÔÍê³É 3 ¼¶µûĞÎ
+                -- CALCï¼šä¸€æ¬¡æ€§å®Œæˆ 3 çº§è¶å½¢
                 --------------------------------------------------------
                 when CALC =>
-                    xr := xr_buf;  xi := xi_buf;   -- ±¾µØ»º´æ
+                    xr := xr_buf;  xi := xi_buf;   -- æœ¬åœ°ç¼“å­˜
 
                     ----------------------------------------------------
-                    -- Stage?1 (¾à 1)
+                    -- Stageâ€‘1 (è· 1)
                     ----------------------------------------------------
                     for p in 0 to 3 loop
                         t_re := xr(p);   t_im := xi(p);
@@ -158,11 +158,11 @@ begin
                     end loop;
 
                     ----------------------------------------------------
-                    -- Stage?2 (¾à 2)
+                    -- Stageâ€‘2 (è· 2)
                     ----------------------------------------------------
                     for g in 0 to 1 loop
                         idx := g*2;
-                        -- W0 ²¿·Ö
+                        -- W0 éƒ¨åˆ†
                         t_re := xr(idx);   t_im := xi(idx);
                         b_re := xr(idx+2); b_im := xi(idx+2);
                         xr(idx)   := t_re + b_re;
@@ -182,19 +182,19 @@ begin
                     end loop;
 
                     ----------------------------------------------------
-                    -- Stage?3 (¾à 4)
+                    -- Stageâ€‘3 (è· 4)
                     ----------------------------------------------------
                     for k in 0 to 3 loop
                         t_re := xr(k);   t_im := xi(k);
                         b_re := xr(k+4); b_im := xi(k+4);
-                        -- Ñ¡ Twiddle
+                        -- é€‰ Twiddle
                         case k is
                             when 0 => w_re := ONE_RE; w_im := ONE_IM;
                             when 1 => w_re := W1_RE;  w_im := W1_IM;
                             when 2 => w_re := W2_RE;  w_im := W2_IM;
                             when others => w_re := W3_RE; w_im := W3_IM;
                         end case;
-                        -- ³ËÒÔ Wk
+                        -- ä¹˜ä»¥ Wk
                         w_re := cmul_re(b_re, b_im, w_re, w_im);
                         w_im := cmul_im(b_re, b_im, w_re, w_im);
                         xr(k)     := t_re + w_re;
@@ -203,7 +203,7 @@ begin
                         xi(k+4)   := t_im - w_im;
                     end loop;
 
-                    -- Ğ´»Ø¼Ä´æÕóÁĞ
+                    -- å†™å›å¯„å­˜é˜µåˆ—
                     xr_buf <= xr;
                     xi_buf <= xi;
 
@@ -211,10 +211,10 @@ begin
                     st  <= STORE;
 
                 --------------------------------------------------------
-                -- STORE£º8 ÅÄ°Ñ |X|2 Ğ´»Øµ½ "Êµ²¿µØÖ·"
+                -- STOREï¼š8 æ‹æŠŠ |X|Â² å†™å›åˆ° "å®éƒ¨åœ°å€"
                 --------------------------------------------------------
                 when STORE =>
-                    ram_addr <= addr_t(cnt & '0');  -- Êµ²¿µØÖ·
+                    ram_addr <= addr_t(cnt & '0');  -- å®éƒ¨åœ°å€
                     mag2 := resize(xr_buf(to_integer(cnt)),32)*resize(xr_buf(to_integer(cnt)),32) +
                             resize(xi_buf(to_integer(cnt)),32)*resize(xi_buf(to_integer(cnt)),32);
                     wr_data <= resize(mag2(30 downto 15), WIDTH);

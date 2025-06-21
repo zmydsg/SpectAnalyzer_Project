@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpectAnalyzer_top
-Sat Jun 21 22:29:05 2025
+Sat Jun 21 23:32:31 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Sat Jun 21 22:29:05 2025            ;
+; Analysis & Synthesis Status ; Failed - Sat Jun 21 23:32:31 2025            ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; SpectAnalyzer_top                            ;
 ; Top-level Entity Name       ; SpectAnalyzer_top                            ;
@@ -115,11 +115,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------+-------------------+-------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                        ;
-+----------------------------------+-----------------+-----------+------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type ; File Name with Absolute Path ;
-+----------------------------------+-----------------+-----------+------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                    ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+
+; src/mag_sqr_fft.vhd              ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd       ;
+; src/spect_pkg.vhd                ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd         ;
+; src/SpectAnalyzer_top.vhd        ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd ;
+; src/input_buffer.vhd             ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd      ;
+; src/output_buffer.vhd            ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd     ;
+; src/ram_sp.vhd                   ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -128,10 +135,11 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sat Jun 21 22:29:05 2025
+    Info: Processing started: Sat Jun 21 23:32:31 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
-Error (10500): VHDL syntax error at mag_sqr_fft.vhd(93) near text "i";  expecting "!", or "=>" File: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd Line: 93
-Info: Found 0 design units, including 0 entities, in source file src/mag_sqr_fft.vhd
+Info: Found 2 design units, including 1 entities, in source file src/mag_sqr_fft.vhd
+    Info: Found design unit 1: mag_sqr_fft-rtl
+    Info: Found entity 1: mag_sqr_fft
 Info: Found 2 design units, including 0 entities, in source file src/spect_pkg.vhd
     Info: Found design unit 1: spect_pkg
     Info: Found design unit 2: spect_pkg-body
@@ -147,9 +155,19 @@ Info: Found 2 design units, including 1 entities, in source file src/output_buff
 Info: Found 2 design units, including 1 entities, in source file src/ram_sp.vhd
     Info: Found design unit 1: ram_sp-rtl
     Info: Found entity 1: ram_sp
-Error: Quartus II Analysis & Synthesis was unsuccessful. 1 error, 0 warnings
-    Error: Peak virtual memory: 242 megabytes
-    Error: Processing ended: Sat Jun 21 22:29:05 2025
+Info: Elaborating entity "SpectAnalyzer_top" for the top level hierarchy
+Info: Elaborating entity "ram_sp" for hierarchy "ram_sp:ram_inst"
+Info: Elaborating entity "input_buffer" for hierarchy "input_buffer:u_in"
+Info: Elaborating entity "mag_sqr_fft" for hierarchy "mag_sqr_fft:u_fft"
+Warning (10542): VHDL Variable Declaration warning at mag_sqr_fft.vhd(102): used initial value expression for variable "dist" because variable was never assigned a value
+Warning (10542): VHDL Variable Declaration warning at mag_sqr_fft.vhd(103): used initial value expression for variable "within" because variable was never assigned a value
+Warning (10542): VHDL Variable Declaration warning at mag_sqr_fft.vhd(110): used initial value expression for variable "x_temp" because variable was never assigned a value
+Warning (10542): VHDL Variable Declaration warning at mag_sqr_fft.vhd(111): used initial value expression for variable "y_temp" because variable was never assigned a value
+Error (10344): VHDL expression error at mag_sqr_fft.vhd(393): expression has 68 elements, but must have 34 elements File: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd Line: 393
+Error: Can't elaborate user hierarchy "mag_sqr_fft:u_fft" File: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd Line: 65
+Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 4 warnings
+    Error: Peak virtual memory: 244 megabytes
+    Error: Processing ended: Sat Jun 21 23:32:31 2025
     Error: Elapsed time: 00:00:00
     Error: Total CPU time (on all processors): 00:00:00
 

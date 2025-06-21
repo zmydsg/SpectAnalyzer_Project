@@ -15,10 +15,10 @@ entity mag_sqr_fft is
     );
     port (
         clk, rst_n : in  std_logic;
-        start      : in  std_logic;     -- ÊäÈë»º´æÂú
-        done       : out std_logic;     -- ·ù¶ÈÆ½·½¼ÆËãÍê
+        start      : in  std_logic;     -- ï¿½ï¿½ï¿½ë»ºï¿½ï¿½ï¿½ï¿½
+        done       : out std_logic;     -- ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        -- µ¥¶Ë¿Ú RAM
+        -- ï¿½ï¿½ï¿½Ë¿ï¿½ RAM
         ram_addr : out addr_t;
         ram_din  : in  signed(WIDTH-1 downto 0);
         ram_dout : out signed(WIDTH-1 downto 0);
@@ -54,10 +54,10 @@ architecture rtl of mag_sqr_fft is
         S0_CALC,      S0_WR_TOP_RE, S0_WR_TOP_IM, S0_WR_BOT_RE, S0_WR_BOT_IM,
         -- Stage-1
         S1_RD_TOP_RE, S1_RD_TOP_IM, S1_RD_BOT_RE, S1_RD_BOT_IM,
-        S1_CALC,      S1_WR_TOP_RE, S1_WR_TOP_IM, S1_WR_BOT_RE, S1_WR_BOT_IM,
+        S1_CALC,      S1_BUTTERFLY, S1_WR_TOP_RE, S1_WR_TOP_IM, S1_WR_BOT_RE, S1_WR_BOT_IM,
         -- Stage-2
         S2_RD_TOP_RE, S2_RD_TOP_IM, S2_RD_BOT_RE, S2_RD_BOT_IM,
-        S2_CALC,      S2_WR_TOP_RE, S2_WR_TOP_IM, S2_WR_BOT_RE, S2_WR_BOT_IM,
+        S2_CALC,      S2_BUTTERFLY, S2_WR_TOP_RE, S2_WR_TOP_IM, S2_WR_BOT_RE, S2_WR_BOT_IM,
         -- |X|2
         MAG_RD_RE, MAG_RD_IM, MAG_CALC, MAG_WR, DONE1
     );
@@ -75,9 +75,9 @@ architecture rtl of mag_sqr_fft is
     signal up_re, up_im, dn_re, dn_im : wide_t;
 
     --------------------------------------------------------------------
-    -- ¹¤¾ßº¯Êı
+    -- ï¿½ï¿½ï¿½ßºï¿½ï¿½ï¿½
     --------------------------------------------------------------------
-    -- ¸´ÊıË÷Òı ¡ú RAM µØÖ·
+    -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ RAM ï¿½ï¿½Ö·
     function cpx_to_addr(idx : integer; is_im : boolean) return addr_t is
         variable a : integer := idx*2;
     begin
@@ -85,41 +85,44 @@ architecture rtl of mag_sqr_fft is
         return to_unsigned(a, ADDR_WIDTH);
     end;
 
-    -- bit-reverse£¨ÓÃÓÚµ¹Î»Ğò£©
-    function bit_reverse(x, bits : natural) return natural is
-        variable r : natural := 0;
-    begin
-        for i in 0 to bits-1 loop
-            if ((x shr i) and 1) = 1 then
-                r := r or (1 shl (bits-1-i));
-            end if;
-        end loop;
-        return r;
-    end;
+    -- ç§»é™¤æˆ–æ³¨é‡Šæ‰bit_reverseå‡½æ•°
+    -- function bit_reverse(x: natural; bits: natural) return natural is
+    --     variable r : natural := 0;
+    --     variable temp : natural := x;
+    -- begin
+    --     for i in 0 to bits-1 loop
+    --         r := r * 2 + (temp mod 2);
+    --         temp := temp / 2;
+    --     end loop;
+    --     return r;
+    -- end;
 
-    -- k ¼ÆËã
+    -- k ï¿½ï¿½ï¿½ï¿½ (ï¿½Ş¸ï¿½ï¿½ï¿½ï¿½ÅºÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
     function tw_idx(stage : integer; pair : integer) return integer is
         variable dist   : integer := N / (2**(stage+1)); -- 4/2/1
         variable within : integer := pair mod dist;
     begin
-        return within * N / (2*dist);
+        return within * (N / (2 * dist));  -- ï¿½ï¿½ï¿½ï¿½È±Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     end;
 
-    -- Q1.15 ¡Á Q1.15 ¡ú Q1.15   £¨ĞŞÕıÎ»¿í±¨´í£©
+    -- Q1.15 ï¿½ï¿½ Q1.15 ï¿½ï¿½ Q1.15 (ï¿½ï¿½È«ï¿½Ø¹ï¿½)
     function mul_q15(x, y : signed) return signed is
-        variable prod32 : signed(31 downto 0);
+        variable x_temp : signed(WIDTH-1 downto 0) := x;
+        variable y_temp : signed(WIDTH-1 downto 0) := y;
+        variable product : signed(2*WIDTH-1 downto 0);
     begin
-        prod32 := resize(x, 32) * resize(y, 32);      -- 16¡Á16¡ú32
-        return resize(prod32(prod32'high downto 15), WIDTH); -- ÓÒÒÆ15
+        product := x_temp * y_temp;
+        return resize(shift_right(product, 15), WIDTH);
     end;
 
-    -- 16 ¡ú 18
+    -- 16 ï¿½ï¿½ 18
     function to_wide(x : signed) return wide_t is
     begin
         return resize(x, wide_t'length);
     end;
 
 begin
+    -- Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     ram_we   <= '0';
     ram_dout <= (others=>'0');
     done     <= '0';
@@ -132,11 +135,26 @@ begin
         if rst_n = '0' then
             st       <= IDLE;
             ram_addr <= (others=>'0');
-            pair_idx <= 0; mag_idx <= 0;
+            ram_we   <= '0';
+            ram_dout <= (others=>'0');
+            done     <= '0';
+            pair_idx <= 0; 
+            mag_idx  <= 0;
+            a_re     <= (others=>'0');
+            a_im     <= (others=>'0');
+            b_re     <= (others=>'0');
+            b_im     <= (others=>'0');
+            w_re     <= (others=>'0');
+            w_im     <= (others=>'0');
         elsif rising_edge(clk) then
+            -- é»˜è®¤ä¸å†™å…¥RAM
+            ram_we   <= '0';
+            ram_dout <= (others=>'0');
+            
             case st is
             ----------------------------------------------------------------
             when IDLE =>
+                done <= '0';
                 if start='1' then
                     pair_idx <= 0;
                     top_cpx  <= 0;
@@ -163,14 +181,15 @@ begin
 
             when S0_RD_BOT_IM =>
                 b_im <= to_wide(ram_din);
-                w_re <= TW_RE(0); w_im <= TW_IM(0);
+                w_re <= TW_RE(0); 
+                w_im <= TW_IM(0);
                 st <= S0_CALC;
 
             when S0_CALC =>
                 up_re <= resize(a_re + b_re, wide_t'length);
                 up_im <= resize(a_im + b_im, wide_t'length);
-                dn_re <= resize(a_re - b_re, wide_t'length);
-                dn_im <= resize(a_im - b_im, wide_t'length);
+                dn_re <= resize(a_re - b_re, wide_t'length);  -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                dn_im <= resize(a_im - b_im, wide_t'length);  -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
                 ram_dout <= signed(up_re(WIDTH-1 downto 0));
@@ -229,21 +248,27 @@ begin
             when S1_RD_BOT_IM =>
                 b_im <= to_wide(ram_din);
                 k    := tw_idx(1, pair_idx);  -- 0 or 2
-                w_re <= TW_RE(k); w_im <= TW_IM(k);
+                w_re <= TW_RE(k);
+                w_im <= TW_IM(k);
                 st   <= S1_CALC;
 
             when S1_CALC =>
-                dn_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
+                -- è®¡ç®—å¤æ•°ä¹˜æ³• b * wï¼Œç»“æœå­˜å‚¨åœ¨ up_re, up_im ä¸­ä½œä¸ºä¸´æ—¶å˜é‡
+                up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
-                dn_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
+                up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_re) );
-                up_re <= resize(a_re + dn_re, wide_t'length);
-                up_im <= resize(a_im + dn_im, wide_t'length);
-                dn_re <= resize(a_re - dn_re, wide_t'length);
-                dn_im <= resize(a_im - dn_im, wide_t'length);
+                st <= S1_BUTTERFLY;
+                
+            when S1_BUTTERFLY =>
+                -- è®¡ç®—è¶å½¢è¿ç®—ç»“æœï¼Œup_re/up_im ç°åœ¨åŒ…å« b*w çš„ç»“æœ
+                dn_re <= resize(a_re - up_re, wide_t'length);
+                dn_im <= resize(a_im - up_im, wide_t'length);
+                up_re <= resize(a_re + up_re, wide_t'length);
+                up_im <= resize(a_im + up_im, wide_t'length);
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
-                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_dout <= signed(resize(a_re + up_re, WIDTH));
                 ram_we   <= '1';
                 st <= S1_WR_TOP_RE;
 
@@ -299,21 +324,27 @@ begin
             when S2_RD_BOT_IM =>
                 b_im <= to_wide(ram_din);
                 k    := tw_idx(2, pair_idx);            -- 0-3
-                w_re <= TW_RE(k); w_im <= TW_IM(k);
+                w_re <= TW_RE(k); 
+                w_im <= TW_IM(k);
                 st   <= S2_CALC;
 
             when S2_CALC =>
-                dn_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
+                -- è®¡ç®—å¤æ•°ä¹˜æ³• b * wï¼Œç»“æœå­˜å‚¨åœ¨ up_re, up_im ä¸­ä½œä¸ºä¸´æ—¶å˜é‡
+                up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
-                dn_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
+                up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_re) );
-                up_re <= resize(a_re + dn_re, wide_t'length);
-                up_im <= resize(a_im + dn_im, wide_t'length);
-                dn_re <= resize(a_re - dn_re, wide_t'length);
-                dn_im <= resize(a_im - dn_im, wide_t'length);
+                st <= S2_BUTTERFLY;
+                
+            when S2_BUTTERFLY =>
+                -- è®¡ç®—è¶å½¢è¿ç®—ç»“æœï¼Œup_re/up_im ç°åœ¨åŒ…å« b*w çš„ç»“æœ
+                dn_re <= resize(a_re - up_re, wide_t'length);
+                dn_im <= resize(a_im - up_im, wide_t'length);
+                up_re <= resize(a_re + up_re, wide_t'length);
+                up_im <= resize(a_im + up_im, wide_t'length);
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
-                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_dout <= signed(resize(a_re + up_re, WIDTH));
                 ram_we   <= '1';
                 st <= S2_WR_TOP_RE;
 
@@ -361,14 +392,14 @@ begin
             when MAG_CALC =>
                 mag32 := resize(a_re,34)*resize(a_re,34) +
                          resize(a_im,34)*resize(a_im,34);
-                ram_dout <= mag32(33 downto 18);          -- Q1.15
-                -- ¡ï¡ï ÈôÎ´×öµ¹Î»Ğò¿ÉÆôÓÃ£º
-                ram_addr <= cpx_to_addr( bit_reverse(mag_idx, 3), false );
-                -- ram_addr <= cpx_to_addr( mag_idx, false ); -- ÈôÊäÈëÒÑµ¹Ğò
+                ram_dout <= signed(mag32(33 downto 18));          -- Q1.15
+                -- ç›´æ¥æŒ‰é¡ºåºè¾“å‡ºç»“æœï¼Œä¸éœ€è¦å€’ä½åº
+                ram_addr <= cpx_to_addr(mag_idx, false);
                 ram_we <= '1';
                 st <= MAG_WR;
 
             when MAG_WR =>
+                ram_we <= '0';  -- ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½
                 if mag_idx = N-1 then
                     st <= DONE1;
                 else
@@ -379,7 +410,9 @@ begin
 
             when DONE1 =>
                 done <= '1';
-                if start='0' then st <= IDLE; end if;
+                if start='0' then 
+                    st <= IDLE; 
+                end if;
 
             end case;
         end if;

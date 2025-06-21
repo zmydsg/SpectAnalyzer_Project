@@ -15,10 +15,10 @@ entity mag_sqr_fft is
     );
     port (
         clk, rst_n : in  std_logic;
-        start      : in  std_logic;     -- ���뻺����
-        done       : out std_logic;     -- ����ƽ��������
+        start      : in  std_logic;     -- ????????
+        done       : out std_logic;     -- ?????????????
 
-        -- ���˿� RAM
+        -- ????? RAM
         ram_addr : out addr_t;
         ram_din  : in  signed(WIDTH-1 downto 0);
         ram_dout : out signed(WIDTH-1 downto 0);
@@ -29,7 +29,7 @@ end;
 -- ====================================================================
 architecture rtl of mag_sqr_fft is
 -- ====================================================================
-    subtype wide_t is signed(WIDTH+1 downto 0);  -- 18 λ
+    subtype wide_t is signed(WIDTH+1 downto 0);  -- 18 ��
 
     ----------------------------------------------------------------
     -- Twiddle ROM Q1.15
@@ -75,9 +75,9 @@ architecture rtl of mag_sqr_fft is
     signal up_re, up_im, dn_re, dn_im : wide_t;
 
     --------------------------------------------------------------------
-    -- ���ߺ���
+    -- ???????
     --------------------------------------------------------------------
-    -- �������� �� RAM ��ַ
+    -- ???????? ?? RAM ???
     function cpx_to_addr(idx : integer; is_im : boolean) return addr_t is
         variable a : integer := idx*2;
     begin
@@ -85,7 +85,7 @@ architecture rtl of mag_sqr_fft is
         return to_unsigned(a, ADDR_WIDTH);
     end;
 
-    -- 移除或注释掉bit_reverse函数
+    -- �Ƴ���ע�͵�bit_reverse����
     -- function bit_reverse(x: natural; bits: natural) return natural is
     --     variable r : natural := 0;
     --     variable temp : natural := x;
@@ -97,32 +97,84 @@ architecture rtl of mag_sqr_fft is
     --     return r;
     -- end;
 
-    -- k ���� (�޸����źͳ�������)
+    -- k ???? (???????????????)
     function tw_idx(stage : integer; pair : integer) return integer is
         variable dist   : integer := N / (2**(stage+1)); -- 4/2/1
         variable within : integer := pair mod dist;
     begin
-        return within * (N / (2 * dist));  -- ����ȱʧ������
+        return within * (N / (2 * dist));  -- ????????????
     end;
 
-    -- Q1.15 �� Q1.15 �� Q1.15 (��ȫ�ع�)
-    function mul_q15(x, y : signed) return signed is
-        variable x_temp : signed(WIDTH-1 downto 0) := x;
-        variable y_temp : signed(WIDTH-1 downto 0) := y;
-        variable product : signed(2*WIDTH-1 downto 0);
+    -- Q1.15 ?? Q1.15 ?? Q1.15 (??????)
+    -- 改进的Q1.15乘法函数，添加饱和处理
+    function mul_q15_sat(x, y : signed) return signed is
+    variable x_temp : signed(WIDTH-1 downto 0) := x;
+    variable y_temp : signed(WIDTH-1 downto 0) := y;
+    variable product : signed(2*WIDTH-1 downto 0);
+    variable result : signed(WIDTH-1 downto 0);
     begin
-        product := x_temp * y_temp;
-        return resize(shift_right(product, 15), WIDTH);
+    product := x_temp * y_temp;
+    -- 右移15位获得Q1.15结果
+    result := resize(shift_right(product, 15), WIDTH);
+    
+    -- 饱和处理
+    if product(2*WIDTH-1 downto WIDTH+14) /= (2*WIDTH-1 downto WIDTH+14 => product(2*WIDTH-1)) then
+        if product(2*WIDTH-1) = '0' then
+            result := to_signed(32767, WIDTH);  -- 正饱和
+        else
+            result := to_signed(-32768, WIDTH); -- 负饱和
+        end if;
+    end if;
+    
+    return result;
+    end;
+    
+    -- 带饱和的加法函数
+    function add_sat(x, y : wide_t) return signed is
+    variable sum : wide_t;
+    variable result : signed(WIDTH-1 downto 0);
+    begin
+    sum := x + y;
+    
+    -- 检查溢出并进行饱和处理
+    if sum > to_signed(32767, wide_t'length) then
+        result := to_signed(32767, WIDTH);
+    elsif sum < to_signed(-32768, wide_t'length) then
+        result := to_signed(-32768, WIDTH);
+    else
+        result := resize(sum, WIDTH);
+    end if;
+    
+    return result;
     end;
 
-    -- 16 �� 18
+    -- 带饱和的减法函数
+    function sub_sat(x, y : wide_t) return signed is
+    variable diff : wide_t;
+    variable result : signed(WIDTH-1 downto 0);
+    begin
+    diff := x - y;
+    
+    -- 检查溢出并进行饱和处理
+    if diff > to_signed(32767, wide_t'length) then
+        result := to_signed(32767, WIDTH);
+    elsif diff < to_signed(-32768, wide_t'length) then
+        result := to_signed(-32768, WIDTH);
+    else
+        result := resize(diff, WIDTH);
+    end if;
+    
+    return result;
+    end;
+
+    -- 16 ?? 18
     function to_wide(x : signed) return wide_t is
     begin
         return resize(x, wide_t'length);
     end;
 
 begin
-    -- Ĭ�����ֵ
+    -- ???????
     ram_we   <= '0';
     ram_dout <= (others=>'0');
     done     <= '0';
@@ -147,7 +199,7 @@ begin
             w_re     <= (others=>'0');
             w_im     <= (others=>'0');
         elsif rising_edge(clk) then
-            -- 默认不写入RAM
+            -- Ĭ�ϲ�д��RAM
             ram_we   <= '0';
             ram_dout <= (others=>'0');
             
@@ -188,8 +240,8 @@ begin
             when S0_CALC =>
                 up_re <= resize(a_re + b_re, wide_t'length);
                 up_im <= resize(a_im + b_im, wide_t'length);
-                dn_re <= resize(a_re - b_re, wide_t'length);  -- �������������
-                dn_im <= resize(a_im - b_im, wide_t'length);  -- �������������
+                dn_re <= resize(a_re - b_re, wide_t'length);  -- ?????????????
+                dn_im <= resize(a_im - b_im, wide_t'length);  -- ?????????????
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
                 ram_dout <= signed(up_re(WIDTH-1 downto 0));
@@ -253,7 +305,7 @@ begin
                 st   <= S1_CALC;
 
             when S1_CALC =>
-                -- 计算复数乘法 b * w，结果存储在 up_re, up_im 中作为临时变量
+                -- ���㸴���˷� b * w������洢�� up_re, up_im ����Ϊ��ʱ����
                 up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
                 up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
@@ -261,7 +313,7 @@ begin
                 st <= S1_BUTTERFLY;
                 
             when S1_BUTTERFLY =>
-                -- 计算蝶形运算结果，up_re/up_im 现在包含 b*w 的结果
+                -- ���������������up_re/up_im ���ڰ��� b*w �Ľ��
                 dn_re <= resize(a_re - up_re, wide_t'length);
                 dn_im <= resize(a_im - up_im, wide_t'length);
                 up_re <= resize(a_re + up_re, wide_t'length);
@@ -329,7 +381,7 @@ begin
                 st   <= S2_CALC;
 
             when S2_CALC =>
-                -- 计算复数乘法 b * w，结果存储在 up_re, up_im 中作为临时变量
+                -- ���㸴���˷� b * w������洢�� up_re, up_im ����Ϊ��ʱ����
                 up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
                 up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
@@ -337,7 +389,7 @@ begin
                 st <= S2_BUTTERFLY;
                 
             when S2_BUTTERFLY =>
-                -- 计算蝶形运算结果，up_re/up_im 现在包含 b*w 的结果
+                -- ���������������up_re/up_im ���ڰ��� b*w �Ľ��
                 dn_re <= resize(a_re - up_re, wide_t'length);
                 dn_im <= resize(a_im - up_im, wide_t'length);
                 up_re <= resize(a_re + up_re, wide_t'length);
@@ -393,13 +445,13 @@ begin
                 mag32 := resize(a_re,34)*resize(a_re,34) +
                          resize(a_im,34)*resize(a_im,34);
                 ram_dout <= signed(mag32(33 downto 18));          -- Q1.15
-                -- 直接按顺序输出结果，不需要倒位序
+                -- ֱ�Ӱ�˳��������������Ҫ��λ��
                 ram_addr <= cpx_to_addr(mag_idx, false);
                 ram_we <= '1';
                 st <= MAG_WR;
 
             when MAG_WR =>
-                ram_we <= '0';  -- ���д��
+                ram_we <= '0';  -- ???��??
                 if mag_idx = N-1 then
                     st <= DONE1;
                 else

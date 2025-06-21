@@ -54,10 +54,10 @@ architecture rtl of mag_sqr_fft is
         S0_CALC,      S0_WR_TOP_RE, S0_WR_TOP_IM, S0_WR_BOT_RE, S0_WR_BOT_IM,
         -- Stage-1
         S1_RD_TOP_RE, S1_RD_TOP_IM, S1_RD_BOT_RE, S1_RD_BOT_IM,
-        S1_CALC,      S1_WR_TOP_RE, S1_WR_TOP_IM, S1_WR_BOT_RE, S1_WR_BOT_IM,
+        S1_CALC,      S1_BUTTERFLY, S1_WR_TOP_RE, S1_WR_TOP_IM, S1_WR_BOT_RE, S1_WR_BOT_IM,
         -- Stage-2
         S2_RD_TOP_RE, S2_RD_TOP_IM, S2_RD_BOT_RE, S2_RD_BOT_IM,
-        S2_CALC,      S2_WR_TOP_RE, S2_WR_TOP_IM, S2_WR_BOT_RE, S2_WR_BOT_IM,
+        S2_CALC,      S2_BUTTERFLY, S2_WR_TOP_RE, S2_WR_TOP_IM, S2_WR_BOT_RE, S2_WR_BOT_IM,
         -- |X|2
         MAG_RD_RE, MAG_RD_IM, MAG_CALC, MAG_WR, DONE1
     );
@@ -85,36 +85,34 @@ architecture rtl of mag_sqr_fft is
         return to_unsigned(a, ADDR_WIDTH);
     end;
 
-    -- bit-reverse�����ڵ�λ��
-    function bit_reverse(x, bits : natural) return natural is
-        variable r : natural := 0;
-    begin
-        for i in 0 to bits-1 loop
-            -- 原代码：if ((x shr i) and 1) = 1 then
-            -- 替换方式1：
-            if ((x / (2**i)) mod 2) = 1 then
-                -- 原代码：r := r or (1 shl (bits-1-i));
-                -- 替换方式1：
-                r := r + (2**(bits-1-i));
-            end if;
-        end loop;
-        return r;
-    end;
+    -- 移除或注释掉bit_reverse函数
+    -- function bit_reverse(x: natural; bits: natural) return natural is
+    --     variable r : natural := 0;
+    --     variable temp : natural := x;
+    -- begin
+    --     for i in 0 to bits-1 loop
+    --         r := r * 2 + (temp mod 2);
+    --         temp := temp / 2;
+    --     end loop;
+    --     return r;
+    -- end;
 
-    -- k ����
+    -- k ���� (�޸����źͳ�������)
     function tw_idx(stage : integer; pair : integer) return integer is
         variable dist   : integer := N / (2**(stage+1)); -- 4/2/1
         variable within : integer := pair mod dist;
     begin
-        return within * N / (2*dist);
+        return within * (N / (2 * dist));  -- ����ȱʧ������
     end;
 
-    -- Q1.15 �� Q1.15 �� Q1.15   ������λ��������
+    -- Q1.15 �� Q1.15 �� Q1.15 (��ȫ�ع�)
     function mul_q15(x, y : signed) return signed is
-        variable prod32 : signed(31 downto 0);
+        variable x_temp : signed(WIDTH-1 downto 0) := x;
+        variable y_temp : signed(WIDTH-1 downto 0) := y;
+        variable product : signed(2*WIDTH-1 downto 0);
     begin
-        prod32 := resize(x, 32) * resize(y, 32);      -- 16��16��32
-        return resize(prod32(prod32'high downto 15), WIDTH); -- ����15
+        product := x_temp * y_temp;
+        return resize(shift_right(product, 15), WIDTH);
     end;
 
     -- 16 �� 18
@@ -124,6 +122,7 @@ architecture rtl of mag_sqr_fft is
     end;
 
 begin
+    -- Ĭ�����ֵ
     ram_we   <= '0';
     ram_dout <= (others=>'0');
     done     <= '0';
@@ -132,15 +131,36 @@ begin
     process(clk, rst_n)
         variable mag32 : signed(33 downto 0);
         variable k     : integer;
+        -- 添加临时变量声明
+        variable temp_re : signed(33 downto 0);
+        variable temp_im : signed(33 downto 0);
+        -- 添加乘法结果临时变量
+        variable mult_re : signed(67 downto 0);
+        variable mult_im : signed(67 downto 0);
     begin
         if rst_n = '0' then
             st       <= IDLE;
             ram_addr <= (others=>'0');
-            pair_idx <= 0; mag_idx <= 0;
+            ram_we   <= '0';
+            ram_dout <= (others=>'0');
+            done     <= '0';
+            pair_idx <= 0; 
+            mag_idx  <= 0;
+            a_re     <= (others=>'0');
+            a_im     <= (others=>'0');
+            b_re     <= (others=>'0');
+            b_im     <= (others=>'0');
+            w_re     <= (others=>'0');
+            w_im     <= (others=>'0');
         elsif rising_edge(clk) then
+            -- 默认不写入RAM
+            ram_we   <= '0';
+            ram_dout <= (others=>'0');
+            
             case st is
             ----------------------------------------------------------------
             when IDLE =>
+                done <= '0';
                 if start='1' then
                     pair_idx <= 0;
                     top_cpx  <= 0;
@@ -167,14 +187,15 @@ begin
 
             when S0_RD_BOT_IM =>
                 b_im <= to_wide(ram_din);
-                w_re <= TW_RE(0); w_im <= TW_IM(0);
+                w_re <= TW_RE(0); 
+                w_im <= TW_IM(0);
                 st <= S0_CALC;
 
             when S0_CALC =>
                 up_re <= resize(a_re + b_re, wide_t'length);
                 up_im <= resize(a_im + b_im, wide_t'length);
-                dn_re <= resize(a_re - b_re, wide_t'length);
-                dn_im <= resize(a_im - b_im, wide_t'length);
+                dn_re <= resize(a_re - b_re, wide_t'length);  -- �������������
+                dn_im <= resize(a_im - b_im, wide_t'length);  -- �������������
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
                 ram_dout <= signed(up_re(WIDTH-1 downto 0));
@@ -233,21 +254,27 @@ begin
             when S1_RD_BOT_IM =>
                 b_im <= to_wide(ram_din);
                 k    := tw_idx(1, pair_idx);  -- 0 or 2
-                w_re <= TW_RE(k); w_im <= TW_IM(k);
+                w_re <= TW_RE(k);
+                w_im <= TW_IM(k);
                 st   <= S1_CALC;
 
             when S1_CALC =>
-                dn_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
+                -- 计算复数乘法 b * w，结果存储在 up_re, up_im 中作为临时变量
+                up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
-                dn_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
+                up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_re) );
-                up_re <= resize(a_re + dn_re, wide_t'length);
-                up_im <= resize(a_im + dn_im, wide_t'length);
-                dn_re <= resize(a_re - dn_re, wide_t'length);
-                dn_im <= resize(a_im - dn_im, wide_t'length);
+                st <= S1_BUTTERFLY;
+                
+            when S1_BUTTERFLY =>
+                -- 计算蝶形运算结果，up_re/up_im 现在包含 b*w 的结果
+                dn_re <= resize(a_re - up_re, wide_t'length);
+                dn_im <= resize(a_im - up_im, wide_t'length);
+                up_re <= resize(a_re + up_re, wide_t'length);
+                up_im <= resize(a_im + up_im, wide_t'length);
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
-                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_dout <= signed(resize(a_re + up_re, WIDTH));
                 ram_we   <= '1';
                 st <= S1_WR_TOP_RE;
 
@@ -303,21 +330,27 @@ begin
             when S2_RD_BOT_IM =>
                 b_im <= to_wide(ram_din);
                 k    := tw_idx(2, pair_idx);            -- 0-3
-                w_re <= TW_RE(k); w_im <= TW_IM(k);
+                w_re <= TW_RE(k); 
+                w_im <= TW_IM(k);
                 st   <= S2_CALC;
 
             when S2_CALC =>
-                dn_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
+                -- 计算复数乘法 b * w，结果存储在 up_re, up_im 中作为临时变量
+                up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
-                dn_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
+                up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
                          to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_re) );
-                up_re <= resize(a_re + dn_re, wide_t'length);
-                up_im <= resize(a_im + dn_im, wide_t'length);
-                dn_re <= resize(a_re - dn_re, wide_t'length);
-                dn_im <= resize(a_im - dn_im, wide_t'length);
+                st <= S2_BUTTERFLY;
+                
+            when S2_BUTTERFLY =>
+                -- 计算蝶形运算结果，up_re/up_im 现在包含 b*w 的结果
+                dn_re <= resize(a_re - up_re, wide_t'length);
+                dn_im <= resize(a_im - up_im, wide_t'length);
+                up_re <= resize(a_re + up_re, wide_t'length);
+                up_im <= resize(a_im + up_im, wide_t'length);
 
                 ram_addr <= cpx_to_addr(top_cpx, false);
-                ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                ram_dout <= signed(resize(a_re + up_re, WIDTH));
                 ram_we   <= '1';
                 st <= S2_WR_TOP_RE;
 
@@ -363,16 +396,21 @@ begin
                 st <= MAG_CALC;
 
             when MAG_CALC =>
-                mag32 := resize(a_re,34)*resize(a_re,34) +
-                         resize(a_im,34)*resize(a_im,34);
-                ram_dout <= mag32(33 downto 18);          -- Q1.15
-                -- ��� ��δ����λ������ã�
-                ram_addr <= cpx_to_addr( bit_reverse(mag_idx, 3), false );
-                -- ram_addr <= cpx_to_addr( mag_idx, false ); -- �������ѵ���
+                -- 直接使用变量，不需要declare块
+                temp_re := resize(a_re, 34);
+                temp_im := resize(a_im, 34);
+                -- 使用resize方法处理乘法结果
+                mult_re := temp_re * temp_re;
+                mult_im := temp_im * temp_im;
+                mag32 := resize(mult_re, 34) + resize(mult_im, 34);
+                ram_dout <= signed(mag32(33 downto 18));          -- Q1.15
+                -- 直接按顺序输出结果，不需要倒位序
+                ram_addr <= cpx_to_addr(mag_idx, false);
                 ram_we <= '1';
                 st <= MAG_WR;
 
             when MAG_WR =>
+                ram_we <= '0';  -- ���д��
                 if mag_idx = N-1 then
                     st <= DONE1;
                 else
@@ -383,7 +421,9 @@ begin
 
             when DONE1 =>
                 done <= '1';
-                if start='0' then st <= IDLE; end if;
+                if start='0' then 
+                    st <= IDLE; 
+                end if;
 
             end case;
         end if;

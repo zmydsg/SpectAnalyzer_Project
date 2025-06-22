@@ -8,8 +8,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library spect_lib;
-use     spect_lib.spect_pkg.all;
+use work.spect_pkg.all;
 
 entity output_buffer is
     generic (

@@ -77,17 +77,19 @@ begin
     ----------------------------------------------------------------
     -- ? OUTPUT 模块（若暂时不用，可注释）
     ----------------------------------------------------------------
-    u_out : entity work.output_buffer
-        port map (
-            clk        => clk,
-            rst_n      => rst_n,
-            start_in   => done_sig,   -- FFT 结束后开始输出
-            done_out   => open,       -- 若需要通知，可连到 LED 等
-            ram_addr   => ram_addr,
-            ram_din    => ram_din,
-            ram_we     => ram_we,     -- 只读，内部恒 '0'
-            dout       => dout,
-            dout_valid => dout_valid
-        );
+	u_out : entity work.output_buffer
+		port map (
+			clk        => clk,
+			rst_n      => rst_n,
+			start_in   => done_sig,
+			done_out   => open,
+
+			ram_addr   => ram_addr,
+			ram_din    => ram_din,
+			ram_we     => open,     -- ← 只读，接 OPEN！
+
+			dout       => dout,
+			dout_valid => dout_valid
+		);
 
 end architecture;

@@ -101,6 +101,7 @@ architecture rtl of mag_sqr_fft is
     function tw_idx(stage : integer; pair : integer) return integer is
         variable dist   : integer := N / (2**(stage+1)); -- 4/2/1
         variable within : integer := pair mod dist;
+        
     begin
         return within * (N / (2 * dist));  -- ????????????
     end;
@@ -112,6 +113,7 @@ architecture rtl of mag_sqr_fft is
     variable y_temp : signed(WIDTH-1 downto 0) := y;
     variable product : signed(2*WIDTH-1 downto 0);
     variable result : signed(WIDTH-1 downto 0);
+    
     begin
     product := x_temp * y_temp;
     -- å³ç§»15ä½è·å¾—Q1.15ç»“æœ
@@ -133,6 +135,7 @@ architecture rtl of mag_sqr_fft is
     function add_sat(x, y : wide_t) return signed is
     variable sum : wide_t;
     variable result : signed(WIDTH-1 downto 0);
+    
     begin
     sum := x + y;
     
@@ -152,6 +155,7 @@ architecture rtl of mag_sqr_fft is
     function sub_sat(x, y : wide_t) return signed is
     variable diff : wide_t;
     variable result : signed(WIDTH-1 downto 0);
+    
     begin
     diff := x - y;
     
@@ -175,13 +179,14 @@ architecture rtl of mag_sqr_fft is
 
 begin
     -- ???????
-    ram_we   <= '0';
-    ram_dout <= (others=>'0');
-    done     <= '0';
+    --ram_we   <= '0';
+    --ram_dout <= (others=>'0');
+    --done     <= '0';
 
     --------------------------------------------------------------------
     process(clk, rst_n)
         variable mag32 : signed(33 downto 0);
+        variable tmp68 : signed(67 downto 0);
         variable k     : integer;
     begin
         if rst_n = '0' then
@@ -306,10 +311,10 @@ begin
 
             when S1_CALC =>
                 -- ï¿½ï¿½ï¿½ã¸´ï¿½ï¿½ï¿½Ë·ï¿½ b * wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ up_re, up_im ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
-                up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
-                         to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
-                up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
-                         to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_re) );
+                up_re <= to_wide( mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
+                         to_wide( mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_im) );
+                up_im <= to_wide( mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
+                         to_wide( mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_re) );
                 st <= S1_BUTTERFLY;
                 
             when S1_BUTTERFLY =>
@@ -382,10 +387,10 @@ begin
 
             when S2_CALC =>
                 -- ï¿½ï¿½ï¿½ã¸´ï¿½ï¿½ï¿½Ë·ï¿½ b * wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ up_re, up_im ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
-                up_re <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
-                         to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_im) );
-                up_im <= to_wide( mul_q15(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
-                         to_wide( mul_q15(signed(b_im(WIDTH-1 downto 0)), w_re) );
+                up_re <= to_wide( mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_re) ) -
+                         to_wide( mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_im) );
+                up_im <= to_wide( mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_im) ) +
+                         to_wide( mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_re) );
                 st <= S2_BUTTERFLY;
                 
             when S2_BUTTERFLY =>
@@ -441,14 +446,19 @@ begin
                 a_im <= to_wide(ram_din);
                 st <= MAG_CALC;
 
-            when MAG_CALC =>
-                mag32 := resize(a_re,34)*resize(a_re,34) +
-                         resize(a_im,34)*resize(a_im,34);
-                ram_dout <= signed(mag32(33 downto 18));          -- Q1.15
-                -- Ö±ï¿½Ó°ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Î»ï¿½ï¿½
-                ram_addr <= cpx_to_addr(mag_idx, false);
-                ram_we <= '1';
-                st <= MAG_WR;
+			when MAG_CALC =>
+				-- 69-bit ÁÙÊ±ÀÛ¼ÓÆ÷£º34+34 ¡ú 68£¬ÔÙ¼Ó·¨¶à 1 Î»
+
+				tmp68 := resize(a_re, 34) * resize(a_re, 34) +
+						 resize(a_im, 34) * resize(a_im, 34);
+
+				mag32 := tmp68(67 downto 34);          -- È¡¸ß 34 Î»£¬Ïàµ±ÓÚÓÒÒÆ 34 Î»
+
+				ram_dout <= signed(mag32(33 downto 18));  -- Q1.15 Ğ´»Ø
+				ram_addr <= cpx_to_addr(mag_idx, false);
+				ram_we   <= '1';
+				st       <= MAG_WR;
+
 
             when MAG_WR =>
                 ram_we <= '0';  -- ???ï¿½ï¿½??

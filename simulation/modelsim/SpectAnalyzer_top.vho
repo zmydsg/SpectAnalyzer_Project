@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II"
 -- VERSION "Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition"
 
--- DATE "06/22/2025 12:21:41"
+-- DATE "06/22/2025 14:41:43"
 
 -- 
 -- Device: Altera EP20K200EFC672-1 Package FBGA672
@@ -1902,6 +1902,14 @@ SIGNAL \u_out|st.READ_OUT~regout\ : std_logic;
 SIGNAL \u_out|st.LAST~regout\ : std_logic;
 SIGNAL \u_out|st.IDLE~regout\ : std_logic;
 SIGNAL \u_out|dout_valid~regout\ : std_logic;
+SIGNAL \adc_sample~combout\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u_fft|Mult2|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult3|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \u_fft|b_im\ : std_logic_vector(17 DOWNTO 0);
 SIGNAL \u_fft|b_re\ : std_logic_vector(17 DOWNTO 0);
 SIGNAL \u_fft|bot_cpx\ : std_logic_vector(2 DOWNTO 0);
@@ -1915,16 +1923,6 @@ SIGNAL \u_fft|up_im\ : std_logic_vector(17 DOWNTO 0);
 SIGNAL \u_fft|up_re\ : std_logic_vector(17 DOWNTO 0);
 SIGNAL \u_fft|w_im\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \u_fft|w_re\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u_in|ram_dout\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u_fft|Mult1|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le6a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult3|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult3|auto_generated|le10a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_out|idx\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \u_fft|a_im\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|a_re\ : std_logic_vector(17 DOWNTO 0);
 SIGNAL \u_in|ram_addr\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \u_in|wr_ptr\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \u_fft|Mult0|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
@@ -1937,13 +1935,15 @@ SIGNAL \u_fft|Mult3|auto_generated|le6a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult3|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult3|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult3|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \adc_sample~combout\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u_fft|Mult2|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_out|idx\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \u_fft|a_im\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|a_re\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_in|ram_dout\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u_fft|Mult1|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le6a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult3|auto_generated|le10a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_in|ALT_INV_st.WAIT_FFT~regout\ : std_logic;
 SIGNAL \u_fft|ALT_INV_Selector49~5_combout\ : std_logic;
 SIGNAL \ALT_INV_rst_n~combout\ : std_logic;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpectAnalyzer_top
-Sun Jun 22 12:21:26 2025
+Sun Jun 22 14:41:28 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -56,7 +56,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sun Jun 22 12:21:26 2025        ;
+; Analysis & Synthesis Status ; Successful - Sun Jun 22 14:41:28 2025        ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; SpectAnalyzer_top                            ;
 ; Top-level Entity Name       ; SpectAnalyzer_top                            ;
@@ -140,35 +140,34 @@ applicable agreement for further details.
 +--------------------------------------------------------------+-------------------+-------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                          ;
-+-----------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-; File Name with User-Entered Path              ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                          ;
-+-----------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-; src/mag_sqr_fft.vhd                           ; yes             ; User VHDL File                                        ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd                                                          ;
-; src/spect_pkg.vhd                             ; yes             ; User VHDL File                                        ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd                                                            ;
-; src/SpectAnalyzer_top.vhd                     ; yes             ; User VHDL File                                        ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd                                                    ;
-; src/input_buffer.vhd                          ; yes             ; User VHDL File                                        ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd                                                         ;
-; src/output_buffer.vhd                         ; yes             ; User VHDL File                                        ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd                                                        ;
-; src/ram_sp.vhd                                ; yes             ; User VHDL File                                        ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd                                                               ;
-; altdpram.tdf                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altdpram.tdf        ;
-; memmodes.inc                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/others/maxplus2/memmodes.inc      ;
-; lpm_decode.inc                                ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_decode.inc      ;
-; lpm_mux.inc                                   ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mux.inc         ;
-; a_hdffe.inc                                   ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_hdffe.inc         ;
-; a_rdenreg.inc                                 ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_rdenreg.inc       ;
-; altqpram.inc                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altqpram.inc        ;
-; alt_le_rden_reg.inc                           ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/alt_le_rden_reg.inc ;
-; altsyncram.inc                                ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altsyncram.inc      ;
-; aglobal90.inc                                 ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/aglobal90.inc       ;
-; db/SpectAnalyzer.ram0_ram_sp_ed4f5dd0.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/db/SpectAnalyzer.ram0_ram_sp_ed4f5dd0.hdl.mif                                ;
-; lpm_mult.tdf                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mult.tdf        ;
-; lpm_add_sub.inc                               ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_add_sub.inc     ;
-; multcore.inc                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/multcore.inc        ;
-; bypassff.inc                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/bypassff.inc        ;
-; altshift.inc                                  ; yes             ; Megafunction                                          ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altshift.inc        ;
-; db/mult_6g01.tdf                              ; yes             ; Auto-Generated Megafunction                           ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/db/mult_6g01.tdf                                                             ;
-+-----------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                          ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; src/mag_sqr_fft.vhd              ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd                                                          ;
+; src/spect_pkg.vhd                ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd                                                            ;
+; src/SpectAnalyzer_top.vhd        ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd                                                    ;
+; src/input_buffer.vhd             ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd                                                         ;
+; src/output_buffer.vhd            ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd                                                        ;
+; src/ram_sp.vhd                   ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd                                                               ;
+; altdpram.tdf                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altdpram.tdf        ;
+; memmodes.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/others/maxplus2/memmodes.inc      ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_decode.inc      ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mux.inc         ;
+; a_hdffe.inc                      ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_hdffe.inc         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_rdenreg.inc       ;
+; altqpram.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altqpram.inc        ;
+; alt_le_rden_reg.inc              ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/alt_le_rden_reg.inc ;
+; altsyncram.inc                   ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altsyncram.inc      ;
+; aglobal90.inc                    ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/aglobal90.inc       ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mult.tdf        ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_add_sub.inc     ;
+; multcore.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/multcore.inc        ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/bypassff.inc        ;
+; altshift.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altshift.inc        ;
+; db/mult_6g01.tdf                 ; yes             ; Auto-Generated Megafunction  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/db/mult_6g01.tdf                                                             ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------+
@@ -661,7 +660,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Jun 22 12:21:24 2025
+    Info: Processing started: Sun Jun 22 14:41:26 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
 Info: Found 2 design units, including 1 entities, in source file src/mag_sqr_fft.vhd
     Info: Found design unit 1: mag_sqr_fft-rtl
@@ -775,7 +774,7 @@ Info: Implemented 1616 device resources after synthesis - the final resource cou
     Info: Implemented 16 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 10 warnings
     Info: Peak virtual memory: 257 megabytes
-    Info: Processing ended: Sun Jun 22 12:21:26 2025
+    Info: Processing ended: Sun Jun 22 14:41:28 2025
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:00
 

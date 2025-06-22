@@ -1,0 +1,28 @@
+# Reading G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/tcl/vsim/pref.tcl 
+# do SpectAnalyzer_top_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying G:\DSD\PortableApps\Quartus90sp2Portable\App\Quartus\altera\90sp2\modelsim_ase\win32aloem/../modelsim.ini
+# 
+# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd}
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd(13): Cannot call subprogram "log2ceil" before it is elaborated.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd(16): VHDL Compiler exiting
+# ** Error: G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./SpectAnalyzer_top_run_msim_rtl_vhdl.do line 8
+# G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd}"
+source msim_setup.tcl
+# couldn't read file "msim_setup.tcl": no such file or directory
+ld_library_path
+# invalid command name "ld_library_path"
+source msim_setup.tcl
+# couldn't read file "msim_setup.tcl": no such file or directory

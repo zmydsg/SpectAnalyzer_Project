@@ -1,0 +1,23 @@
+Info: Start Nativelink Simulation process
+Info: NativeLink has detected VHDL design -- VHDL simulation models will be used
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  RTL
+Family                :  apex20ke
+Quartus root          :  g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/bin/
+Quartus sim root      :  g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/eda/sim_lib
+Simulation Tool       :  modelsim-altera
+Simulation Language   :  vhdl
+Version               :  93
+Simulation Mode       :  GUI
+Sim Output File       :  SpectAnalyzer_top.vho
+Sim SDF file          :  SpectAnalyzer_top__vhdl.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim-Altera software
+Sourced NativeLink script g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File SpectAnalyzer_top_run_msim_rtl_vhdl.do already exists - backing up current file as SpectAnalyzer_top_run_msim_rtl_vhdl.do.bak
+Info: Spawning ModelSim-Altera Simulation software 

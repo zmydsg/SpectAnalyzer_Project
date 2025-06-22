@@ -3,10 +3,12 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package spect_pkg is
+
+    function log2ceil(n : natural) return natural;
     constant DATA_WIDTH : natural := 16;   -- Q1.15
     constant N_POINTS   : natural := 8;    -- FFT 点数
     -- 求 ceil(log2(n))
-    function log2ceil(n : natural) return natural;
+
     constant DEPTH      : natural := N_POINTS * 2;            -- Re/Im 交织
     constant ADDR_WIDTH : natural := log2ceil(DEPTH);
     subtype data_t is signed(DATA_WIDTH-1 downto 0);

@@ -53,8 +53,8 @@ begin
     ram_we     <= '0';          -- 只读
     ram_addr   <= addr;
     dout       <= ram_din;
-    dout_valid <= '0';
-    done_out   <= '0';
+    --dout_valid <= '0';
+    --done_out   <= '0';
 
     ----------------------------------------------------------------
     -- 主进程
@@ -65,7 +65,13 @@ begin
             st   <= IDLE;
             idx  <= 0;
             addr <= (others=>'0');
+            dout_valid <= '0';
+			done_out   <= '0';
         elsif rising_edge(clk) then
+			-- ★ 每拍默认拉低
+			dout_valid <= '0';
+			done_out   <= '0';
+            
             case st is
             ----------------------------------------------------------------
             when IDLE =>

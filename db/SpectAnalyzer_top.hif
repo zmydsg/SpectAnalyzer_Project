@@ -1096,51 +1096,6 @@ datab15
 
 # end
 # entity
-SpectAnalyzer_top
-# storage
-db|SpectAnalyzer_top.(0).cnf
-db|SpectAnalyzer_top.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-src|SpectAnalyzer_top.vhd
-c6b9f28e2634cead8394c4a8e4f7b4
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-src|input_buffer.vhd
-bd10696b75b57e46e5165e6f0a6d38
-src|output_buffer.vhd
-a760b1d09180c030ec7a3f6757e927cc
-src|spect_pkg.vhd
-f575dc11579dac9b1993aa71e1d1db7a
-src|mag_sqr_fft.vhd
-533cc59c57cb246cb437427231bf8780
-src|ram_sp.vhd
-8bbc55850c78beafbf22c637347d8dd
-}
-# hierarchies {
-|
-}
-# lmf
-..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
 ram_sp
 # storage
 db|SpectAnalyzer_top.(1).cnf
@@ -1203,7 +1158,7 @@ ON
 # case_insensitive
 # source_file
 src|input_buffer.vhd
-bd10696b75b57e46e5165e6f0a6d38
+c1ee3892dd6372c96a9fd93ba4bb3f10
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1243,6 +1198,51 @@ input_buffer:u_in
 
 # end
 # entity
+SpectAnalyzer_top
+# storage
+db|SpectAnalyzer_top.(0).cnf
+db|SpectAnalyzer_top.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+src|SpectAnalyzer_top.vhd
+c6b9f28e2634cead8394c4a8e4f7b4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# include_file {
+src|mag_sqr_fft.vhd
+79e378f6214d5063f5a4f4e436e51de
+src|spect_pkg.vhd
+f575dc11579dac9b1993aa71e1d1db7a
+src|input_buffer.vhd
+c1ee3892dd6372c96a9fd93ba4bb3f10
+src|output_buffer.vhd
+6012fb2199604bd48b6a81768b718e98
+src|ram_sp.vhd
+8bbc55850c78beafbf22c637347d8dd
+}
+# hierarchies {
+|
+}
+# lmf
+..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
 mag_sqr_fft
 # storage
 db|SpectAnalyzer_top.(3).cnf
@@ -1254,7 +1254,7 @@ ON
 # case_insensitive
 # source_file
 src|mag_sqr_fft.vhd
-533cc59c57cb246cb437427231bf8780
+79e378f6214d5063f5a4f4e436e51de
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1313,7 +1313,7 @@ ON
 # case_insensitive
 # source_file
 src|output_buffer.vhd
-a760b1d09180c030ec7a3f6757e927cc
+6012fb2199604bd48b6a81768b718e98
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

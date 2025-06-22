@@ -5,107 +5,153 @@ use work.spect_pkg.all;
 
 entity input_buffer is
     port (
-        clk, rst_n   : in  std_logic;
-        din          : in  signed(DATA_WIDTH-1 downto 0);
-        din_valid    : in  std_logic;
-        din_ready    : out std_logic;
-        start_fft    : out std_logic;   -- å¯åŠ¨ FFT å¤„ç†ä¿¡å·
-        fft_done     : in  std_logic;    -- FFT å®Œæˆä¿¡å·
-        -- è¾“å…¥ç¼“å†²åŒº **å”¯ä¸€** æ¥å£
-        ram_addr     : out addr_t;
-        ram_dout     : out signed(DATA_WIDTH-1 downto 0);
-        ram_we       : out std_logic
+        clk, rst_n : in  std_logic;
+        ----------------------------------------------------------------
+        -- Óë ADC ²àÎÕÊÖ
+        ----------------------------------------------------------------
+        din        : in  signed(DATA_WIDTH-1 downto 0);
+        din_valid  : in  std_logic;
+        din_ready  : out std_logic;
+        ----------------------------------------------------------------
+        -- Óë FFT ²àÎÕÊÖ
+        ----------------------------------------------------------------
+        start_fft  : out std_logic;   -- µ¥ÅÄÂö³å
+        fft_done   : in  std_logic;
+        ----------------------------------------------------------------
+        -- µ¥¶Ë¿Ú RAM ×ÜÏß£¨¶àÄ£¿é¹²Ïí£©
+        ----------------------------------------------------------------
+        ram_addr   : out addr_t;
+        ram_dout   : out signed(DATA_WIDTH-1 downto 0);
+        ram_we     : out std_logic
     );
-end;
+end entity;
 
+------------------------------------------------------------------------
 architecture rtl of input_buffer is
+------------------------------------------------------------------------
+    --------------------------------------------------------------------
+    -- ¼Ä´æÆ÷ / ×´Ì¬»ú
+    --------------------------------------------------------------------
     signal wr_ptr : integer range 0 to DEPTH-1 := 0;
-    type s_t is (IDLE, WRITE, WAIT_FFT);
+
+    type s_t is (IDLE, WRITE, WAIT_1, WAIT_FFT);
     signal st : s_t := IDLE;
-    
-    -- bit-reverseå‡½æ•°ç”¨äºå€’ä½åº
+
+    --------------------------------------------------------------------
+    -- ÄÚ²¿ RAM ĞÅºÅ + Î±ÈıÌ¬¿ØÖÆ
+    --------------------------------------------------------------------
+    signal addr_int : addr_t                          := (others=>'0');
+    signal dout_int : signed(DATA_WIDTH-1 downto 0)   := (others=>'0');
+    signal we_int   : std_logic                       := '0';
+    signal drive_en : std_logic                       := '0';   -- =1 ±íÊ¾±¾Ä£¿éÇı¶¯×ÜÏß
+
+    --------------------------------------------------------------------
+    -- ¹¤¾ßº¯Êı
+    --------------------------------------------------------------------
+    -- bit_reverse£ºwr_ptr/2 È¡ 3 Î» ? 8 µã FFT
     function bit_reverse(x: natural; bits: natural) return natural is
-        variable r : natural := 0;
+        variable r    : natural := 0;
         variable temp : natural := x;
     begin
         for i in 0 to bits-1 loop
-            r := r * 2 + (temp mod 2);
+            r    := r * 2 + (temp mod 2);
             temp := temp / 2;
         end loop;
         return r;
     end;
-    
-    -- å¤æ•°åˆ°åœ°å€è½¬æ¢å‡½æ•°
+
+    -- ¸´ÊıË÷Òı ¡ú RAM µØÖ·£¨Å¼Êµ¡¢ÆæĞé£©
     function cpx_to_addr(idx : integer; is_im : boolean) return addr_t is
         variable a : integer := idx*2;
     begin
-        if is_im then a := a + 1; end if;
+        if is_im then
+            a := a + 1;
+        end if;
         return to_unsigned(a, ADDR_WIDTH);
     end;
-    
 begin
+    --------------------------------------------------------------------
+    -- Î±ÈıÌ¬×ÜÏß£º·Ç drive_en Ê±Êä³ö 'Z'
+    --------------------------------------------------------------------
+    ram_addr <= addr_int                when drive_en='1' else (others=>'Z');
+    ram_dout <= dout_int                when drive_en='1' else (others=>'Z');
+    ram_we   <= we_int                  when drive_en='1' else 'Z'; -- 'Z'¡Ö0
+
+    --------------------------------------------------------------------
+    -- Ö÷Ê±Ğò½ø³Ì
+    --------------------------------------------------------------------
     process(clk, rst_n)
         variable bit_rev_idx : integer;
     begin
         if rst_n='0' then
-            st <= IDLE;
-            wr_ptr <= 0;
-            ram_we <= '0';
+            st        <= IDLE;
+            wr_ptr    <= 0;
             din_ready <= '0';
             start_fft <= '0';
+
+            drive_en  <= '0';
+            we_int    <= '0';
         elsif rising_edge(clk) then
-            -- é»˜è®¤å€¼
-            ram_we <= '0';
+            ----------------------------------------------------------------
+            -- Ã¿ÅÄÄ¬ÈÏÖµ
+            ----------------------------------------------------------------
+            drive_en  <= '0';       -- Èô±¾ÅÄ²»ÖØĞÂ¸³ 1£¬ÔòÊä³ö 'Z'
+            we_int    <= '0';
             start_fft <= '0';
-            
+            -- din_ready È±Ê¡±£³ÖÉÏÒ»´ÎµÄÖµ£¨Ö»ÔÚĞèÒªÊ±ĞŞ¸Ä£©
+
             case st is
+            ----------------------------------------------------------------
             when IDLE =>
                 din_ready <= '1';
+
                 if din_valid='1' then
-                    -- ä½¿ç”¨å€’ä½åºåœ°å€å­˜å‚¨æ•°æ®
-                    bit_rev_idx := bit_reverse(wr_ptr/2, 3);  -- å¯¹å¤æ•°ç´¢å¼•è¿›è¡Œå€’ä½åº
-                    if (wr_ptr mod 2) = 0 then
-                        -- å®éƒ¨
-                        ram_addr <= cpx_to_addr(bit_rev_idx, false);
-                    else
-                        -- è™šéƒ¨
-                        ram_addr <= cpx_to_addr(bit_rev_idx, true);
-                    end if;
-                    ram_dout <= din;
-                    ram_we   <= '1';
-                    wr_ptr   <= wr_ptr + 1;
-                    st <= WRITE;
+                    -- ¼ÆËãµØÖ· & Ğ´ RAM
+                    bit_rev_idx := bit_reverse(wr_ptr/2, 3);
+
+                    addr_int  <= cpx_to_addr(bit_rev_idx, (wr_ptr mod 2)=1);
+                    dout_int  <= din;
+                    we_int    <= '1';
+                    drive_en  <= '1';
+
+                    wr_ptr    <= wr_ptr + 1;
+                    st        <= WRITE;
                 end if;
 
+            ----------------------------------------------------------------
             when WRITE =>
                 if din_valid='1' then
-                    -- ä½¿ç”¨å€’ä½åºåœ°å€å­˜å‚¨æ•°æ®
-                    bit_rev_idx := bit_reverse(wr_ptr/2, 3);  -- å¯¹å¤æ•°ç´¢å¼•è¿›è¡Œå€’ä½åº
-                    if (wr_ptr mod 2) = 0 then
-                        -- å®éƒ¨
-                        ram_addr <= cpx_to_addr(bit_rev_idx, false);
-                    else
-                        -- è™šéƒ¨
-                        ram_addr <= cpx_to_addr(bit_rev_idx, true);
-                    end if;
-                    ram_dout <= din;
-                    ram_we   <= '1';
-                    wr_ptr   <= wr_ptr + 1;
-                end if;
-                
-                if wr_ptr = DEPTH-1 then          -- å†™æ»¡ä¸€å¸§
-                    din_ready <= '0';
-                    start_fft <= '1';             -- æŒç»­ 1 å‘¨æœŸ
-                    st <= WAIT_FFT;
+                    bit_rev_idx := bit_reverse(wr_ptr/2, 3);
+
+                    addr_int  <= cpx_to_addr(bit_rev_idx, (wr_ptr mod 2)=1);
+                    dout_int  <= din;
+                    we_int    <= '1';
+                    drive_en  <= '1';
+
+                    wr_ptr    <= wr_ptr + 1;
                 end if;
 
-            when WAIT_FFT =>
-                if fft_done='1' then              -- FFT å®Œæˆ
-                    wr_ptr <= 0;
-                    din_ready <= '1';
-                    st <= IDLE;
+                if wr_ptr = DEPTH-1 then      -- ×îºóÒ»¸ö²ÉÑùÒÑĞ´Èë
+                    din_ready <= '0';         -- ÔİÍ£ ADC
+                    st        <= WAIT_1;      -- ÏÈËÉ×ÜÏß£¬ÔÙ·¢Âö³å
                 end if;
+
+            ----------------------------------------------------------------
+            when WAIT_1 =>
+                -- ±¾ÅÄÒÑ²»ÔÙÇı¶¯ RAM£¨drive_en Ä¬ÈÏ 0£©
+                start_fft <= '1';             -- µ¥ÅÄÂö³å
+                st        <= WAIT_FFT;
+
+            ----------------------------------------------------------------
+            when WAIT_FFT =>
+                if fft_done='1' then
+                    wr_ptr    <= 0;
+                    din_ready <= '1';
+                    st        <= IDLE;
+                end if;
+
             end case;
         end if;
     end process;
-end;
+
+end architecture;

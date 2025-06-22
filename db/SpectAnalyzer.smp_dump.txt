@@ -51,7 +51,8 @@ st.MAG_WR 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 st.DONE1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |SpectAnalyzer_top|input_buffer:u_in|st
-Name st.WAIT_FFT st.WRITE st.IDLE 
-st.IDLE 0 0 0 
-st.WRITE 0 1 1 
-st.WAIT_FFT 1 0 1 
+Name st.WAIT_FFT st.WAIT_1 st.WRITE st.IDLE 
+st.IDLE 0 0 0 0 
+st.WRITE 0 0 1 1 
+st.WAIT_1 0 1 0 1 
+st.WAIT_FFT 1 0 0 1 

@@ -90,15 +90,17 @@ begin
             wait until rising_edge(clk);  -- 额外周期确保稳定
         end procedure;
 
-        -- RAM 读取过程
-        procedure ram_read(addr_i : natural; variable data : out signed) is
+        -- RAM 读取过程 (返回读取的值)
+        impure function ram_read(addr_i : natural) return signed is
+            variable data : signed(DATA_WIDTH-1 downto 0);
         begin
             ram_addr <= to_unsigned(addr_i, ADDR_WIDTH);
             ram_we   <= '0';
             wait until rising_edge(clk);
             data := ram_dout;  -- 直接赋值给变量
             wait until rising_edge(clk);  -- 额外周期确保稳定
-        end procedure;
+            return data;
+        end function;
 
         procedure load_vector(file_name : string) is
             file f     : binary_file;
@@ -133,7 +135,7 @@ begin
                 
             while not endfile(f) loop
                 buf := read_signed_from_file(f);
-                ram_read(idx * 2, ram_val);  -- 使用 RAM 读取过程
+                ram_val := ram_read(idx * 2);  -- 使用 RAM 读取函数
                 assert ram_val = buf
                     report "Mismatch @ " & integer'image(idx) & 
                            ": Expected " & integer'image(to_integer(buf)) & 

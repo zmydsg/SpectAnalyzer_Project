@@ -78,7 +78,7 @@ begin
                 if start_in='1' then              -- FFT 计算完毕
                     idx  <= 0;
                     addr <= to_unsigned(0, ADDR_WIDTH);  -- |X(0)|2 存在偶地址 0
-                    st   <= SET_ADDR;
+                    st   <= READ_OUT;
                 end if;
 
             ----------------------------------------------------------------

@@ -1,0 +1,207 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\AD\Quartus90sp2Portable\Doc\SpectAnalyzer_Project\src\tb\fft
+Emag_sqr_fft
+Z1 !s101 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0
+Z2 w1750669959
+Z3 DPx4 work 10 spect_pkg0 0 22 44JMDMzOhm2Ub6:8D@2la3
+Z4 DPx4 work 9 spect_pkg 0 22 0[I?H^H<3Q5z2EiAgZ`;80
+Z5 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z7 8../../mag_sqr_fft.vhd
+Z8 F../../mag_sqr_fft.vhd
+l0
+L11
+V21m7zS00a0Z?FU5V`o_DX0
+Z9 OV;C;6.4a;39
+R1
+32
+o-O0
+Z10 tExplicit 1
+!s100 =5;oMefYMC;SQbJYQcS^[1
+Artl
+R3
+R4
+R5
+R6
+Z11 DEx4 work 11 mag_sqr_fft 0 22 21m7zS00a0Z?FU5V`o_DX0
+l180
+L30
+Vi<6nJ<R?2;e5IXSOa6@i13
+!s100 UF`B0m<ADe;>mWQ1_glLf3
+R9
+32
+Z12 Mx4 4 ieee 14 std_logic_1164
+Z13 Mx3 4 ieee 11 numeric_std
+Z14 Mx2 4 work 9 spect_pkg
+Z15 Mx1 4 work 10 spect_pkg0
+o-O0
+R10
+Emag_sqr_fft_tb
+w1750670839
+R3
+R4
+Z16 DPx3 std 6 textio 0 22 m2KQDRRhmF833<<DjYdL70
+R5
+R6
+8mag_sqr_fft_tb.vhd
+Fmag_sqr_fft_tb.vhd
+l0
+L7
+V=bjlU7fHdB1T@WeEC65Sn1
+R9
+Z17 !s101 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0
+32
+o-O0
+R10
+!s100 nonYiFJIVjh7FK?3=Bl_91
+Eram_sp
+R1
+Z18 w1750518065
+R3
+R4
+R5
+R6
+Z19 8../../ram_sp.vhd
+Z20 F../../ram_sp.vhd
+l0
+L12
+V]18?R95o3l6Pg4<RH0^`73
+R9
+R1
+32
+o-O0
+R10
+!s100 LQI=DzPlUNi:;d^<Aoh723
+Artl
+R3
+R4
+R5
+R6
+Z21 DEx4 work 6 ram_sp 0 22 ]18?R95o3l6Pg4<RH0^`73
+l26
+L22
+V^9=SJTck>VYj9>@c[B;f<0
+R9
+32
+R12
+R13
+R14
+R15
+o-O0
+R10
+!s100 J_9CB<OgKLjY=S`hh<BPN0
+Pspect_pkg
+R17
+R3
+R5
+R6
+Z22 w1750602727
+Z23 8../../spect_pkg.vhd
+Z24 F../../spect_pkg.vhd
+l0
+L29
+V0[I?H^H<3Q5z2EiAgZ`;80
+R9
+R1
+32
+Z25 Mx3 4 ieee 14 std_logic_1164
+Z26 Mx2 4 ieee 11 numeric_std
+R15
+o-O0
+R10
+!s100 dQi9I2:1OP9c3?3]0H`<T1
+Bbody
+DBx4 work 9 spect_pkg 0 22 0[I?H^H<3Q5z2EiAgZ`;80
+R3
+R5
+R6
+l0
+L41
+V3J5;W<9R9>L[SS`dFN;7=3
+R9
+32
+R25
+R26
+R15
+o-O0
+R10
+nbody
+!s100 UXJgK7_Z2e9Q1^O1lAIDM2
+Pspect_pkg0
+Z27 !s101 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0
+R5
+R6
+R22
+R23
+R24
+l0
+L6
+V44JMDMzOhm2Ub6:8D@2la3
+R9
+Z28 !s101 -O0 -O0 -O0 -O0 -O0 -O0
+32
+b1
+Z29 Mx2 4 ieee 14 std_logic_1164
+Z30 Mx1 4 ieee 11 numeric_std
+o-O0
+R10
+!s100 mA^XkzHhD4PAmh5i2JQl53
+Bbody
+DBx4 work 10 spect_pkg0 0 22 44JMDMzOhm2Ub6:8D@2la3
+R5
+R6
+l0
+L11
+V>DnIbZBFDCZ7`DdY5:ke:0
+R9
+32
+R29
+R30
+o-O0
+R10
+nbody
+!s100 5f`Bak0JBjlXn:D@S]zWO2
+Etb_mag_sqr_fft
+!s101 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0
+Z31 w1750679591
+R16
+R3
+R4
+R5
+R6
+Z32 8tb_mag_sqr_fft.vhd
+Z33 Ftb_mag_sqr_fft.vhd
+l0
+L7
+VaOY96Qd^IV<mcmJP4gV:g0
+!s100 ZnF<l0ECoiiOkaGWaBQO80
+R9
+R17
+32
+o-O0
+R10
+Asim
+R21
+R11
+R16
+R3
+R4
+R5
+R6
+DEx4 work 14 tb_mag_sqr_fft 0 22 aOY96Qd^IV<mcmJP4gV:g0
+l30
+L8
+VmhHkSIo[UQeAz1>U7fjjJ1
+!s100 MXkRDKRQY^SXQcOBBhIbT3
+R9
+32
+Z34 Mx5 4 ieee 14 std_logic_1164
+Z35 Mx4 4 ieee 11 numeric_std
+Z36 Mx3 4 work 9 spect_pkg
+Z37 Mx2 4 work 10 spect_pkg0
+Z38 Mx1 3 std 6 textio
+o-O0
+R10

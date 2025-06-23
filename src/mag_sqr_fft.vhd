@@ -63,7 +63,7 @@ architecture rtl of mag_sqr_fft is
     );
     signal st : st_t := IDLE;
 
-    signal pair_idx  : integer range 0 to (N/2)-1 := 0;
+    signal pair_idx  : integer range 0 to N-1 := 0;
     signal mag_idx   : integer range 0 to N-1     := 0;
     signal top_cpx   : integer range 0 to N-1     := 0;
     signal bot_cpx   : integer range 0 to N-1     := 0;

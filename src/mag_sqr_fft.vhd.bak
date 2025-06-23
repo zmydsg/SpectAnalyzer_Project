@@ -179,9 +179,9 @@ architecture rtl of mag_sqr_fft is
 
 begin
     -- ???????
-    ram_we   <= '0';
-    ram_dout <= (others=>'0');
-    done     <= '0';
+    --ram_we   <= '0';
+    --ram_dout <= (others=>'0');
+    --done     <= '0';
 
     --------------------------------------------------------------------
     process(clk, rst_n)

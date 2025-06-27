@@ -74,5 +74,4 @@
 # -- Loading entity mag_sqr_fft
 # -- Loading entity output_buffer
 # 
-project open G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/fft/FFT_IntTest
-# Loading project FFT_IntTest
+# Loading project test-input

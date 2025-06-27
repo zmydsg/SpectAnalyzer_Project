@@ -1,5 +1,5 @@
 Fitter report for SpectAnalyzer_top
-Fri Jun 27 20:28:19 2025
+Sat Jun 28 05:59:32 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -59,7 +59,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------+
 ; Fitter Summary                                                       ;
 +-----------------------+----------------------------------------------+
-; Fitter Status         ; Successful - Fri Jun 27 20:28:19 2025        ;
+; Fitter Status         ; Successful - Sat Jun 28 05:59:32 2025        ;
 ; Quartus II Version    ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name         ; SpectAnalyzer_top                            ;
 ; Top-level Entity Name ; SpectAnalyzer_top                            ;
@@ -1358,7 +1358,7 @@ The pin-out file can be found in G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/SpectA
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Jun 27 20:28:02 2025
+    Info: Processing started: Sat Jun 28 05:59:15 2025
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
 Info: Selected device EP20K200EFC672-1 for design "SpectAnalyzer_top"
 Warning: Feature SignalProbe is not available with your current license
@@ -1373,7 +1373,7 @@ Info: Promoted cell "clk" to global signal automatically
 Info: Promoted cell "rst_n" to global signal automatically
 Info: Promoted cell "mag_sqr_fft:u_fft|Selector64~3" to global signal automatically
 Info: Promoted cell "mag_sqr_fft:u_fft|Selector63~3" to global signal automatically
-Info: Started fitting attempt 1 on Fri Jun 27 2025 at 20:28:03
+Info: Started fitting attempt 1 on Sat Jun 28 2025 at 05:59:16
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info: Fitter placement operations beginning
@@ -1432,8 +1432,8 @@ Info: Fitter routing operations beginning
 Info: Fitter routing operations ending: elapsed time is 00:00:02
 Info: Quartus II Fitter was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 280 megabytes
-    Info: Processing ended: Fri Jun 27 20:28:19 2025
+    Info: Processing ended: Sat Jun 28 05:59:32 2025
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:05
 
 

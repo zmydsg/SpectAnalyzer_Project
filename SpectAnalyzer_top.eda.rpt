@@ -1,5 +1,5 @@
 EDA Netlist Writer report for SpectAnalyzer_top
-Fri Jun 27 20:28:23 2025
+Sat Jun 28 05:59:36 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Jun 27 20:28:23 2025 ;
+; EDA Netlist Writer Status ; Successful - Sat Jun 28 05:59:36 2025 ;
 ; Revision Name             ; SpectAnalyzer_top                     ;
 ; Top-level Entity Name     ; SpectAnalyzer_top                     ;
 ; Family                    ; APEX20KE                              ;
@@ -82,12 +82,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II EDA Netlist Writer
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Jun 27 20:28:23 2025
+    Info: Processing started: Sat Jun 28 05:59:36 2025
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
 Info: Generated files "SpectAnalyzer_top.vho" and "SpectAnalyzer_top_vhd.sdo" in directory "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 171 megabytes
-    Info: Processing ended: Fri Jun 27 20:28:23 2025
+    Info: Processing ended: Sat Jun 28 05:59:36 2025
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 

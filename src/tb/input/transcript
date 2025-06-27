@@ -1,13 +1,101 @@
+# after#689
 do test_input.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# ** Error: (vcom-7) Failed to open design unit file "../src/spect_pkg0.vhd" in read mode.
-# No such file or directory. (errno = ENOENT)
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity input_buffer
+# -- Compiling architecture rtl of input_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity tb_input_buffer
+# -- Compiling architecture sim of tb_input_buffer
+# -- Loading entity input_buffer
+# vsim work.tb_input_buffer 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.spect_pkg0(body)
+# Loading work.spect_pkg(body)
+# Loading work.tb_input_buffer(sim)
+# Loading work.input_buffer(rtl)
+# ** Error: Addr mismatch at wr_ptr=1
+#    Time: 690 ns  Iteration: 2  Instance: /tb_input_buffer
+# ** Error:  Unknown switch "-error".
+# Error in macro ./test_input.do line 42
+# ** Error:  Unknown switch "-error".
+#     while executing
+# "verror -error"
+#     invoked from within
+# "set errList [verror -error]"
+do test_input.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity input_buffer
+# -- Compiling architecture rtl of input_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity tb_input_buffer
+# -- Compiling architecture sim of tb_input_buffer
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(87): (vcom-1136) Unknown identifier "uut".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(87): (vcom-1136) Unknown identifier "bit_reverse".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(88): (vcom-1136) Unknown identifier "uut".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(88): Bad expression in left operand of infix expression "=".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(88): Type error resolving infix expression "=" as type std.standard.boolean.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(95): (vcom-1136) Unknown identifier "uut".
+# -- Loading entity input_buffer
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(116): VHDL Compiler exiting
 # ** Error: G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
-# Error in macro ./test_input.do line 3
+# Error in macro ./test_input.do line 13
 # G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
 #     while executing
-# "vcom -93 ../src/spect_pkg0.vhd"
+# "vcom -93 "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd""
 do test_input.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
@@ -42,60 +130,24 @@ do test_input.do
 # -- Compiling entity tb_input_buffer
 # -- Compiling architecture sim of tb_input_buffer
 # -- Loading entity input_buffer
-# vsim work.tb_input_buffer 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.spect_pkg0(body)
-# Loading work.spect_pkg(body)
-# Loading work.tb_input_buffer(sim)
-# Loading work.input_buffer(rtl)
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 150 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=0
-#    Time: 150 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=1
-#    Time: 170 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=2
-#    Time: 190 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=3
-#    Time: 210 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=4
-#    Time: 230 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=5
-#    Time: 250 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=6
-#    Time: 270 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=7
-#    Time: 290 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=8
-#    Time: 310 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=9
-#    Time: 330 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=10
-#    Time: 350 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=11
-#    Time: 370 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=12
-#    Time: 390 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=13
-#    Time: 410 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=14
-#    Time: 430 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Error: Addr mismatch at wr_ptr=15
-#    Time: 450 ns  Iteration: 1  Instance: /tb_input_buffer
-# ** Fatal: (vsim-3421) Value 16 for wr_ptr is out of range 0 to 15.
-#    Time: 450 ns  Iteration: 1  Process: /tb_input_buffer/uut/line__47 File: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd
-# Fatal error in Process line__47 at G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd line 93
-# 
-# ======== ASSERT SUMMARY ======== 
-# ** Error: invalid command name "report-severity"
-# Error in macro ./test_input.do line 42
-# invalid command name "report-severity"
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(116): Illegal expanded name prefix ("uut" is not label of block, process, generate, or loop statement).
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(116): (vcom-1195) Cannot find expanded name "uut.wr_ptr".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(116): Unknown expanded name.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(116): Illegal type conversion to ieee.numeric_std.unsigned (operand type is not known).
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(117): Illegal expanded name prefix ("uut" is not label of block, process, generate, or loop statement).
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(117): (vcom-1195) Cannot find expanded name "uut.wr_ptr".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(117): Unknown expanded name.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(117): Illegal type conversion to ieee.numeric_std.unsigned (operand type is not known).
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(124): Illegal expanded name prefix ("uut" is not label of block, process, generate, or loop statement).
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(124): (vcom-1195) Cannot find expanded name "uut.wr_ptr".
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(124): Unknown expanded name.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(124): Illegal type conversion to ieee.numeric_std.unsigned (operand type is not known).
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd(131): VHDL Compiler exiting
+# ** Error: G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./test_input.do line 13
+# G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
 #     while executing
-# "report-severity"
-#     invoked from within
-# "quietly report-severity"
+# "vcom -93 "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/tb_input_buffer.vhd""
 do test_input.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
@@ -138,60 +190,6 @@ do test_input.do
 # Loading work.spect_pkg(body)
 # Loading work.tb_input_buffer(sim)
 # Loading work.input_buffer(rtl)
-# ** Error: Addr mismatch at wr_ptr=1
-#    Time: 690 ns  Iteration: 2  Instance: /tb_input_buffer
-# ======== ASSERT SUMMARY ======== 
-# ** Error:  Unknown switch "-count".
-# Error in macro ./test_input.do line 43
-# ** Error:  Unknown switch "-count".
-#     while executing
-# "verror -count -error"
-#     invoked from within
-# "quietly echo "Errors  : [verror -count -error]""
-do test_input.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling package spect_pkg0
-# -- Compiling package body spect_pkg0
-# -- Loading package spect_pkg0
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Compiling package spect_pkg
-# -- Compiling package body spect_pkg
-# -- Loading package spect_pkg
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity input_buffer
-# -- Compiling architecture rtl of input_buffer
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity tb_input_buffer
-# -- Compiling architecture sim of tb_input_buffer
-# -- Loading entity input_buffer
-# vsim work.tb_input_buffer 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.spect_pkg0(body)
-# Loading work.spect_pkg(body)
-# Loading work.tb_input_buffer(sim)
-# Loading work.input_buffer(rtl)
-# ** Error: Addr mismatch at wr_ptr=1
-#    Time: 690 ns  Iteration: 2  Instance: /tb_input_buffer
 # ** Error:  Unknown switch "-error".
 # Error in macro ./test_input.do line 42
 # ** Error:  Unknown switch "-error".
@@ -241,114 +239,4 @@ do test_input.do
 # Loading work.spect_pkg(body)
 # Loading work.tb_input_buffer(sim)
 # Loading work.input_buffer(rtl)
-# ** Error: Addr mismatch at wr_ptr=1
-#    Time: 690 ns  Iteration: 2  Instance: /tb_input_buffer
-# ** Error:  Unknown switch "-error".
-# Error in macro ./test_input.do line 42
-# ** Error:  Unknown switch "-error".
-#     while executing
-# "verror -error"
-#     invoked from within
-# "set errList [verror -error]"
-do test_input.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling package spect_pkg0
-# -- Compiling package body spect_pkg0
-# -- Loading package spect_pkg0
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Compiling package spect_pkg
-# -- Compiling package body spect_pkg
-# -- Loading package spect_pkg
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity input_buffer
-# -- Compiling architecture rtl of input_buffer
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity tb_input_buffer
-# -- Compiling architecture sim of tb_input_buffer
-# -- Loading entity input_buffer
-# vsim work.tb_input_buffer 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.spect_pkg0(body)
-# Loading work.spect_pkg(body)
-# Loading work.tb_input_buffer(sim)
-# Loading work.input_buffer(rtl)
-# ** Error: Addr mismatch at wr_ptr=1
-#    Time: 690 ns  Iteration: 2  Instance: /tb_input_buffer
-# ** Error:  Unknown switch "-error".
-# Error in macro ./test_input.do line 42
-# ** Error:  Unknown switch "-error".
-#     while executing
-# "verror -error"
-#     invoked from within
-# "set errList [verror -error]"
-do test_input.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling package spect_pkg0
-# -- Compiling package body spect_pkg0
-# -- Loading package spect_pkg0
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Compiling package spect_pkg
-# -- Compiling package body spect_pkg
-# -- Loading package spect_pkg
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity input_buffer
-# -- Compiling architecture rtl of input_buffer
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity tb_input_buffer
-# -- Compiling architecture sim of tb_input_buffer
-# -- Loading entity input_buffer
-# vsim work.tb_input_buffer 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.spect_pkg0(body)
-# Loading work.spect_pkg(body)
-# Loading work.tb_input_buffer(sim)
-# Loading work.input_buffer(rtl)
-# ** Error: Addr mismatch at wr_ptr=1
-#    Time: 690 ns  Iteration: 2  Instance: /tb_input_buffer
-# ** Error:  Unknown switch "-error".
-# Error in macro ./test_input.do line 42
-# ** Error:  Unknown switch "-error".
-#     while executing
-# "verror -error"
-#     invoked from within
-# "set errList [verror -error]"
+# ======== SIMULATION COMPLETED ======== 

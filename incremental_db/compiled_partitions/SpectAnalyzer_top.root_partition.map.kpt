@@ -1900,1913 +1900,2515 @@
     <transformation>
       <kp_set type="reference">
         <kp_state index="0">
+          <kp id="152" type="proxy"></kp>
+          <kp id="98" type="equiv"></kp>
+          <kp id="71" type="equiv"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="353" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="303" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="394" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="227" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="427" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="42" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="540" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="49" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="351" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="254" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="473" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="78" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="443" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="53" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="524" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="145" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="437" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="204" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="354" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="289" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="531" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="212" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="345" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="291" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="537" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="272" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="329" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="20" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="343" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="238" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="397" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+    </transformation>
+    <transformation>
+      <kp_set type="reference">
+        <kp_state index="0">
+          <kp id="117" type="proxy"></kp>
+        </kp_state>
+        <kp_state index="1">
+          <kp id="147" type="proxy"></kp>
+        </kp_state>
+      </kp_set>
+      <kp_set type="transformed">
+        <kp_state index="0">
+          <kp id="273" type="proxy"></kp>
+        </kp_state>
+        <kp_state index="1">
+          <kp id="307" type="proxy"></kp>
+        </kp_state>
+        <kp_state index="2">
           <kp id="302" type="proxy"></kp>
         </kp_state>
       </kp_set>
-      <kp_set type="transformed">
-        <kp_state index="0">
-          <kp id="459" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-    </transformation>
-    <transformation>
-      <kp_set type="reference">
-        <kp_state index="0">
-          <kp id="245" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-      <kp_set type="transformed">
-        <kp_state index="0">
-          <kp id="328" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-    </transformation>
-    <transformation>
-      <kp_set type="reference">
-        <kp_state index="0">
-          <kp id="282" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-      <kp_set type="transformed">
-        <kp_state index="0">
-          <kp id="548" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-    </transformation>
-    <transformation>
-      <kp_set type="reference">
-        <kp_state index="0">
-          <kp id="9" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-      <kp_set type="transformed">
-        <kp_state index="0">
-          <kp id="435" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-    </transformation>
-    <transformation>
-      <kp_set type="reference">
-        <kp_state index="0">
-          <kp id="83" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="1">
-          <kp id="109" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="2">
-          <kp id="229" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="3">
-          <kp id="59" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="4">
-          <kp id="85" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="5">
-          <kp id="113" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-      <kp_set type="transformed">
-        <kp_state index="0">
-          <kp id="299" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="1">
-          <kp id="288" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="2">
-          <kp id="297" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="3">
-          <kp id="280" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="4">
-          <kp id="313" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="5">
-          <kp id="284" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="6">
-          <kp id="310" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="7">
-          <kp id="292" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="8">
-          <kp id="294" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="9">
-          <kp id="301" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="10">
-          <kp id="306" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="11">
-          <kp id="309" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="12">
-          <kp id="274" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="13">
-          <kp id="283" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="14">
-          <kp id="298" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="15">
-          <kp id="296" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="16">
-          <kp id="282" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="17">
-          <kp id="279" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="18">
-          <kp id="312" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="19">
-          <kp id="314" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="20">
-          <kp id="277" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="21">
-          <kp id="295" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="22">
-          <kp id="270" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="23">
-          <kp id="289" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="24">
-          <kp id="293" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="25">
-          <kp id="305" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="26">
-          <kp id="308" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="27">
-          <kp id="303" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="28">
-          <kp id="300" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="29">
-          <kp id="290" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="30">
-          <kp id="311" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="31">
-          <kp id="271" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="32">
-          <kp id="281" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="33">
-          <kp id="276" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="34">
-          <kp id="291" type="proxy"></kp>
-        </kp_state>
-        <kp_state index="35">
-          <kp id="278" type="proxy"></kp>
-        </kp_state>
-      </kp_set>
-    <state_table type="lookup" fsm_name="u_fft/st" num_states="36" num_reference_cols="6" num_transformed_cols="36">
-      <state index="0" state_name="u_fft/st.IDLE">
+    <state_table type="lookup" fsm_name="u_in/st" num_states="3" num_reference_cols="2" num_transformed_cols="3">
+      <state index="0" state_name="u_in/st.IDLE">
         <reference>
           <value index="0">0</value>
           <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
         </reference>
         <transformed>
           <value index="0">0</value>
           <value index="1">0</value>
           <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">0</value>
         </transformed>
       </state>
-      <state index="1" state_name="u_fft/st.S0_RD_TOP_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">1</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="2" state_name="u_fft/st.S0_RD_TOP_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">1</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="3" state_name="u_fft/st.S0_RD_BOT_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">1</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="4" state_name="u_fft/st.S0_RD_BOT_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">1</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="5" state_name="u_fft/st.S0_CALC">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">1</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="6" state_name="u_fft/st.S0_WR_TOP_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">1</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="7" state_name="u_fft/st.S0_WR_TOP_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">1</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="8" state_name="u_fft/st.S0_WR_BOT_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">1</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="9" state_name="u_fft/st.S0_WR_BOT_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">1</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="10" state_name="u_fft/st.S0_ADVANCE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">1</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="11" state_name="u_fft/st.S1_RD_TOP_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">1</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="12" state_name="u_fft/st.S1_RD_TOP_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">1</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="13" state_name="u_fft/st.S1_RD_BOT_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">1</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="14" state_name="u_fft/st.S1_RD_BOT_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">1</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="15" state_name="u_fft/st.S1_CALC">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">1</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="16" state_name="u_fft/st.S1_BUTTERFLY">
+      <state index="1" state_name="u_in/st.WRITE">
         <reference>
           <value index="0">0</value>
           <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
         </reference>
         <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">1</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="17" state_name="u_fft/st.S1_WR_TOP_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">1</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="18" state_name="u_fft/st.S1_WR_TOP_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">1</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="19" state_name="u_fft/st.S1_WR_BOT_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">1</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="20" state_name="u_fft/st.S1_WR_BOT_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">1</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="21" state_name="u_fft/st.S2_RD_TOP_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">1</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="22" state_name="u_fft/st.S2_RD_TOP_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">1</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="23" state_name="u_fft/st.S2_RD_BOT_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">1</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="24" state_name="u_fft/st.S2_RD_BOT_IM">
-        <reference>
           <value index="0">0</value>
           <value index="1">1</value>
           <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">1</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
         </transformed>
       </state>
-      <state index="25" state_name="u_fft/st.S2_CALC">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">1</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="26" state_name="u_fft/st.S2_BUTTERFLY">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">1</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="27" state_name="u_fft/st.S2_WR_TOP_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">1</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="28" state_name="u_fft/st.S2_WR_TOP_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">1</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="29" state_name="u_fft/st.S2_WR_BOT_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">1</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="30" state_name="u_fft/st.S2_WR_BOT_IM">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="31" state_name="u_fft/st.MAG_RD_RE">
-        <reference>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">1</value>
-          <value index="3">1</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="32" state_name="u_fft/st.MAG_RD_IM">
+      <state index="2" state_name="u_in/st.WAIT_FFT">
         <reference>
           <value index="0">1</value>
           <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">1</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="33" state_name="u_fft/st.MAG_CALC">
-        <reference>
-          <value index="0">1</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">1</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">0</value>
-          <value index="2">1</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="34" state_name="u_fft/st.MAG_WR">
-        <reference>
-          <value index="0">1</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">0</value>
-        </reference>
-        <transformed>
-          <value index="0">0</value>
-          <value index="1">1</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
-        </transformed>
-      </state>
-      <state index="35" state_name="u_fft/st.DONE1">
-        <reference>
-          <value index="0">1</value>
-          <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">1</value>
-          <value index="5">1</value>
         </reference>
         <transformed>
           <value index="0">1</value>
           <value index="1">0</value>
-          <value index="2">0</value>
-          <value index="3">0</value>
-          <value index="4">0</value>
-          <value index="5">0</value>
-          <value index="6">0</value>
-          <value index="7">0</value>
-          <value index="8">0</value>
-          <value index="9">0</value>
-          <value index="10">0</value>
-          <value index="11">0</value>
-          <value index="12">0</value>
-          <value index="13">0</value>
-          <value index="14">0</value>
-          <value index="15">0</value>
-          <value index="16">0</value>
-          <value index="17">0</value>
-          <value index="18">0</value>
-          <value index="19">0</value>
-          <value index="20">0</value>
-          <value index="21">0</value>
-          <value index="22">0</value>
-          <value index="23">0</value>
-          <value index="24">0</value>
-          <value index="25">0</value>
-          <value index="26">0</value>
-          <value index="27">0</value>
-          <value index="28">0</value>
-          <value index="29">0</value>
-          <value index="30">0</value>
-          <value index="31">0</value>
-          <value index="32">0</value>
-          <value index="33">0</value>
-          <value index="34">0</value>
-          <value index="35">1</value>
+          <value index="2">1</value>
         </transformed>
       </state>
     </state_table>
   </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="116" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="390" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="294" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="466" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="163" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="336" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="203" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="347" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="168" type="proxy"></kp>
+        <kp id="201" type="equiv"></kp>
+        <kp id="195" type="equiv"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="396" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="52" type="proxy"></kp>
+        <kp id="4" type="equiv"></kp>
+        <kp id="28" type="equiv"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="474" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="54" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="421" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="295" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="327" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="268" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="318" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="129" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="468" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="68" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="525" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="246" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="386" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="288" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="550" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="202" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="438" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="169" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="331" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="194" type="proxy"></kp>
+        <kp id="76" type="equiv"></kp>
+        <kp id="139" type="equiv"></kp>
+        <kp id="228" type="equiv"></kp>
+        <kp id="165" type="equiv"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="407" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="225" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="363" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="72" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="1">
+        <kp id="45" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="285" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="1">
+        <kp id="272" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="2">
+        <kp id="304" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  <state_table type="lookup" fsm_name="phase" num_states="3" num_reference_cols="2" num_transformed_cols="3">
+    <state index="0" state_name="phase.PH_IN">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+      </transformed>
+    </state>
+    <state index="1" state_name="phase.PH_FFT">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+      </transformed>
+    </state>
+    <state index="2" state_name="phase.PH_OUT">
+      <reference>
+        <value index="0">1</value>
+        <value index="1">0</value>
+      </reference>
+      <transformed>
+        <value index="0">1</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+      </transformed>
+    </state>
+  </state_table>
+</transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="115" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="546" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="259" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="558" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="271" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="378" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="242" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="400" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="210" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="533" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="56" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="449" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="284" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="365" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="302" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="459" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="245" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="328" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="282" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="548" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="9" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="435" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
+        <kp id="83" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="1">
+        <kp id="109" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="2">
+        <kp id="229" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="3">
+        <kp id="59" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="4">
+        <kp id="85" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="5">
+        <kp id="113" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="299" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="1">
+        <kp id="288" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="2">
+        <kp id="297" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="3">
+        <kp id="280" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="4">
+        <kp id="313" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="5">
+        <kp id="284" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="6">
+        <kp id="310" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="7">
+        <kp id="292" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="8">
+        <kp id="294" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="9">
+        <kp id="301" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="10">
+        <kp id="306" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="11">
+        <kp id="309" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="12">
+        <kp id="274" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="13">
+        <kp id="283" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="14">
+        <kp id="298" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="15">
+        <kp id="296" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="16">
+        <kp id="282" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="17">
+        <kp id="279" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="18">
+        <kp id="312" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="19">
+        <kp id="314" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="20">
+        <kp id="277" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="21">
+        <kp id="295" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="22">
+        <kp id="270" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="23">
+        <kp id="289" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="24">
+        <kp id="293" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="25">
+        <kp id="305" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="26">
+        <kp id="308" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="27">
+        <kp id="303" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="28">
+        <kp id="300" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="29">
+        <kp id="290" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="30">
+        <kp id="311" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="31">
+        <kp id="271" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="32">
+        <kp id="281" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="33">
+        <kp id="276" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="34">
+        <kp id="291" type="proxy"></kp>
+      </kp_state>
+      <kp_state index="35">
+        <kp id="278" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  <state_table type="lookup" fsm_name="u_fft/st" num_states="36" num_reference_cols="6" num_transformed_cols="36">
+    <state index="0" state_name="u_fft/st.IDLE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">0</value>
+      </transformed>
+    </state>
+    <state index="1" state_name="u_fft/st.S0_RD_TOP_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">1</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="2" state_name="u_fft/st.S0_RD_TOP_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">1</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="3" state_name="u_fft/st.S0_RD_BOT_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">1</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="4" state_name="u_fft/st.S0_RD_BOT_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">1</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="5" state_name="u_fft/st.S0_CALC">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">1</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="6" state_name="u_fft/st.S0_WR_TOP_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">1</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="7" state_name="u_fft/st.S0_WR_TOP_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">1</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="8" state_name="u_fft/st.S0_WR_BOT_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">1</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="9" state_name="u_fft/st.S0_WR_BOT_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">1</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="10" state_name="u_fft/st.S0_ADVANCE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">1</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="11" state_name="u_fft/st.S1_RD_TOP_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">1</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="12" state_name="u_fft/st.S1_RD_TOP_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">1</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="13" state_name="u_fft/st.S1_RD_BOT_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">1</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="14" state_name="u_fft/st.S1_RD_BOT_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">1</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="15" state_name="u_fft/st.S1_CALC">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">1</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="16" state_name="u_fft/st.S1_BUTTERFLY">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">1</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="17" state_name="u_fft/st.S1_WR_TOP_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">1</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="18" state_name="u_fft/st.S1_WR_TOP_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">1</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="19" state_name="u_fft/st.S1_WR_BOT_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">1</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="20" state_name="u_fft/st.S1_WR_BOT_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">1</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="21" state_name="u_fft/st.S2_RD_TOP_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">1</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="22" state_name="u_fft/st.S2_RD_TOP_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">1</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="23" state_name="u_fft/st.S2_RD_BOT_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">1</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="24" state_name="u_fft/st.S2_RD_BOT_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">1</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="25" state_name="u_fft/st.S2_CALC">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">1</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="26" state_name="u_fft/st.S2_BUTTERFLY">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">1</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="27" state_name="u_fft/st.S2_WR_TOP_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">1</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="28" state_name="u_fft/st.S2_WR_TOP_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">1</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="29" state_name="u_fft/st.S2_WR_BOT_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">1</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="30" state_name="u_fft/st.S2_WR_BOT_IM">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="31" state_name="u_fft/st.MAG_RD_RE">
+      <reference>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">1</value>
+        <value index="3">1</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="32" state_name="u_fft/st.MAG_RD_IM">
+      <reference>
+        <value index="0">1</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">1</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="33" state_name="u_fft/st.MAG_CALC">
+      <reference>
+        <value index="0">1</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">0</value>
+        <value index="2">1</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="34" state_name="u_fft/st.MAG_WR">
+      <reference>
+        <value index="0">1</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">0</value>
+      </reference>
+      <transformed>
+        <value index="0">0</value>
+        <value index="1">1</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+    <state index="35" state_name="u_fft/st.DONE1">
+      <reference>
+        <value index="0">1</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">1</value>
+        <value index="5">1</value>
+      </reference>
+      <transformed>
+        <value index="0">1</value>
+        <value index="1">0</value>
+        <value index="2">0</value>
+        <value index="3">0</value>
+        <value index="4">0</value>
+        <value index="5">0</value>
+        <value index="6">0</value>
+        <value index="7">0</value>
+        <value index="8">0</value>
+        <value index="9">0</value>
+        <value index="10">0</value>
+        <value index="11">0</value>
+        <value index="12">0</value>
+        <value index="13">0</value>
+        <value index="14">0</value>
+        <value index="15">0</value>
+        <value index="16">0</value>
+        <value index="17">0</value>
+        <value index="18">0</value>
+        <value index="19">0</value>
+        <value index="20">0</value>
+        <value index="21">0</value>
+        <value index="22">0</value>
+        <value index="23">0</value>
+        <value index="24">0</value>
+        <value index="25">0</value>
+        <value index="26">0</value>
+        <value index="27">0</value>
+        <value index="28">0</value>
+        <value index="29">0</value>
+        <value index="30">0</value>
+        <value index="31">0</value>
+        <value index="32">0</value>
+        <value index="33">0</value>
+        <value index="34">0</value>
+        <value index="35">1</value>
+      </transformed>
+    </state>
+  </state_table>
+</transformation>
   <transformation>
     <kp_set type="reference">
       <kp_state index="0">
@@ -4840,13 +5442,13 @@
     <kp_set type="reference">
       <kp_state index="0">
         <kp id="213" type="proxy"></kp>
+        <kp id="84" type="equiv"></kp>
+        <kp id="239" type="equiv"></kp>
+        <kp id="156" type="equiv"></kp>
         <kp id="223" type="equiv"></kp>
         <kp id="159" type="equiv"></kp>
         <kp id="162" type="equiv"></kp>
         <kp id="110" type="equiv"></kp>
-        <kp id="84" type="equiv"></kp>
-        <kp id="239" type="equiv"></kp>
-        <kp id="156" type="equiv"></kp>
       </kp_state>
     </kp_set>
     <kp_set type="transformed">
@@ -5228,14 +5830,14 @@
     <kp_set type="reference">
       <kp_state index="0">
         <kp id="36" type="proxy"></kp>
-        <kp id="182" type="equiv"></kp>
-        <kp id="51" type="equiv"></kp>
-        <kp id="207" type="equiv"></kp>
         <kp id="99" type="equiv"></kp>
         <kp id="222" type="equiv"></kp>
         <kp id="127" type="equiv"></kp>
         <kp id="208" type="equiv"></kp>
         <kp id="153" type="equiv"></kp>
+        <kp id="182" type="equiv"></kp>
+        <kp id="51" type="equiv"></kp>
+        <kp id="207" type="equiv"></kp>
       </kp_state>
     </kp_set>
     <kp_set type="transformed">
@@ -5560,6 +6162,18 @@
   <transformation>
     <kp_set type="reference">
       <kp_state index="0">
+        <kp id="256" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+    <kp_set type="transformed">
+      <kp_state index="0">
+        <kp id="359" type="proxy"></kp>
+      </kp_state>
+    </kp_set>
+  </transformation>
+  <transformation>
+    <kp_set type="reference">
+      <kp_state index="0">
         <kp id="286" type="proxy"></kp>
       </kp_state>
     </kp_set>
@@ -5602,18 +6216,6 @@
     <kp_set type="transformed">
       <kp_state index="0">
         <kp id="399" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="256" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="359" type="proxy"></kp>
       </kp_state>
     </kp_set>
   </transformation>
@@ -6480,608 +7082,6 @@
     <kp_set type="transformed">
       <kp_state index="0">
         <kp id="373" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="152" type="proxy"></kp>
-        <kp id="98" type="equiv"></kp>
-        <kp id="71" type="equiv"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="353" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="303" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="394" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="227" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="427" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="42" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="540" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="49" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="351" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="254" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="473" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="78" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="443" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="53" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="524" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="145" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="437" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="204" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="354" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="289" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="531" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="212" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="345" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="291" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="537" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="272" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="329" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="20" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="343" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="238" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="397" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="117" type="proxy"></kp>
-      </kp_state>
-      <kp_state index="1">
-        <kp id="147" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="273" type="proxy"></kp>
-      </kp_state>
-      <kp_state index="1">
-        <kp id="307" type="proxy"></kp>
-      </kp_state>
-      <kp_state index="2">
-        <kp id="302" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  <state_table type="lookup" fsm_name="u_in/st" num_states="3" num_reference_cols="2" num_transformed_cols="3">
-    <state index="0" state_name="u_in/st.IDLE">
-      <reference>
-        <value index="0">0</value>
-        <value index="1">0</value>
-      </reference>
-      <transformed>
-        <value index="0">0</value>
-        <value index="1">0</value>
-        <value index="2">0</value>
-      </transformed>
-    </state>
-    <state index="1" state_name="u_in/st.WRITE">
-      <reference>
-        <value index="0">0</value>
-        <value index="1">1</value>
-      </reference>
-      <transformed>
-        <value index="0">0</value>
-        <value index="1">1</value>
-        <value index="2">1</value>
-      </transformed>
-    </state>
-    <state index="2" state_name="u_in/st.WAIT_FFT">
-      <reference>
-        <value index="0">1</value>
-        <value index="1">0</value>
-      </reference>
-      <transformed>
-        <value index="0">1</value>
-        <value index="1">0</value>
-        <value index="2">1</value>
-      </transformed>
-    </state>
-  </state_table>
-</transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="116" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="390" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="294" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="466" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="163" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="336" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="203" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="347" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="168" type="proxy"></kp>
-        <kp id="201" type="equiv"></kp>
-        <kp id="195" type="equiv"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="396" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="52" type="proxy"></kp>
-        <kp id="4" type="equiv"></kp>
-        <kp id="28" type="equiv"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="474" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="54" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="421" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="295" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="327" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="268" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="318" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="129" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="468" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="68" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="525" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="246" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="386" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="288" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="550" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="202" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="438" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="169" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="331" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="194" type="proxy"></kp>
-        <kp id="228" type="equiv"></kp>
-        <kp id="165" type="equiv"></kp>
-        <kp id="76" type="equiv"></kp>
-        <kp id="139" type="equiv"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="407" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="225" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="363" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="72" type="proxy"></kp>
-      </kp_state>
-      <kp_state index="1">
-        <kp id="45" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="285" type="proxy"></kp>
-      </kp_state>
-      <kp_state index="1">
-        <kp id="272" type="proxy"></kp>
-      </kp_state>
-      <kp_state index="2">
-        <kp id="304" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  <state_table type="lookup" fsm_name="phase" num_states="3" num_reference_cols="2" num_transformed_cols="3">
-    <state index="0" state_name="phase.PH_IN">
-      <reference>
-        <value index="0">0</value>
-        <value index="1">0</value>
-      </reference>
-      <transformed>
-        <value index="0">0</value>
-        <value index="1">0</value>
-        <value index="2">0</value>
-      </transformed>
-    </state>
-    <state index="1" state_name="phase.PH_FFT">
-      <reference>
-        <value index="0">0</value>
-        <value index="1">1</value>
-      </reference>
-      <transformed>
-        <value index="0">0</value>
-        <value index="1">1</value>
-        <value index="2">1</value>
-      </transformed>
-    </state>
-    <state index="2" state_name="phase.PH_OUT">
-      <reference>
-        <value index="0">1</value>
-        <value index="1">0</value>
-      </reference>
-      <transformed>
-        <value index="0">1</value>
-        <value index="1">0</value>
-        <value index="2">1</value>
-      </transformed>
-    </state>
-  </state_table>
-</transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="115" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="546" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="259" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="558" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="271" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="378" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="242" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="400" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="210" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="533" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="56" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="449" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-  </transformation>
-  <transformation>
-    <kp_set type="reference">
-      <kp_state index="0">
-        <kp id="284" type="proxy"></kp>
-      </kp_state>
-    </kp_set>
-    <kp_set type="transformed">
-      <kp_state index="0">
-        <kp id="365" type="proxy"></kp>
       </kp_state>
     </kp_set>
   </transformation>

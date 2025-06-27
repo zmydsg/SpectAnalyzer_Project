@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for SpectAnalyzer_top
-Fri Jun 27 20:28:21 2025
+Sat Jun 28 05:59:35 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -490,7 +490,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Jun 27 20:28:21 2025
+    Info: Processing started: Sat Jun 28 05:59:34 2025
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
 Info: Started post-fitting delay annotation
 Info: Delay annotation completed successfully
@@ -595,7 +595,7 @@ Info: th for register "input_buffer:u_in|ram_addr[2]" (data pin = "rst_n", clock
         Info: Total interconnect delay = 1.565 ns ( 38.25 % )
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 231 megabytes
-    Info: Processing ended: Fri Jun 27 20:28:22 2025
+    Info: Processing ended: Sat Jun 28 05:59:35 2025
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

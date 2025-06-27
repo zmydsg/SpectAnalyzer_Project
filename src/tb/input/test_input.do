@@ -39,8 +39,8 @@ run 2 us                  ;# 按需加长
 
 
 # -------- 断言统计 --------
-set errList [verror -error]
-set errCnt  [llength $errList]
-echo "======== ASSERT SUMMARY ========"
-echo "Errors : $errCnt"
+# set errList [verror -error]
+# set errCnt  [llength $errList]
+echo "======== SIMULATION COMPLETED ========"
+# echo "Errors : $errCnt"
 

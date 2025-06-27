@@ -24,7 +24,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "SpectAnalyzer_top")
-  (DATE "06/27/2025 18:29:58")
+  (DATE "06/27/2025 20:28:23")
   (VENDOR "Altera")
   (PROGRAM "Quartus II")
   (VERSION "Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition")
@@ -153,7 +153,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[0\]\~16\\.lecomb)
+    (INSTANCE \\ram_din\[0\]\~16\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2050:2050:2050) (2050:2050:2050))
@@ -287,7 +287,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[1\]\~17\\.lecomb)
+    (INSTANCE \\ram_din\[1\]\~17\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (254:254:254) (254:254:254))
@@ -362,7 +362,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[2\]\~18\\.lecomb)
+    (INSTANCE \\ram_din\[2\]\~18\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2304:2304:2304) (2304:2304:2304))
@@ -437,7 +437,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[3\]\~19\\.lecomb)
+    (INSTANCE \\ram_din\[3\]\~19\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2202:2202:2202) (2202:2202:2202))
@@ -512,7 +512,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[4\]\~20\\.lecomb)
+    (INSTANCE \\ram_din\[4\]\~20\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (1304:1304:1304) (1304:1304:1304))
@@ -587,7 +587,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[5\]\~21\\.lecomb)
+    (INSTANCE \\ram_din\[5\]\~21\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2255:2255:2255) (2255:2255:2255))
@@ -662,7 +662,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[6\]\~22\\.lecomb)
+    (INSTANCE \\ram_din\[6\]\~22\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2002:2002:2002) (2002:2002:2002))
@@ -737,7 +737,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[7\]\~23\\.lecomb)
+    (INSTANCE \\ram_din\[7\]\~23\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2313:2313:2313) (2313:2313:2313))
@@ -812,7 +812,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[8\]\~24\\.lecomb)
+    (INSTANCE \\ram_din\[8\]\~24\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (1426:1426:1426) (1426:1426:1426))
@@ -887,7 +887,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[9\]\~25\\.lecomb)
+    (INSTANCE \\ram_din\[9\]\~25\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (254:254:254) (254:254:254))
@@ -962,7 +962,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[10\]\~26\\.lecomb)
+    (INSTANCE \\ram_din\[10\]\~26\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (1151:1151:1151) (1151:1151:1151))
@@ -1037,7 +1037,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[11\]\~27\\.lecomb)
+    (INSTANCE \\ram_din\[11\]\~27\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (1307:1307:1307) (1307:1307:1307))
@@ -1112,7 +1112,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[12\]\~28\\.lecomb)
+    (INSTANCE \\ram_din\[12\]\~28\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2108:2108:2108) (2108:2108:2108))
@@ -1187,7 +1187,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[13\]\~29\\.lecomb)
+    (INSTANCE \\ram_din\[13\]\~29\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (1263:1263:1263) (1263:1263:1263))
@@ -1262,7 +1262,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[14\]\~30\\.lecomb)
+    (INSTANCE \\ram_din\[14\]\~30\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (1308:1308:1308) (1308:1308:1308))
@@ -1337,7 +1337,7 @@
   )
   (CELL
     (CELLTYPE "apex20ke_asynch_lcell")
-    (INSTANCE \\ram_dout\[15\]\~31\\.lecomb)
+    (INSTANCE \\ram_din\[15\]\~31\\.lecomb)
     (DELAY
       (ABSOLUTE
         (PORT dataa (2296:2296:2296) (2296:2296:2296))

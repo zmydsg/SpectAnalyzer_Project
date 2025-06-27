@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II"
 -- VERSION "Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition"
 
--- DATE "06/27/2025 18:29:58"
+-- DATE "06/27/2025 20:28:23"
 
 -- 
 -- Device: Altera EP20K200EFC672-1 Package FBGA672
@@ -108,23 +108,23 @@ SIGNAL \ram_inst|mem_rtl_0|segment[0][14]_modesel\ : std_logic_vector(17 DOWNTO 
 SIGNAL \ram_inst|mem_rtl_0|segment[0][15]_modesel\ : std_logic_vector(17 DOWNTO 0) := "010100000100000101";
 SIGNAL \u_in|st~25_combout\ : std_logic;
 SIGNAL \u_in|st~26_combout\ : std_logic;
-SIGNAL \ram_dout[0]~16_combout\ : std_logic;
+SIGNAL \ram_din[0]~16_combout\ : std_logic;
 SIGNAL \u_fft|ram_we~regout\ : std_logic;
-SIGNAL \ram_dout[1]~17_combout\ : std_logic;
-SIGNAL \ram_dout[2]~18_combout\ : std_logic;
-SIGNAL \ram_dout[3]~19_combout\ : std_logic;
-SIGNAL \ram_dout[4]~20_combout\ : std_logic;
-SIGNAL \ram_dout[5]~21_combout\ : std_logic;
-SIGNAL \ram_dout[6]~22_combout\ : std_logic;
-SIGNAL \ram_dout[7]~23_combout\ : std_logic;
-SIGNAL \ram_dout[8]~24_combout\ : std_logic;
-SIGNAL \ram_dout[9]~25_combout\ : std_logic;
-SIGNAL \ram_dout[10]~26_combout\ : std_logic;
-SIGNAL \ram_dout[11]~27_combout\ : std_logic;
-SIGNAL \ram_dout[12]~28_combout\ : std_logic;
-SIGNAL \ram_dout[13]~29_combout\ : std_logic;
-SIGNAL \ram_dout[14]~30_combout\ : std_logic;
-SIGNAL \ram_dout[15]~31_combout\ : std_logic;
+SIGNAL \ram_din[1]~17_combout\ : std_logic;
+SIGNAL \ram_din[2]~18_combout\ : std_logic;
+SIGNAL \ram_din[3]~19_combout\ : std_logic;
+SIGNAL \ram_din[4]~20_combout\ : std_logic;
+SIGNAL \ram_din[5]~21_combout\ : std_logic;
+SIGNAL \ram_din[6]~22_combout\ : std_logic;
+SIGNAL \ram_din[7]~23_combout\ : std_logic;
+SIGNAL \ram_din[8]~24_combout\ : std_logic;
+SIGNAL \ram_din[9]~25_combout\ : std_logic;
+SIGNAL \ram_din[10]~26_combout\ : std_logic;
+SIGNAL \ram_din[11]~27_combout\ : std_logic;
+SIGNAL \ram_din[12]~28_combout\ : std_logic;
+SIGNAL \ram_din[13]~29_combout\ : std_logic;
+SIGNAL \ram_din[14]~30_combout\ : std_logic;
+SIGNAL \ram_din[15]~31_combout\ : std_logic;
 SIGNAL \u_fft|dn_re[0]~0\ : std_logic;
 SIGNAL \u_fft|WideOr53~combout\ : std_logic;
 SIGNAL \u_fft|WideOr51~combout\ : std_logic;
@@ -2480,16 +2480,48 @@ SIGNAL \ram_inst|mem_rtl_0|segment[0][13]~dataout\ : std_logic;
 SIGNAL \ram_inst|mem_rtl_0|segment[0][14]~dataout\ : std_logic;
 SIGNAL \ram_inst|mem_rtl_0|segment[0][15]~dataout\ : std_logic;
 SIGNAL \u_out|dout_valid~regout\ : std_logic;
-SIGNAL \u_out|idx\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \u_fft|Mult4|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult1|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult0|auto_generated|le6a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult2|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u_fft|Mult2|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult2|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|a_im\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|a_re\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|b_im\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|b_re\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|bot_cpx\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \u_fft|dn_im\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|dn_re\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|mag_idx\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \u_fft|pair_idx\ : std_logic_vector(1 DOWNTO 0);
+SIGNAL \u_fft|ram_addr\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \u_fft|ram_dout\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u_fft|top_cpx\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \u_fft|up_im\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|up_re\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \u_fft|w_im\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u_fft|w_re\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \u_in|wr_ptr\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \u_fft|Mult4|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \u_fft|Mult4|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult4|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult1|auto_generated|le6a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult1|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult0|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u_fft|Mult3|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u_fft|Mult3|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult3|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult3|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult3|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult2|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult5|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u_fft|Mult5|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult5|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_fft|Mult5|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult5|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
+SIGNAL \u_out|dout_reg\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u_out|idx\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \u_in|ram_dout\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \u_fft|Mult4|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult4|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
@@ -2524,44 +2556,12 @@ SIGNAL \u_fft|Mult2|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \u_fft|Mult2|auto_generated|le10a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult2|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult5|auto_generated|le10a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|a_im\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|a_re\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|b_im\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|b_re\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|bot_cpx\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \u_fft|dn_im\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|dn_re\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|mag_idx\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \u_fft|pair_idx\ : std_logic_vector(1 DOWNTO 0);
-SIGNAL \u_fft|ram_addr\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \u_fft|ram_dout\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u_fft|top_cpx\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \u_fft|up_im\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|up_re\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \u_fft|w_im\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u_fft|w_re\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \u_fft|Mult4|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult4|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult4|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult1|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult0|auto_generated|le4a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult0|auto_generated|le6a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult0|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult3|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult2|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult2|auto_generated|le5a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|Mult2|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult2|auto_generated|le9a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_out|dout_reg\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u_fft|Mult4|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult4|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult1|auto_generated|le8a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult3|auto_generated|cs2a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult3|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult3|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult5|auto_generated|cs1a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u_fft|Mult5|auto_generated|le3a\ : std_logic_vector(16 DOWNTO 0);
-SIGNAL \u_fft|Mult5|auto_generated|le7a\ : std_logic_vector(16 DOWNTO 0);
 SIGNAL \u_fft|ALT_INV_Selector64~3_combout\ : std_logic;
 SIGNAL \u_fft|ALT_INV_Selector63~3_combout\ : std_logic;
 SIGNAL \ALT_INV_rst_n~combout\ : std_logic;
@@ -2747,9 +2747,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(0));
 
-\ram_dout[0]~16\ : apex20ke_lcell
+\ram_din[0]~16\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[0]~16_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(0) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(0))
+-- \ram_din[0]~16_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(0) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(0))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2765,7 +2765,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(0),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[0]~16_combout\);
+	combout => \ram_din[0]~16_combout\);
 
 \u_fft|ram_we\ : apex20ke_lcell
 -- Equation(s):
@@ -2849,9 +2849,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(1));
 
-\ram_dout[1]~17\ : apex20ke_lcell
+\ram_din[1]~17\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[1]~17_combout\ = \phase.PH_IN~regout\ & (\phase.PH_FFT~regout\ & \u_fft|ram_dout\(1)) # !\phase.PH_IN~regout\ & \u_in|ram_dout\(1)
+-- \ram_din[1]~17_combout\ = \phase.PH_IN~regout\ & (\phase.PH_FFT~regout\ & \u_fft|ram_dout\(1)) # !\phase.PH_IN~regout\ & \u_in|ram_dout\(1)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2867,7 +2867,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(1),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[1]~17_combout\);
+	combout => \ram_din[1]~17_combout\);
 
 \u_fft|ram_dout[2]\ : apex20ke_lcell
 -- Equation(s):
@@ -2910,9 +2910,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(2));
 
-\ram_dout[2]~18\ : apex20ke_lcell
+\ram_din[2]~18\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[2]~18_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(2)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(2))
+-- \ram_din[2]~18_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(2)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(2))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2928,7 +2928,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(2),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[2]~18_combout\);
+	combout => \ram_din[2]~18_combout\);
 
 \u_fft|ram_dout[3]\ : apex20ke_lcell
 -- Equation(s):
@@ -2971,9 +2971,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(3));
 
-\ram_dout[3]~19\ : apex20ke_lcell
+\ram_din[3]~19\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[3]~19_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(3) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(3))
+-- \ram_din[3]~19_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(3) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(3))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2989,7 +2989,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(3),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[3]~19_combout\);
+	combout => \ram_din[3]~19_combout\);
 
 \u_fft|ram_dout[4]\ : apex20ke_lcell
 -- Equation(s):
@@ -3032,9 +3032,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(4));
 
-\ram_dout[4]~20\ : apex20ke_lcell
+\ram_din[4]~20\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[4]~20_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(4)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(4))
+-- \ram_din[4]~20_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(4)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(4))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3050,7 +3050,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(4),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[4]~20_combout\);
+	combout => \ram_din[4]~20_combout\);
 
 \u_fft|ram_dout[5]\ : apex20ke_lcell
 -- Equation(s):
@@ -3093,9 +3093,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(5));
 
-\ram_dout[5]~21\ : apex20ke_lcell
+\ram_din[5]~21\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[5]~21_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(5) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(5))
+-- \ram_din[5]~21_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(5) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(5))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3111,7 +3111,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(5),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[5]~21_combout\);
+	combout => \ram_din[5]~21_combout\);
 
 \u_fft|ram_dout[6]\ : apex20ke_lcell
 -- Equation(s):
@@ -3154,9 +3154,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(6));
 
-\ram_dout[6]~22\ : apex20ke_lcell
+\ram_din[6]~22\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[6]~22_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(6) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(6))
+-- \ram_din[6]~22_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(6) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(6))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3172,7 +3172,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(6),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[6]~22_combout\);
+	combout => \ram_din[6]~22_combout\);
 
 \u_fft|ram_dout[7]\ : apex20ke_lcell
 -- Equation(s):
@@ -3215,9 +3215,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(7));
 
-\ram_dout[7]~23\ : apex20ke_lcell
+\ram_din[7]~23\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[7]~23_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & \u_fft|ram_dout\(7) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(7))
+-- \ram_din[7]~23_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & \u_fft|ram_dout\(7) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(7))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3233,7 +3233,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(7),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[7]~23_combout\);
+	combout => \ram_din[7]~23_combout\);
 
 \u_fft|ram_dout[8]\ : apex20ke_lcell
 -- Equation(s):
@@ -3276,9 +3276,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(8));
 
-\ram_dout[8]~24\ : apex20ke_lcell
+\ram_din[8]~24\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[8]~24_combout\ = \phase.PH_IN~regout\ & (\u_fft|ram_dout\(8) & \phase.PH_FFT~regout\) # !\phase.PH_IN~regout\ & \u_in|ram_dout\(8)
+-- \ram_din[8]~24_combout\ = \phase.PH_IN~regout\ & (\u_fft|ram_dout\(8) & \phase.PH_FFT~regout\) # !\phase.PH_IN~regout\ & \u_in|ram_dout\(8)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3294,7 +3294,7 @@ PORT MAP (
 	datad => \phase.PH_FFT~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[8]~24_combout\);
+	combout => \ram_din[8]~24_combout\);
 
 \u_fft|ram_dout[9]\ : apex20ke_lcell
 -- Equation(s):
@@ -3337,9 +3337,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(9));
 
-\ram_dout[9]~25\ : apex20ke_lcell
+\ram_din[9]~25\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[9]~25_combout\ = \phase.PH_IN~regout\ & (\phase.PH_FFT~regout\ & \u_fft|ram_dout\(9)) # !\phase.PH_IN~regout\ & \u_in|ram_dout\(9)
+-- \ram_din[9]~25_combout\ = \phase.PH_IN~regout\ & (\phase.PH_FFT~regout\ & \u_fft|ram_dout\(9)) # !\phase.PH_IN~regout\ & \u_in|ram_dout\(9)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3355,7 +3355,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(9),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[9]~25_combout\);
+	combout => \ram_din[9]~25_combout\);
 
 \u_fft|ram_dout[10]\ : apex20ke_lcell
 -- Equation(s):
@@ -3398,9 +3398,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(10));
 
-\ram_dout[10]~26\ : apex20ke_lcell
+\ram_din[10]~26\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[10]~26_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(10) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(10))
+-- \ram_din[10]~26_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(10) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(10))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3416,7 +3416,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(10),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[10]~26_combout\);
+	combout => \ram_din[10]~26_combout\);
 
 \u_fft|ram_dout[11]\ : apex20ke_lcell
 -- Equation(s):
@@ -3459,9 +3459,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(11));
 
-\ram_dout[11]~27\ : apex20ke_lcell
+\ram_din[11]~27\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[11]~27_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(11)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(11))
+-- \ram_din[11]~27_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(11)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(11))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3477,7 +3477,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(11),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[11]~27_combout\);
+	combout => \ram_din[11]~27_combout\);
 
 \u_fft|ram_dout[12]\ : apex20ke_lcell
 -- Equation(s):
@@ -3520,9 +3520,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(12));
 
-\ram_dout[12]~28\ : apex20ke_lcell
+\ram_din[12]~28\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[12]~28_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(12) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(12))
+-- \ram_din[12]~28_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(12) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(12))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3538,7 +3538,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(12),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[12]~28_combout\);
+	combout => \ram_din[12]~28_combout\);
 
 \u_fft|ram_dout[13]\ : apex20ke_lcell
 -- Equation(s):
@@ -3581,9 +3581,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(13));
 
-\ram_dout[13]~29\ : apex20ke_lcell
+\ram_din[13]~29\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[13]~29_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(13)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(13))
+-- \ram_din[13]~29_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(13)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(13))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3599,7 +3599,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(13),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[13]~29_combout\);
+	combout => \ram_din[13]~29_combout\);
 
 \u_fft|ram_dout[14]\ : apex20ke_lcell
 -- Equation(s):
@@ -3642,9 +3642,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(14));
 
-\ram_dout[14]~30\ : apex20ke_lcell
+\ram_din[14]~30\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[14]~30_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(14)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(14))
+-- \ram_din[14]~30_combout\ = \phase.PH_IN~regout\ & \phase.PH_FFT~regout\ & (\u_fft|ram_dout\(14)) # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(14))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3660,7 +3660,7 @@ PORT MAP (
 	datad => \u_fft|ram_dout\(14),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[14]~30_combout\);
+	combout => \ram_din[14]~30_combout\);
 
 \u_fft|ram_dout[15]\ : apex20ke_lcell
 -- Equation(s):
@@ -3703,9 +3703,9 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \u_in|ram_dout\(15));
 
-\ram_dout[15]~31\ : apex20ke_lcell
+\ram_din[15]~31\ : apex20ke_lcell
 -- Equation(s):
--- \ram_dout[15]~31_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(15) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(15))
+-- \ram_din[15]~31_combout\ = \phase.PH_IN~regout\ & \u_fft|ram_dout\(15) & \phase.PH_FFT~regout\ # !\phase.PH_IN~regout\ & (\u_in|ram_dout\(15))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3721,7 +3721,7 @@ PORT MAP (
 	datad => \u_in|ram_dout\(15),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \ram_dout[15]~31_combout\);
+	combout => \ram_din[15]~31_combout\);
 
 \u_fft|up_re[0]\ : apex20ke_lcell
 -- Equation(s):
@@ -50815,7 +50815,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[0]~16_combout\,
+	datain => \ram_din[0]~16_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -50873,7 +50873,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[1]~17_combout\,
+	datain => \ram_din[1]~17_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -50931,7 +50931,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[2]~18_combout\,
+	datain => \ram_din[2]~18_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -50989,7 +50989,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[3]~19_combout\,
+	datain => \ram_din[3]~19_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51047,7 +51047,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[4]~20_combout\,
+	datain => \ram_din[4]~20_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51105,7 +51105,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[5]~21_combout\,
+	datain => \ram_din[5]~21_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51163,7 +51163,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[6]~22_combout\,
+	datain => \ram_din[6]~22_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51221,7 +51221,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[7]~23_combout\,
+	datain => \ram_din[7]~23_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51279,7 +51279,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[8]~24_combout\,
+	datain => \ram_din[8]~24_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51337,7 +51337,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[9]~25_combout\,
+	datain => \ram_din[9]~25_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51395,7 +51395,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[10]~26_combout\,
+	datain => \ram_din[10]~26_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51453,7 +51453,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[11]~27_combout\,
+	datain => \ram_din[11]~27_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51511,7 +51511,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[12]~28_combout\,
+	datain => \ram_din[12]~28_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51569,7 +51569,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[13]~29_combout\,
+	datain => \ram_din[13]~29_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51627,7 +51627,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[14]~30_combout\,
+	datain => \ram_din[14]~30_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,
@@ -51685,7 +51685,7 @@ GENERIC MAP (
 	write_logic_clock => "clock0")
 -- pragma translate_on
 PORT MAP (
-	datain => \ram_dout[15]~31_combout\,
+	datain => \ram_din[15]~31_combout\,
 	clk0 => \clk~combout\,
 	clk1 => \clk~combout\,
 	we => \ram_we~4_combout\,

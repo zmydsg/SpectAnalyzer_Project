@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 use work.spect_pkg.all;
 
 --------------------------------------------------------------------
--- ¶¥²ãÊµÌå£º¸ù¾İÊµ¼Ê°å¿¨ IO ×ÔĞĞÔöÉ¾¶Ë¿Ú
+-- ï¿½ï¿½ï¿½ï¿½Êµï¿½å£ºï¿½ï¿½ï¿½ï¿½Êµï¿½Ê°å¿¨ IO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½Ë¿ï¿½
 --------------------------------------------------------------------
 entity SpectAnalyzer_top is
     port (
@@ -21,47 +21,48 @@ entity SpectAnalyzer_top is
 end entity;
 
 --------------------------------------------------------------------
+-- ä¿®æ­£ä¿¡å·åç§°å’Œè¿æ¥é€»è¾‘
 architecture rtl of SpectAnalyzer_top is
 --------------------------------------------------------------------
     ----------------------------------------------------------------
-    -- 1) ¸÷½×¶Î¡°Ë½ÓĞ¡± RAM ĞÅºÅ
+    -- 1) ï¿½ï¿½ï¿½×¶Î¡ï¿½Ë½ï¿½Ğ¡ï¿½ RAM ï¿½Åºï¿½
     ----------------------------------------------------------------
-    -- INPUT Ğ´½×¶Î
+    -- INPUT Ğ´ï¿½×¶ï¿½
     signal ram_addr_in  : addr_t;
     signal ram_dout_in  : signed(DATA_WIDTH-1 downto 0);
     signal ram_we_in    : std_logic;
 
-    -- FFT ¼ÆËã½×¶Î
+    -- FFT ï¿½ï¿½ï¿½ï¿½×¶ï¿½
     signal ram_addr_fft : addr_t;
     signal ram_dout_fft : signed(DATA_WIDTH-1 downto 0);
     signal ram_we_fft   : std_logic;
 
-    -- OUTPUT ¶Á½×¶Î£¨Ö»¶ÁµØÖ·£©
+    -- OUTPUT ï¿½ï¿½ï¿½×¶Î£ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½
     signal ram_addr_out : addr_t;
 
     ----------------------------------------------------------------
-    -- 2) ¹«¹² RAM ×ÜÏß
+    -- 2) ï¿½ï¿½ï¿½ï¿½ RAM ï¿½ï¿½ï¿½ï¿½
     ----------------------------------------------------------------
     signal ram_addr  : addr_t;
     signal ram_dout  : signed(DATA_WIDTH-1 downto 0);
     signal ram_we    : std_logic;
-    signal ram_din   : signed(DATA_WIDTH-1 downto 0);      -- RAM ¶ÁÊı¾İ
+    signal ram_din   : signed(DATA_WIDTH-1 downto 0);      -- RAM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     ----------------------------------------------------------------
-    -- 3) Ä£¿é¼äÎÕÊÖ
+    -- 3) Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     ----------------------------------------------------------------
-    signal start_sig  : std_logic;  -- input_buffer ¡ú FFT
-    signal done_sig   : std_logic;  -- FFT ¡ú input/output
-    signal done_out   : std_logic;  -- output_buffer ¡ú phase FSM
+    signal start_sig  : std_logic;  -- input_buffer ï¿½ï¿½ FFT
+    signal done_sig   : std_logic;  -- FFT ï¿½ï¿½ input/output
+    signal done_out   : std_logic;  -- output_buffer ï¿½ï¿½ phase FSM
 
     ----------------------------------------------------------------
-    -- 4) ÏàÎ» FSM£¨PH_IN¡úPH_FFT¡úPH_OUT£©
+    -- 4) ï¿½ï¿½Î» FSMï¿½ï¿½PH_INï¿½ï¿½PH_FFTï¿½ï¿½PH_OUTï¿½ï¿½
     ----------------------------------------------------------------
     type phase_t is (PH_IN, PH_FFT, PH_OUT);
     signal phase : phase_t := PH_IN;
 begin
     --------------------------------------------------------------
-    -- 4-1 ÏàÎ»ÇĞ»»
+    -- 4-1 ï¿½ï¿½Î»ï¿½Ğ»ï¿½
     --------------------------------------------------------------
     process(clk, rst_n)
     begin
@@ -86,34 +87,38 @@ begin
     end process;
 
     --------------------------------------------------------------
-    -- 4-2 ×ÜÏßÈıÑ¡Ò» MUX
+    -- 4-2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡Ò» MUX
     --------------------------------------------------------------
     ram_addr <= ram_addr_in  when phase = PH_IN  else
                 ram_addr_fft when phase = PH_FFT else
-                ram_addr_out;                     -- ¶Á½×¶Î
+                ram_addr_out;                     -- ï¿½ï¿½ï¿½×¶ï¿½
 
+    -- ä¿®æ­£ï¼šRAMå†™å…¥æ•°æ®ä¿¡å·
+    signal ram_din_mux : signed(DATA_WIDTH-1 downto 0);
+    
+begin
     ram_dout <= ram_dout_in  when phase = PH_IN  else
                 ram_dout_fft when phase = PH_FFT else
-                (others => '0');                  -- ¶Á½×¶Î²»Ğ´
+                (others => '0');                  -- ï¿½ï¿½ï¿½×¶Î²ï¿½Ğ´
 
     ram_we   <= ram_we_in    when phase = PH_IN  else
                 ram_we_fft   when phase = PH_FFT else
                 '0';
 
     --------------------------------------------------------------
-    -- 5) µ¥¶Ë¿ÚÍ¬²½ RAM£¨ÍÆ¶Ï»ò×Ô¼ºÌæ»» IP£©
+    -- 5) ä¿®æ­£RAMå®ä¾‹åŒ–
     --------------------------------------------------------------
     ram_inst : entity work.ram_sp
         port map (
             clk  => clk,
             addr => ram_addr,
-            din  => ram_dout,
+            din  => ram_din_mux,  -- ä¿®æ­£ï¼šä½¿ç”¨æ­£ç¡®çš„å†™å…¥ä¿¡å·
             we   => ram_we,
-            dout => ram_din
+            dout => ram_din       -- ä¿®æ­£ï¼šè¿™æ˜¯RAMçš„è¯»å‡ºæ•°æ®
         );
 
     --------------------------------------------------------------
-    -- 6) INPUT »º³å
+    -- 6) INPUT ï¿½ï¿½ï¿½ï¿½
     --------------------------------------------------------------
     u_in : entity work.input_buffer
         port map (
@@ -154,12 +159,12 @@ begin
         port map (
             clk        => clk,
             rst_n      => rst_n,
-            start_in   => done_sig,   -- ¿ªÊ¼Êä³ö
-            done_out   => done_out,   -- Í¨ÖªÏàÎ» FSM
+            start_in   => done_sig,   -- ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½
+            done_out   => done_out,   -- Í¨Öªï¿½ï¿½Î» FSM
 
             ram_addr   => ram_addr_out,
             ram_din    => ram_din,
-            ram_we     => open,       -- Ö»¶Á
+            ram_we     => open,       -- Ö»ï¿½ï¿½
 
             dout       => dout,
             dout_valid => dout_valid

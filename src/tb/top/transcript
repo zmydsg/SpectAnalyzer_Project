@@ -1,8 +1,7 @@
-# after#631
-view wave
-# .main_pane.mdi.interior.cs.vm.paneset.cli_4.wf.clip.cs.pw.wf
-do fft_run.do
-# Modifying G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/fft/FFT_IntTest.mpf
+# after#32276
+do test_output.do
+# G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/
+# G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/output
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
 # -- Loading package standard
 # -- Loading package std_logic_1164
@@ -24,30 +23,24 @@ do fft_run.do
 # -- Loading package numeric_std
 # -- Loading package spect_pkg0
 # -- Loading package spect_pkg
-# -- Compiling entity mag_sqr_fft
-# -- Compiling architecture rtl of mag_sqr_fft
+# -- Compiling entity output_buffer
+# -- Compiling architecture rtl of output_buffer
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
 # -- Loading package spect_pkg0
 # -- Loading package spect_pkg
-# -- Compiling entity tb_mag_sqr_fft_int
-# -- Compiling architecture tb of tb_mag_sqr_fft_int
-# -- Loading entity mag_sqr_fft
-# vsim -novopt work.tb_mag_sqr_fft_int 
+# -- Compiling entity tb_output_buffer
+# -- Compiling architecture sim of tb_output_buffer
+# -- Loading entity output_buffer
+# vsim -voptargs=\"+acc\" work.tb_output_buffer 
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.spect_pkg0(body)
 # Loading work.spect_pkg(body)
-# Loading work.tb_mag_sqr_fft_int(tb)
-# Loading work.mag_sqr_fft(rtl)
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb_mag_sqr_fft_int
-# ** Note: >>>> SIMULATION COMPLETE <<<<
-#    Time: 1085 ns  Iteration: 1  Instance: /tb_mag_sqr_fft_int
-#  0:   7513      0 -16284      0  29832 -17374  -8111      0 -20283  17374
-# 10:  -8183      0  -8183      0      1      0 
-# ===== fft_run.do finished ===== 
-quit -sim
+# Loading work.tb_output_buffer(sim)
+# Loading work.output_buffer(rtl)
+# ** Note: Simulation reached observation point; manual stop when done.
+#    Time: 610 ns  Iteration: 0  Instance: /tb_output_buffer

@@ -74,4 +74,19 @@
 # -- Loading entity mag_sqr_fft
 # -- Loading entity output_buffer
 # 
-# Loading project test-input
+cd ..
+dir
+#  q®h G -Ñw/ —Î
+#  wÑè˜/ 50BF-3846
+# 
+#  G:\DSD\EXPERIMENTS\SpectAnalyzer_Project\simulation ÑÓU
+# 
+# 2025/06/21  18:50    <DIR>          .
+# 2025/06/27  18:29    <DIR>          ..
+# 2025/06/27  18:30    <DIR>          modelsim
+#                0 *áˆ              0 WÇ
+#                3 *ÓU 598,869,540,864 Ô(WÇ
+cd .
+pwd
+# G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/simulation
+# Loading project test_output

@@ -1468,106 +1468,6 @@ ram_sp:ram_inst
 
 # end
 # entity
-input_buffer
-# storage
-db|SpectAnalyzer_top.(2).cnf
-db|SpectAnalyzer_top.(2).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-src|input_buffer.vhd
-bd10696b75b57e46e5165e6f0a6d38
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(din)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(ram_addr)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(ram_dout)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-src|spect_pkg0.vhd
-6381bd7b431984d601c9b80fa42e35a
-src|spect_pkg.vhd
-ae6e5cc7c0421d5a142e12aef72d8411
-}
-# hierarchies {
-input_buffer:u_in
-}
-# lmf
-..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
-SpectAnalyzer_top
-# storage
-db|SpectAnalyzer_top.(0).cnf
-db|SpectAnalyzer_top.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-src|SpectAnalyzer_top.vhd
-c6b9f28e2634cead8394c4a8e4f7b4
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-src|spect_pkg0.vhd
-6381bd7b431984d601c9b80fa42e35a
-src|mag_sqr_fft.vhd
-56c9b9572f8dde747b90a6bc5eaed9
-src|input_buffer.vhd
-bd10696b75b57e46e5165e6f0a6d38
-src|spect_pkg.vhd
-ae6e5cc7c0421d5a142e12aef72d8411
-src|ram_sp.vhd
-8bbc55850c78beafbf22c637347d8dd
-src|output_buffer.vhd
-bb894a9cb8d2ad65109d4030812760f7
-}
-# hierarchies {
-|
-}
-# lmf
-..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
 mag_sqr_fft
 # storage
 db|SpectAnalyzer_top.(3).cnf
@@ -1621,67 +1521,6 @@ ae6e5cc7c0421d5a142e12aef72d8411
 }
 # hierarchies {
 mag_sqr_fft:u_fft
-}
-# lmf
-..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
-output_buffer
-# storage
-db|SpectAnalyzer_top.(4).cnf
-db|SpectAnalyzer_top.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-src|output_buffer.vhd
-bb894a9cb8d2ad65109d4030812760f7
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-width
-16
-PARAMETER_SIGNED_DEC
-USR
-n
-8
-PARAMETER_SIGNED_DEC
-USR
- constraint(ram_addr)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(ram_din)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dout)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-src|spect_pkg0.vhd
-6381bd7b431984d601c9b80fa42e35a
-src|spect_pkg.vhd
-ae6e5cc7c0421d5a142e12aef72d8411
-}
-# hierarchies {
-output_buffer:u_out
 }
 # lmf
 ..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
@@ -2517,6 +2356,167 @@ dataa0
 ..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|libraries|megafunctions|aglobal90.inc
 99832fdf63412df51d7531202d74e75
 }
+# macro_sequence
+
+# end
+# entity
+SpectAnalyzer_top
+# storage
+db|SpectAnalyzer_top.(0).cnf
+db|SpectAnalyzer_top.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+src|SpectAnalyzer_top.vhd
+c6b9f28e2634cead8394c4a8e4f7b4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# include_file {
+src|input_buffer.vhd
+8dbffb8e2f92189094f559458e88
+src|spect_pkg.vhd
+ae6e5cc7c0421d5a142e12aef72d8411
+src|spect_pkg0.vhd
+6381bd7b431984d601c9b80fa42e35a
+src|output_buffer.vhd
+bf276f88c58b5e313e1c22b7ec8e58f
+src|mag_sqr_fft.vhd
+56c9b9572f8dde747b90a6bc5eaed9
+src|ram_sp.vhd
+8bbc55850c78beafbf22c637347d8dd
+}
+# hierarchies {
+|
+}
+# lmf
+..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+input_buffer
+# storage
+db|SpectAnalyzer_top.(2).cnf
+db|SpectAnalyzer_top.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+src|input_buffer.vhd
+8dbffb8e2f92189094f559458e88
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(din)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_addr)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_dout)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+src|spect_pkg.vhd
+ae6e5cc7c0421d5a142e12aef72d8411
+src|spect_pkg0.vhd
+6381bd7b431984d601c9b80fa42e35a
+}
+# hierarchies {
+input_buffer:u_in
+}
+# lmf
+..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+output_buffer
+# storage
+db|SpectAnalyzer_top.(4).cnf
+db|SpectAnalyzer_top.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+src|output_buffer.vhd
+bf276f88c58b5e313e1c22b7ec8e58f
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+width
+16
+PARAMETER_SIGNED_DEC
+USR
+n
+8
+PARAMETER_SIGNED_DEC
+USR
+ constraint(ram_addr)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_din)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dout)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+src|spect_pkg.vhd
+ae6e5cc7c0421d5a142e12aef72d8411
+src|spect_pkg0.vhd
+6381bd7b431984d601c9b80fa42e35a
+}
+# hierarchies {
+output_buffer:u_out
+}
+# lmf
+..|..|portableapps|quartus90sp2portable|app|quartus|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
 # macro_sequence
 
 # end

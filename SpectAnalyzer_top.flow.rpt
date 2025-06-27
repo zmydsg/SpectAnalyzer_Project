@@ -1,5 +1,5 @@
 Flow report for SpectAnalyzer_top
-Fri Jun 27 16:44:35 2025
+Fri Jun 27 18:29:59 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Flow Summary                                                           ;
 +-------------------------+----------------------------------------------+
-; Flow Status             ; Successful - Fri Jun 27 16:44:35 2025        ;
+; Flow Status             ; Successful - Fri Jun 27 18:29:59 2025        ;
 ; Quartus II Version      ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name           ; SpectAnalyzer_top                            ;
 ; Top-level Entity Name   ; SpectAnalyzer_top                            ;
@@ -46,7 +46,7 @@ applicable agreement for further details.
 ; Device                  ; EP20K200EFC672-1                             ;
 ; Timing Models           ; Final                                        ;
 ; Met timing requirements ; Yes                                          ;
-; Total logic elements    ; 2,284 / 8,320 ( 27 % )                       ;
+; Total logic elements    ; 2,302 / 8,320 ( 28 % )                       ;
 ; Total pins              ; 37 / 376 ( 10 % )                            ;
 ; Total virtual pins      ; 0                                            ;
 ; Total memory bits       ; 256 / 106,496 ( < 1 % )                      ;
@@ -59,7 +59,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/27/2025 16:44:15 ;
+; Start date & time ; 06/27/2025 18:29:37 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SpectAnalyzer_top   ;
 +-------------------+---------------------+
@@ -70,7 +70,7 @@ applicable agreement for further details.
 +------------------------------------+----------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                          ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+----------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 176156949473963.175101385526964                                ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 176156949473963.175102017741348                                ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT             ; Vhdl                                                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                ; ModelSim-Altera (VHDL)                                         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                                             ; --            ; --          ; --             ;
@@ -85,12 +85,12 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 255 MB              ; 00:00:01                           ;
-; Fitter                  ; 00:00:13     ; 1.0                     ; 276 MB              ; 00:00:05                           ;
-; Assembler               ; 00:00:00     ; 1.0                     ; 239 MB              ; 00:00:00                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 218 MB              ; 00:00:00                           ;
-; EDA Netlist Writer      ; 00:00:00     ; 1.0                     ; 168 MB              ; 00:00:00                           ;
-; Total                   ; 00:00:17     ; --                      ; --                  ; 00:00:06                           ;
+; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 256 MB              ; 00:00:01                           ;
+; Fitter                  ; 00:00:13     ; 1.0                     ; 277 MB              ; 00:00:05                           ;
+; Assembler               ; 00:00:01     ; 1.0                     ; 239 MB              ; 00:00:00                           ;
+; Classic Timing Analyzer ; 00:00:00     ; 1.0                     ; 218 MB              ; 00:00:00                           ;
+; EDA Netlist Writer      ; 00:00:01     ; 1.0                     ; 168 MB              ; 00:00:00                           ;
+; Total                   ; 00:00:18     ; --                      ; --                  ; 00:00:06                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -6,11 +6,10 @@ phase.PH_FFT 0 1 1
 phase.PH_OUT 1 0 1 
 
 State Machine - |SpectAnalyzer_top|output_buffer:u_out|st
-Name st.LAST st.READ_OUT st.SET_ADDR st.IDLE 
-st.IDLE 0 0 0 0 
-st.SET_ADDR 0 0 1 1 
-st.READ_OUT 0 1 0 1 
-st.LAST 1 0 0 1 
+Name st.READ_OUT st.SET_ADDR st.IDLE 
+st.IDLE 0 0 0 
+st.SET_ADDR 0 1 1 
+st.READ_OUT 1 0 1 
 
 State Machine - |SpectAnalyzer_top|mag_sqr_fft:u_fft|st
 Name st.DONE1 st.MAG_WR st.MAG_CALC st.MAG_RD_IM st.MAG_RD_RE st.S2_WR_BOT_IM st.S2_WR_BOT_RE st.S2_WR_TOP_IM st.S2_WR_TOP_RE st.S2_BUTTERFLY st.S2_CALC st.S2_RD_BOT_IM st.S2_RD_BOT_RE st.S2_RD_TOP_IM st.S2_RD_TOP_RE st.S1_WR_BOT_IM st.S1_WR_BOT_RE st.S1_WR_TOP_IM st.S1_WR_TOP_RE st.S1_BUTTERFLY st.S1_CALC st.S1_RD_BOT_IM st.S1_RD_BOT_RE st.S1_RD_TOP_IM st.S1_RD_TOP_RE st.S0_ADVANCE st.S0_WR_BOT_IM st.S0_WR_BOT_RE st.S0_WR_TOP_IM st.S0_WR_TOP_RE st.S0_CALC st.S0_RD_BOT_IM st.S0_RD_BOT_RE st.S0_RD_TOP_IM st.S0_RD_TOP_RE st.IDLE 

@@ -1,7 +1,7 @@
 -- ================================================================
 --  File : output_buffer.vhd           Dir : rtl/output/
---  ¹¦ÄÜ : Ã¿ÅÄÊä³ö 1 ¸ö |X(k)|2 (Q1.15)£»Êä³öÍê N µãºóÍ¨ÖªÏµÍ³
---  ÒÀÀµ : spect_pkg.vhd  (³£Á¿ WIDTH / N_POINTS / addr_t ... )
+--  åŠŸèƒ½ : æ¯æ‹è¾“å‡º 1 ä¸ª |X(k)|2 (Q1.15)ï¼Œè¾“å‡º N ä¸ªåé€šçŸ¥ç³»ç»Ÿ
+--  ä¾èµ– : spect_pkg.vhd  (å®šä¹‰ WIDTH / N_POINTS / addr_t ... )
 -- ================================================================
 
 library ieee;
@@ -16,20 +16,20 @@ entity output_buffer is
         N     : natural := N_POINTS    -- 8
     );
     port (
-        ---------------- Ê±ÖÓ / ¸´Î» ----------------
+        ---------------- æ—¶é’Ÿ / å¤ä½ ----------------
         clk      : in  std_logic;
         rst_n    : in  std_logic;
 
-        ---------------- ÓëÏµÍ³Ê±ĞòĞ­×÷ -------------
-        start_in : in  std_logic;   -- ÓÉ FFT Ä£¿éµÄ done À­¸ß 1 ÅÄ
-        done_out : out std_logic;   -- ±¾Ä£¿éÊä³öÍêÒ»Ö¡ºóÀ­¸ß 1 ÅÄ
+        ---------------- ä¸ç³»ç»Ÿæ—¶åºåè®® -------------
+        start_in : in  std_logic;   -- ä» FFT æ¨¡å—çš„ done ä¿¡å· 1 æ‹
+        done_out : out std_logic;   -- æœ¬æ¨¡å—è¾“å‡ºå®Œä¸€å¸§æ•°æ®å 1 æ‹
 
-        ---------------- RAM µ¥¶Ë¿Ú½Ó¿Ú -------------
+        ---------------- RAM è¯»ç«¯å£æ¥å£ -------------
         ram_addr : out addr_t;
         ram_din  : in  signed(WIDTH-1 downto 0);
-        ram_we   : out std_logic;    -- ¹Ì¶¨ '0' £¨Ö»¶Á£©
+        ram_we   : out std_logic;    -- å›ºå®š '0' ï¼ˆåªè¯»ï¼‰
 
-        ---------------- ¶ÔÏÂÓÎÊı¾İÁ÷ ---------------
+        ---------------- è¾“å‡ºæ•°æ®æµæ¥å£ ---------------
         dout        : out signed(WIDTH-1 downto 0);
         dout_valid  : out std_logic
     );
@@ -39,71 +39,67 @@ end entity;
 architecture rtl of output_buffer is
 -- ================================================================
     ----------------------------------------------------------------
-    -- ×´Ì¬»ú£ºIDLE ¡ú SET_ADDR ¡ú READ_OUT ¡ú LAST ¡ú IDLE
+    -- çŠ¶æ€æœºï¼šIDLE â†’ SET_ADDR â†’ READ_OUT â†’ SET_ADDR â†’ ... â†’ IDLE
     ----------------------------------------------------------------
-    type state_t is (IDLE, SET_ADDR, READ_OUT, LAST);
+    type state_t is (IDLE, SET_ADDR, READ_OUT);
     signal st : state_t := IDLE;
 
-    signal idx  : integer range 0 to N-1 := 0;            -- Êä³ö¼ÆÊı
-    signal addr : addr_t := (others=>'0');                -- RAM µØÖ·
+    signal idx      : integer range 0 to N-1 := 0;            -- è¾“å‡ºè®¡æ•°
+    signal addr     : addr_t := (others=>'0');                -- RAM åœ°å€
+    signal dout_reg : signed(WIDTH-1 downto 0) := (others=>'0'); -- è¾“å‡ºå¯„å­˜å™¨
 begin
     ----------------------------------------------------------------
-    -- Ä¬ÈÏĞÅºÅ
+    -- é»˜è®¤ä¿¡å·
     ----------------------------------------------------------------
-    ram_we     <= '0';          -- Ö»¶Á
+    ram_we     <= '0';          -- åªè¯»
     ram_addr   <= addr;
-    dout       <= ram_din;
-    --dout_valid <= '0';
-    --done_out   <= '0';
+    dout       <= dout_reg;     -- ä½¿ç”¨å¯„å­˜å™¨è¾“å‡ºï¼Œé¿å…ç»„åˆé€»è¾‘
 
     ----------------------------------------------------------------
-    -- Ö÷½ø³Ì
+    -- ä¸»æµç¨‹
     ----------------------------------------------------------------
     process(clk, rst_n)
     begin
         if rst_n='0' then
-            st   <= IDLE;
-            idx  <= 0;
-            addr <= (others=>'0');
+            st         <= IDLE;
+            idx        <= 0;
+            addr       <= (others=>'0');
+            dout_reg   <= (others=>'0');
             dout_valid <= '0';
-			done_out   <= '0';
+            done_out   <= '0';
         elsif rising_edge(clk) then
-			-- ¡ï Ã¿ÅÄÄ¬ÈÏÀ­µÍ
-			dout_valid <= '0';
-			done_out   <= '0';
+            -- é»˜è®¤æ¸…é›¶æ§åˆ¶ä¿¡å·
+            dout_valid <= '0';
+            done_out   <= '0';
             
             case st is
             ----------------------------------------------------------------
             when IDLE =>
-                if start_in='1' then              -- FFT ¼ÆËãÍê±Ï
+                if start_in='1' then              -- FFT å®Œæˆä¿¡å·
                     idx  <= 0;
-                    addr <= to_unsigned(0, ADDR_WIDTH);  -- |X(0)|2 ´æÔÚÅ¼µØÖ· 0
-                    st   <= READ_OUT;
+                    addr <= to_unsigned(0, ADDR_WIDTH);  -- |X(0)|2 å¯¹åº”å¶åœ°å€ 0
+                    st   <= SET_ADDR;              -- å…ˆè®¾ç½®åœ°å€ï¼Œé¢„å–æ•°æ®
                 end if;
 
             ----------------------------------------------------------------
-            -- SET_ADDR: °ÑµØÖ··Åµ½ RAM£¬ÏÂÒ»ÅÄ¿É¶Á³öÊı¾İ
+            -- SET_ADDR: å°†åœ°å€é€åˆ° RAMï¼Œä¸‹ä¸€æ‹å¯è¯»åˆ°æ•°æ®
             when SET_ADDR =>
                 st <= READ_OUT;
 
             ----------------------------------------------------------------
-            -- READ_OUT: ´ËÅÄ ram_din ÓĞĞ§ ¡ú dout_valid=1
+            -- READ_OUT: è¾“å‡º ram_din æœ‰æ•ˆ ä¸” dout_valid=1
             when READ_OUT =>
+                dout_reg   <= ram_din;             -- å¯„å­˜å™¨åŒ–è¾“å‡º
                 dout_valid <= '1';
-                if idx = N-1 then                 -- ×îºóÒ»¸öÑù±¾
-                    st <= LAST;
+                
+                if idx = N-1 then                 -- æœ€åä¸€ä¸ªæ•°æ®
+                    done_out <= '1';              -- ç›´æ¥å®Œæˆï¼Œé¿å…é‡å¤è¾“å‡º
+                    st       <= IDLE;
                 else
                     idx  <= idx + 1;
-                    addr <= to_unsigned((idx+1)*2, ADDR_WIDTH);  -- Å¼µØÖ· 0,2,4¡­
-                    st   <= SET_ADDR;
+                    addr <= to_unsigned((idx+1)*2, ADDR_WIDTH);  -- å¶åœ°å€ 0,2,4â€¦
+                    st   <= SET_ADDR;             -- ç»§ç»­ä¸‹ä¸€ä¸ªæ•°æ®çš„é¢„å–
                 end if;
-
-            ----------------------------------------------------------------
-            -- LAST: Êä³ö×îºóÒ»¸öÊı¾İ£¬À­¸ß done_out£¬ÏÂÒ»ÅÄ»Ø IDLE
-            when LAST =>
-                dout_valid <= '1';
-                done_out   <= '1';
-                st         <= IDLE;
             end case;
         end if;
     end process;

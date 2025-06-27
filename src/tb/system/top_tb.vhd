@@ -21,7 +21,7 @@ architecture sim of top_tb is
     -- 使用包中定义的DATA_WIDTH，提高兼容性
     -- === 选择激励文件：sig_A.hex / sig_B.hex / sig_C.hex ====================
     constant STIM_FILE : string :=
-        "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/sig_B.hex";
+        "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/sig_C.hex";
 
     -- 仿真结果输出文件
     constant OUT_FILE  : string :=

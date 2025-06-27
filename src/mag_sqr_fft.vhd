@@ -88,9 +88,9 @@ architecture rtl of mag_sqr_fft is
 begin
 
     main_proc: process(clk, rst_n)
-        variable k     : integer;
-        variable tmp68 : signed(67 downto 0);
-        variable mag32 : signed(33 downto 0);
+        variable k     : integer range 0 to 3;  -- 限制k的范围
+        variable tmp32 : signed(31 downto 0);   -- 修正：32位而不是68位
+        variable mag32 : signed(31 downto 0);   -- 修正：使用32位
     begin
         if rst_n = '0' then
             -- 用 <= 进行复位赋值
@@ -195,7 +195,180 @@ begin
                         st <= S0_RD_TOP_RE;
                     end if;
 
-                -- Stage-1、Stage-2、MAG 省略，照原样粘过去…
+                -- Stage-1: 4点蝶形运算
+                when S1_RD_TOP_RE =>
+                    a_re <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(top_cpx,true);
+                    st <= S1_RD_TOP_IM;
+
+                when S1_RD_TOP_IM =>
+                    a_im <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(bot_cpx,false);
+                    st <= S1_RD_BOT_RE;
+
+                when S1_RD_BOT_RE =>
+                    b_re <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(bot_cpx,true);
+                    st <= S1_RD_BOT_IM;
+
+                when S1_RD_BOT_IM =>
+                    b_im <= to_wide(ram_din);
+                    k := pair_idx mod 2;  -- 确保k在0-1范围内
+                    w_re <= TW_RE(k);
+                    w_im <= TW_IM(k);
+                    st <= S1_CALC;
+
+                when S1_CALC =>
+                    -- 复数乘法: (b_re + j*b_im) * (w_re + j*w_im)
+                    up_re <= resize(to_wide(mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_re)) - 
+                                   to_wide(mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_im)), wide_t'length);
+                    up_im <= resize(to_wide(mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_im)) + 
+                                   to_wide(mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_re)), wide_t'length);
+                    st <= S1_BUTTERFLY;
+
+                when S1_BUTTERFLY =>
+                    dn_re <= resize(a_re + up_re, wide_t'length);
+                    dn_im <= resize(a_im + up_im, wide_t'length);
+                    up_re <= resize(a_re - up_re, wide_t'length);
+                    up_im <= resize(a_im - up_im, wide_t'length);
+                    ram_addr <= cpx_to_addr(top_cpx,false);
+                    ram_dout <= signed(dn_re(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S1_WR_TOP_RE;
+
+                when S1_WR_TOP_RE =>
+                    ram_addr <= cpx_to_addr(top_cpx,true);
+                    ram_dout <= signed(dn_im(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S1_WR_TOP_IM;
+
+                when S1_WR_TOP_IM =>
+                    ram_addr <= cpx_to_addr(bot_cpx,false);
+                    ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S1_WR_BOT_RE;
+
+                when S1_WR_BOT_RE =>
+                    ram_addr <= cpx_to_addr(bot_cpx,true);
+                    ram_dout <= signed(up_im(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S1_WR_BOT_IM;
+
+                when S1_WR_BOT_IM =>
+                    if pair_idx=(N/4-1) then
+                        pair_idx <= 0;
+                        top_cpx  <= 0;
+                        bot_cpx  <= N/8;
+                        ram_addr <= cpx_to_addr(0,false);
+                        st <= S2_RD_TOP_RE;
+                    else
+                        pair_idx <= pair_idx+1;
+                        top_cpx  <= top_cpx+2;
+                        bot_cpx  <= bot_cpx+2;
+                        ram_addr <= cpx_to_addr(top_cpx+2,false);
+                        st <= S1_RD_TOP_RE;
+                    end if;
+
+                -- Stage-2: 2点蝶形运算
+                when S2_RD_TOP_RE =>
+                    a_re <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(top_cpx,true);
+                    st <= S2_RD_TOP_IM;
+
+                when S2_RD_TOP_IM =>
+                    a_im <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(bot_cpx,false);
+                    st <= S2_RD_BOT_RE;
+
+                when S2_RD_BOT_RE =>
+                    b_re <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(bot_cpx,true);
+                    st <= S2_RD_BOT_IM;
+
+                when S2_RD_BOT_IM =>
+                    b_im <= to_wide(ram_din);
+                    k := pair_idx mod 4;  -- 确保k在0-3范围内
+                    w_re <= TW_RE(k);
+                    w_im <= TW_IM(k);
+                    st <= S2_CALC;
+
+                when S2_CALC =>
+                    -- 复数乘法
+                    up_re <= resize(to_wide(mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_re)) - 
+                                   to_wide(mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_im)), wide_t'length);
+                    up_im <= resize(to_wide(mul_q15_sat(signed(b_re(WIDTH-1 downto 0)), w_im)) + 
+                                   to_wide(mul_q15_sat(signed(b_im(WIDTH-1 downto 0)), w_re)), wide_t'length);
+                    st <= S2_BUTTERFLY;
+
+                when S2_BUTTERFLY =>
+                    dn_re <= resize(a_re + up_re, wide_t'length);
+                    dn_im <= resize(a_im + up_im, wide_t'length);
+                    up_re <= resize(a_re - up_re, wide_t'length);
+                    up_im <= resize(a_im - up_im, wide_t'length);
+                    ram_addr <= cpx_to_addr(top_cpx,false);
+                    ram_dout <= signed(dn_re(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S2_WR_TOP_RE;
+
+                when S2_WR_TOP_RE =>
+                    ram_addr <= cpx_to_addr(top_cpx,true);
+                    ram_dout <= signed(dn_im(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S2_WR_TOP_IM;
+
+                when S2_WR_TOP_IM =>
+                    ram_addr <= cpx_to_addr(bot_cpx,false);
+                    ram_dout <= signed(up_re(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S2_WR_BOT_RE;
+
+                when S2_WR_BOT_RE =>
+                    ram_addr <= cpx_to_addr(bot_cpx,true);
+                    ram_dout <= signed(up_im(WIDTH-1 downto 0));
+                    ram_we   <= '1';
+                    st <= S2_WR_BOT_IM;
+
+                when S2_WR_BOT_IM =>
+                    if pair_idx=(N/8-1) then
+                        mag_idx <= 0;
+                        ram_addr <= cpx_to_addr(0,false);
+                        st <= MAG_RD_RE;
+                    else
+                        pair_idx <= pair_idx+1;
+                        top_cpx  <= top_cpx+4;
+                        bot_cpx  <= bot_cpx+4;
+                        ram_addr <= cpx_to_addr(top_cpx+4,false);
+                        st <= S2_RD_TOP_RE;
+                    end if;
+
+                -- 幅度平方计算
+                when MAG_RD_RE =>
+                    a_re <= to_wide(ram_din);
+                    ram_addr <= cpx_to_addr(mag_idx,true);
+                    st <= MAG_RD_IM;
+
+                when MAG_RD_IM =>
+                    a_im <= to_wide(ram_din);
+                    st <= MAG_CALC;
+
+                when MAG_CALC =>
+                    -- 修正：计算 |X|^2 = Re^2 + Im^2
+                    tmp32 := signed(a_re(WIDTH-1 downto 0)) * signed(a_re(WIDTH-1 downto 0)) + 
+                             signed(a_im(WIDTH-1 downto 0)) * signed(a_im(WIDTH-1 downto 0));
+                    mag32 := tmp32;  -- 直接赋值，不需要resize
+                    ram_addr <= cpx_to_addr(mag_idx,false);
+                    ram_dout <= signed(mag32(WIDTH-1 downto 0));  -- 取低16位
+                    ram_we   <= '1';
+                    st <= MAG_WR;
+
+                when MAG_WR =>
+                    if mag_idx=(N-1) then
+                        st <= DONE1;
+                    else
+                        mag_idx <= mag_idx+1;
+                        ram_addr <= cpx_to_addr(mag_idx+1,false);
+                        st <= MAG_RD_RE;
+                    end if;
 
                 when DONE1 =>
                     done <= '1';

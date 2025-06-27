@@ -2,8 +2,10 @@
 <LOG_ROOT>
 	<PROJECT NAME="SpectAnalyzer_top">
 		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult0" CBX_FILE_NAME="mult_6g01.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult1" CBX_FILE_NAME="mult_6g01.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult2" CBX_FILE_NAME="mult_6g01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult4" CBX_FILE_NAME="mult_6g01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult1" CBX_FILE_NAME="mult_6g01.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult3" CBX_FILE_NAME="mult_6g01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult5" CBX_FILE_NAME="mult_6g01.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

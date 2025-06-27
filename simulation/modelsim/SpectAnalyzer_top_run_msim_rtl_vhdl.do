@@ -5,6 +5,7 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg0.vhd}
 vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd}
 vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd}
 vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd}

@@ -5,7 +5,7 @@ cModel Technology
 dG:\DSD\EXPERIMENTS\SpectAnalyzer_Project\simulation\modelsim
 Emag_sqr_fft
 Z0 !s101 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0
-Z1 w1751013366
+Z1 w1751013815
 Z2 DPx4 work 10 spect_pkg0 0 22 Dd`HPZ]a:BOnf`aHZV@JN3
 Z3 DPx4 work 9 spect_pkg 0 22 jgck3Cf@jlbkR>0dEgbZ11
 Z4 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
@@ -30,7 +30,8 @@ R5
 Z13 DEx4 work 11 mag_sqr_fft 0 22 fh`I@f3h48TSZQbc]:mKL2
 l88
 L23
-V:X?20QF]gYIUTUgjjl<]_1
+V6=O:fS5XneMWJDL2nnEYe0
+!s100 :H[>[bO4e8KWez8RjXBMo0
 R9
 32
 Z14 Mx4 4 ieee 14 std_logic_1164
@@ -39,7 +40,6 @@ Z16 Mx2 4 work 9 spect_pkg
 Z17 Mx1 4 work 10 spect_pkg0
 R11
 R12
-!s100 IdJka?DdL90TI<OmDcz=21
 Pspect_pkg
 R10
 R2
@@ -141,8 +141,8 @@ R5
 Z33 DEx4 work 18 tb_mag_sqr_fft_int 0 22 DA<1`KHKNJSWR]^J0Z4EM2
 l36
 L9
-VI][bhNQo>daDgX0k?;8i32
-!s100 0FJCi2HI7BUEL@Ee7f>X@2
+Z34 VI][bhNQo>daDgX0k?;8i32
+Z35 !s100 0FJCi2HI7BUEL@Ee7f>X@2
 R9
 32
 R14

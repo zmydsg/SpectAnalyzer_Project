@@ -7,7 +7,7 @@
 # vmap work rtl_work
 # Modifying G:\DSD\PortableApps\Quartus90sp2Portable\App\Quartus\altera\90sp2\modelsim_ase\win32aloem/../modelsim.ini
 # 
-# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd}
+# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg0.vhd}
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
 # -- Loading package standard
 # -- Loading package std_logic_1164
@@ -15,6 +15,11 @@
 # -- Compiling package spect_pkg0
 # -- Compiling package body spect_pkg0
 # -- Loading package spect_pkg0
+# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd}
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
 # -- Loading package spect_pkg0
 # -- Compiling package spect_pkg
 # -- Compiling package body spect_pkg
@@ -69,4 +74,5 @@
 # -- Loading entity mag_sqr_fft
 # -- Loading entity output_buffer
 # 
+project open G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/fft/FFT_IntTest
 # Loading project FFT_IntTest

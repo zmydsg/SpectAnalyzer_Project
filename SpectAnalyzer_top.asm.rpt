@@ -1,5 +1,5 @@
 Assembler report for SpectAnalyzer_top
-Fri Jun 27 14:30:57 2025
+Fri Jun 27 16:44:32 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -39,7 +39,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Jun 27 14:30:57 2025 ;
+; Assembler Status      ; Successful - Fri Jun 27 16:44:32 2025 ;
 ; Revision Name         ; SpectAnalyzer_top                     ;
 ; Top-level Entity Name ; SpectAnalyzer_top                     ;
 ; Family                ; APEX20KE                              ;
@@ -96,7 +96,7 @@ applicable agreement for further details.
 +----------------+-------------------------------------------------------------------------+
 ; Device         ; EP20K200EFC672-1                                                        ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                              ;
-; Checksum       ; 0x00107AD6                                                              ;
+; Checksum       ; 0x001842FB                                                              ;
 +----------------+-------------------------------------------------------------------------+
 
 
@@ -107,7 +107,7 @@ applicable agreement for further details.
 +--------------------+---------------------------------------------------------------------+
 ; Device             ; EPC2                                                                ;
 ; JTAG usercode      ; 0x00000000                                                          ;
-; Checksum           ; 0x0015EECC                                                          ;
+; Checksum           ; 0x001E73D9                                                          ;
 ; Compression Ratio  ; 1                                                                   ;
 +--------------------+---------------------------------------------------------------------+
 
@@ -119,7 +119,7 @@ applicable agreement for further details.
 +--------------------+-----------------------------------------------------------------------+
 ; Device             ; EPC2                                                                  ;
 ; JTAG usercode      ; 0x00000000                                                            ;
-; Checksum           ; 0x02B70C00                                                            ;
+; Checksum           ; 0x02B6BA62                                                            ;
 ; Compression Ratio  ; 1                                                                     ;
 +--------------------+-----------------------------------------------------------------------+
 
@@ -130,13 +130,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Jun 27 14:30:56 2025
+    Info: Processing started: Fri Jun 27 16:44:32 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 238 megabytes
-    Info: Processing ended: Fri Jun 27 14:30:57 2025
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 239 megabytes
+    Info: Processing ended: Fri Jun 27 16:44:32 2025
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 

@@ -14,7 +14,7 @@
 ## 📋 技术规格
 
 | 参数 | 值 | 说明 |
-|------|----|---------|
+|------|----|----------|
 | 数据位宽 | 16位 | Q1.15定点格式 |
 | FFT点数 | 8点 | 可分析8个频率分量 |
 | 存储深度 | 16 | 实部/虚部交织存储 |
@@ -198,4 +198,199 @@ constant DATA_WIDTH : natural := 18;  -- 改为18位数据
 ---
 
 ⭐ 如果这个项目对您有帮助，请给个Star支持一下！
-        
+
+
+# SpectAnalyzer - FPGA Spectrum Analyzer
+
+A real-time spectrum analyzer project based on FPGA, implementing 8-point FFT algorithm using VHDL for spectrum analysis of input ADC sampling data and power spectral density output.
+
+## 🚀 Features
+
+- **Real-time Spectrum Analysis**: Supports continuous ADC data stream input and spectrum output
+- **8-point FFT**: Implements efficient 8-point Fast Fourier Transform algorithm
+- **Power Spectrum Calculation**: Outputs power spectral density in |X(k)|² format
+- **Pipeline Design**: Uses three-stage pipeline architecture (Input Buffer → FFT Processing → Output Buffer)
+- **Resource Optimization**: Uses single-port RAM for data storage, saving FPGA resources
+- **Bit-reversed Input**: Automatically handles bit-reversed data arrangement required by FFT
+
+## 📋 Technical Specifications
+
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Data Width | 16-bit | Q1.15 fixed-point format |
+| FFT Points | 8-point | Can analyze 8 frequency components |
+| Storage Depth | 16 | Real/Imaginary interleaved storage |
+| Clock Domain | Single clock | Synchronous design |
+| Target Device | Intel/Altera FPGA | Developed with Quartus Prime |
+
+## 🏗️ System Architecture
+ADC Sampling → Input Buffer → FFT Processing → Output Buffer → Spectrum Output
+↓             ↓              ↓              ↓              ↓
+16-bit      Bit-reverse     8-point FFT    Power Spectrum   |X(k)|²
+Q1.15        Storage       Butterfly Ops   Calculation      Output
+
+### Core Modules
+
+1. **SpectAnalyzer_top.vhd** - Top-level module implementing three-stage state machine control
+2. **input_buffer.vhd** - Input buffer module handling ADC data and bit-reverse arrangement
+3. **mag_sqr_fft.vhd** - FFT core module implementing 8-point FFT and power spectrum calculation
+4. **output_buffer.vhd** - Output buffer module for sequential spectrum data output
+5. **ram_sp.vhd** - Single-port RAM module
+6. **spect_pkg.vhd** - Common package file defining constants and data types
+
+## 🔧 Quick Start
+
+### Requirements
+
+- Intel Quartus Prime (Recommended version 18.0+)
+- ModelSim (Optional, for simulation verification)
+- Supported FPGA development board
+
+### Compilation Steps
+
+1. **Clone the project**
+   ```bash
+   git clone https://github.com/your-username/SpectAnalyzer_Project.git
+   cd SpectAnalyzer_Project
+   ```
+
+2. **Open Quartus project**
+   ```bash
+   quartus SpectAnalyzer.qpf
+   ```
+
+3. **Compile the project**
+   - Click "Start Compilation" in Quartus
+   - Or use command line: `quartus_sh --flow compile SpectAnalyzer_top`
+
+4. **Download to FPGA**
+   - Connect FPGA development board
+   - Use Programmer to download the generated .sof file
+
+### Simulation Verification
+
+The project includes complete testbenches located in the `src/tb/` directory:
+
+```bash
+# Compile simulation library
+vsim -do scripts/modelsim_compile.tcl
+
+# Run top-level simulation
+cd src/tb/top
+vsim -do run.do
+```
+
+## 📊 Interface Description
+
+### Input Interface
+
+| Signal Name | Direction | Width | Description |
+|-------------|-----------|-------|-------------|
+| `clk` | Input | 1 | System clock |
+| `rst_n` | Input | 1 | Asynchronous reset (active low) |
+| `adc_sample` | Input | 16 | ADC sampling data (Q1.15 format) |
+| `adc_valid` | Input | 1 | ADC data valid signal |
+| `adc_ready` | Output | 1 | System ready to receive data signal |
+
+### Output Interface
+
+| Signal Name | Direction | Width | Description |
+|-------------|-----------|-------|-------------|
+| `dout` | Output | 16 | Spectrum output data |X(k)|² |
+| `dout_valid` | Output | 1 | Output data valid signal |
+
+## 🔬 Working Principle
+
+### Data Flow
+
+1. **Data Acquisition**: System receives 16-bit ADC sampling data in Q1.15 fixed-point format
+2. **Buffer Storage**: Input buffer module collects 8 sampling points and stores them in bit-reversed order in RAM
+3. **FFT Calculation**: Uses radix-2 decimation-in-time algorithm to implement 8-point FFT with 3 stages of butterfly operations
+4. **Power Spectrum Calculation**: Calculates power spectral density for each frequency component |X(k)|² = Re²(k) + Im²(k)
+5. **Result Output**: Sequentially outputs power spectrum values for 8 frequency components
+
+### FFT Algorithm Implementation
+
+- **Algorithm**: Radix-2 Decimation-in-Time (DIT) FFT
+- **Stages**: 3 stages of butterfly operations (log₂8 = 3)
+- **Twiddle Factors**: Pre-computed sine/cosine coefficient table
+- **Number Format**: Q1.15 fixed-point arithmetic with saturation handling
+
+## 📁 Project Structure
+SpectAnalyzer_Project/
+├── src/                    # Source code directory
+│   ├── SpectAnalyzer_top.vhd      # Top-level module
+│   ├── input_buffer.vhd           # Input buffer
+│   ├── mag_sqr_fft.vhd           # FFT core
+│   ├── output_buffer.vhd          # Output buffer
+│   ├── ram_sp.vhd                 # Single-port RAM
+│   ├── spect_pkg.vhd              # Common package
+│   ├── spect_pkg0.vhd             # Utility function package
+│   └── tb/                        # Testbench
+├── db/                     # Quartus database files
+├── incremental_db/         # Incremental compilation database
+├── SpectAnalyzer.qpf      # Quartus project file
+├── SpectAnalyzer_top.qsf  # Quartus settings file
+└── *.rpt                  # Compilation report files
+
+## 🎯 Application Scenarios
+
+- **Signal Processing Education**: Understanding FPGA implementation of FFT algorithms
+- **Spectrum Analysis**: Real-time audio/RF signal spectrum analysis
+- **Algorithm Verification**: Hardware verification platform for FFT algorithms
+- **Prototype Development**: Foundation module for more complex spectrum analysis systems
+
+## 🔧 Custom Configuration
+
+### Modify FFT Points
+
+Modify in `spect_pkg.vhd`:
+
+```vhdl
+constant N_POINTS : natural := 16;  -- Change to 16-point FFT
+```
+
+### Modify Data Width
+
+```vhdl
+constant DATA_WIDTH : natural := 18;  -- Change to 18-bit data
+```
+
+**Note**: Modifying these parameters requires corresponding adjustments to the FFT algorithm implementation and twiddle factor tables.
+
+## 📈 Performance Metrics
+
+- **Processing Latency**: Approximately 20-30 clock cycles (depending on clock frequency)
+- **Throughput**: 8 spectrum outputs per 8 input samples
+- **Resource Usage**: 
+  - Logic Elements: ~500 LEs
+  - Memory: 1 M9K block
+  - DSP: 2-4 multipliers
+
+## 🤝 Contributing
+
+Welcome to submit Issues and Pull Requests!
+
+1. Fork this project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+- Author Email: zgotohdx@outlook.com
+
+## 🙏 Acknowledgments
+
+- Thanks to all developers who contribute to the FPGA open source community
+- Referenced classic FFT algorithm implementation literature
+- Used Intel/Altera FPGA development toolchain
+
+---
+
+⭐ If this project helps you, please give it a Star!

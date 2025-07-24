@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpectAnalyzer_top
-Sat Jun 28 05:59:14 2025
+Sat Jun 28 07:13:51 2025
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -13,26 +13,20 @@ Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. Analysis & Synthesis RAM Summary
-  8. State Machine - |SpectAnalyzer_top|phase
-  9. State Machine - |SpectAnalyzer_top|output_buffer:u_out|st
- 10. State Machine - |SpectAnalyzer_top|mag_sqr_fft:u_fft|st
- 11. State Machine - |SpectAnalyzer_top|input_buffer:u_in|st
+  8. State Machine - |SpectAnalyzer_top_dp|phase
+  9. State Machine - |SpectAnalyzer_top_dp|output_buffer:output_buffer_inst|st
+ 10. State Machine - |SpectAnalyzer_top_dp|mag_sqr_fft_dp:fft_inst|st
+ 11. State Machine - |SpectAnalyzer_top_dp|input_buffer:input_buffer_inst|st
  12. Registers Removed During Synthesis
- 13. Removed Registers Triggering Further Register Optimizations
- 14. General Register Statistics
- 15. Inverted Register Statistics
- 16. Registers Packed Into Inferred Megafunctions
- 17. Parameter Settings for User Entity Instance: mag_sqr_fft:u_fft
- 18. Parameter Settings for User Entity Instance: output_buffer:u_out
- 19. Parameter Settings for Inferred Entity Instance: ram_sp:ram_inst|altdpram:mem_rtl_0
- 20. Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult4
- 21. Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult5
- 22. Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult2
- 23. Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult3
- 24. Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult0
- 25. Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult1
- 26. lpm_mult Parameter Settings by Entity Instance
- 27. Analysis & Synthesis Messages
+ 13. General Register Statistics
+ 14. Registers Packed Into Inferred Megafunctions
+ 15. Parameter Settings for User Entity Instance: mag_sqr_fft_dp:fft_inst
+ 16. Parameter Settings for User Entity Instance: output_buffer:output_buffer_inst
+ 17. Parameter Settings for Inferred Entity Instance: ram_dp_optimized:ram_inst|altdpram:mem_rtl_0
+ 18. Port Connectivity Checks: "output_buffer:output_buffer_inst"
+ 19. Port Connectivity Checks: "mag_sqr_fft_dp:fft_inst"
+ 20. Port Connectivity Checks: "ram_dp_optimized:ram_inst"
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -58,12 +52,12 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Jun 28 05:59:14 2025        ;
+; Analysis & Synthesis Status ; Successful - Sat Jun 28 07:13:51 2025        ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; SpectAnalyzer_top                            ;
-; Top-level Entity Name       ; SpectAnalyzer_top                            ;
+; Top-level Entity Name       ; SpectAnalyzer_top_dp                         ;
 ; Family                      ; APEX20KE                                     ;
-; Total logic elements        ; 2,302                                        ;
+; Total logic elements        ; 134                                          ;
 ; Total pins                  ; 37                                           ;
 ; Total virtual pins          ; 0                                            ;
 ; Total memory bits           ; 256                                          ;
@@ -71,170 +65,151 @@ applicable agreement for further details.
 +-----------------------------+----------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                        ;
-+--------------------------------------------------------------+-------------------+-------------------+
-; Option                                                       ; Setting           ; Default Value     ;
-+--------------------------------------------------------------+-------------------+-------------------+
-; Device                                                       ; EP20K200EFC672-1  ;                   ;
-; Top-level entity name                                        ; SpectAnalyzer_top ; SpectAnalyzer_top ;
-; Family name                                                  ; APEX20KE          ; Stratix II        ;
-; Use Generated Physical Constraints File                      ; Off               ;                   ;
-; Use smart compilation                                        ; Off               ; Off               ;
-; Create Debugging Nodes for IP Cores                          ; Off               ; Off               ;
-; Preserve fewer node names                                    ; On                ; On                ;
-; Disable OpenCore Plus hardware evaluation                    ; Off               ; Off               ;
-; Verilog Version                                              ; Verilog_2001      ; Verilog_2001      ;
-; VHDL Version                                                 ; VHDL93            ; VHDL93            ;
-; State Machine Processing                                     ; Auto              ; Auto              ;
-; Safe State Machine                                           ; Off               ; Off               ;
-; Extract Verilog State Machines                               ; On                ; On                ;
-; Extract VHDL State Machines                                  ; On                ; On                ;
-; Ignore Verilog initial constructs                            ; Off               ; Off               ;
-; Iteration limit for constant Verilog loops                   ; 5000              ; 5000              ;
-; Iteration limit for non-constant Verilog loops               ; 250               ; 250               ;
-; Add Pass-Through Logic to Inferred RAMs                      ; On                ; On                ;
-; Parallel Synthesis                                           ; Off               ; Off               ;
-; NOT Gate Push-Back                                           ; On                ; On                ;
-; Power-Up Don't Care                                          ; On                ; On                ;
-; Remove Redundant Logic Cells                                 ; Off               ; Off               ;
-; Remove Duplicate Registers                                   ; On                ; On                ;
-; Ignore CARRY Buffers                                         ; Off               ; Off               ;
-; Ignore CASCADE Buffers                                       ; Off               ; Off               ;
-; Ignore GLOBAL Buffers                                        ; Off               ; Off               ;
-; Ignore ROW GLOBAL Buffers                                    ; Off               ; Off               ;
-; Ignore LCELL Buffers                                         ; Off               ; Off               ;
-; Ignore SOFT Buffers                                          ; On                ; On                ;
-; Limit AHDL Integers to 32 Bits                               ; Off               ; Off               ;
-; Auto Implement in ROM                                        ; Off               ; Off               ;
-; Technology Mapper                                            ; LUT               ; LUT               ;
-; Optimization Technique                                       ; Balanced          ; Balanced          ;
-; Allow XOR Gate Usage                                         ; On                ; On                ;
-; Carry Chain Length                                           ; 48                ; 48                ;
-; Cascade Chain Length                                         ; 2                 ; 2                 ;
-; Parallel Expander Chain Length                               ; 16                ; 16                ;
-; Auto Carry Chains                                            ; On                ; On                ;
-; Auto Parallel Expanders                                      ; On                ; On                ;
-; Auto Open-Drain Pins                                         ; On                ; On                ;
-; Perform WYSIWYG Primitive Resynthesis                        ; Off               ; Off               ;
-; Auto ROM Replacement                                         ; On                ; On                ;
-; Auto RAM Replacement                                         ; On                ; On                ;
-; Auto Shift Register Replacement                              ; Auto              ; Auto              ;
-; Auto Clock Enable Replacement                                ; On                ; On                ;
-; Strict RAM Replacement                                       ; Off               ; Off               ;
-; Auto Resource Sharing                                        ; Off               ; Off               ;
-; Allow Any RAM Size For Recognition                           ; Off               ; Off               ;
-; Allow Any ROM Size For Recognition                           ; Off               ; Off               ;
-; Allow Any Shift Register Size For Recognition                ; Off               ; Off               ;
-; Use LogicLock Constraints during Resource Balancing          ; On                ; On                ;
-; Ignore translate_off and synthesis_off directives            ; Off               ; Off               ;
-; Show Parameter Settings Tables in Synthesis Report           ; On                ; On                ;
-; Ignore Maximum Fan-Out Assignments                           ; Off               ; Off               ;
-; Synchronization Register Chain Length                        ; 2                 ; 2                 ;
-; HDL message level                                            ; Level2            ; Level2            ;
-; Suppress Register Optimization Related Messages              ; Off               ; Off               ;
-; Number of Removed Registers Reported in Synthesis Report     ; 100               ; 100               ;
-; Number of Inverted Registers Reported in Synthesis Report    ; 100               ; 100               ;
-; Block Design Naming                                          ; Auto              ; Auto              ;
-; Synthesis Effort                                             ; Auto              ; Auto              ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                ; On                ;
-; Analysis & Synthesis Message Level                           ; Medium            ; Medium            ;
-+--------------------------------------------------------------+-------------------+-------------------+
++---------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                           ;
++--------------------------------------------------------------+----------------------+-------------------+
+; Option                                                       ; Setting              ; Default Value     ;
++--------------------------------------------------------------+----------------------+-------------------+
+; Device                                                       ; EP20K200EFC672-1     ;                   ;
+; Top-level entity name                                        ; SpectAnalyzer_top_dp ; SpectAnalyzer_top ;
+; Family name                                                  ; APEX20KE             ; Stratix II        ;
+; Use Generated Physical Constraints File                      ; Off                  ;                   ;
+; Use smart compilation                                        ; Off                  ; Off               ;
+; Create Debugging Nodes for IP Cores                          ; Off                  ; Off               ;
+; Preserve fewer node names                                    ; On                   ; On                ;
+; Disable OpenCore Plus hardware evaluation                    ; Off                  ; Off               ;
+; Verilog Version                                              ; Verilog_2001         ; Verilog_2001      ;
+; VHDL Version                                                 ; VHDL93               ; VHDL93            ;
+; State Machine Processing                                     ; Auto                 ; Auto              ;
+; Safe State Machine                                           ; Off                  ; Off               ;
+; Extract Verilog State Machines                               ; On                   ; On                ;
+; Extract VHDL State Machines                                  ; On                   ; On                ;
+; Ignore Verilog initial constructs                            ; Off                  ; Off               ;
+; Iteration limit for constant Verilog loops                   ; 5000                 ; 5000              ;
+; Iteration limit for non-constant Verilog loops               ; 250                  ; 250               ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On                   ; On                ;
+; Parallel Synthesis                                           ; Off                  ; Off               ;
+; NOT Gate Push-Back                                           ; On                   ; On                ;
+; Power-Up Don't Care                                          ; On                   ; On                ;
+; Remove Redundant Logic Cells                                 ; Off                  ; Off               ;
+; Remove Duplicate Registers                                   ; On                   ; On                ;
+; Ignore CARRY Buffers                                         ; Off                  ; Off               ;
+; Ignore CASCADE Buffers                                       ; Off                  ; Off               ;
+; Ignore GLOBAL Buffers                                        ; Off                  ; Off               ;
+; Ignore ROW GLOBAL Buffers                                    ; Off                  ; Off               ;
+; Ignore LCELL Buffers                                         ; Off                  ; Off               ;
+; Ignore SOFT Buffers                                          ; On                   ; On                ;
+; Limit AHDL Integers to 32 Bits                               ; Off                  ; Off               ;
+; Auto Implement in ROM                                        ; Off                  ; Off               ;
+; Technology Mapper                                            ; LUT                  ; LUT               ;
+; Optimization Technique                                       ; Balanced             ; Balanced          ;
+; Allow XOR Gate Usage                                         ; On                   ; On                ;
+; Carry Chain Length                                           ; 48                   ; 48                ;
+; Cascade Chain Length                                         ; 2                    ; 2                 ;
+; Parallel Expander Chain Length                               ; 16                   ; 16                ;
+; Auto Carry Chains                                            ; On                   ; On                ;
+; Auto Parallel Expanders                                      ; On                   ; On                ;
+; Auto Open-Drain Pins                                         ; On                   ; On                ;
+; Perform WYSIWYG Primitive Resynthesis                        ; Off                  ; Off               ;
+; Auto ROM Replacement                                         ; On                   ; On                ;
+; Auto RAM Replacement                                         ; On                   ; On                ;
+; Auto Shift Register Replacement                              ; Auto                 ; Auto              ;
+; Auto Clock Enable Replacement                                ; On                   ; On                ;
+; Strict RAM Replacement                                       ; Off                  ; Off               ;
+; Auto Resource Sharing                                        ; Off                  ; Off               ;
+; Allow Any RAM Size For Recognition                           ; Off                  ; Off               ;
+; Allow Any ROM Size For Recognition                           ; Off                  ; Off               ;
+; Allow Any Shift Register Size For Recognition                ; Off                  ; Off               ;
+; Use LogicLock Constraints during Resource Balancing          ; On                   ; On                ;
+; Ignore translate_off and synthesis_off directives            ; Off                  ; Off               ;
+; Show Parameter Settings Tables in Synthesis Report           ; On                   ; On                ;
+; Ignore Maximum Fan-Out Assignments                           ; Off                  ; Off               ;
+; Synchronization Register Chain Length                        ; 2                    ; 2                 ;
+; HDL message level                                            ; Level2               ; Level2            ;
+; Suppress Register Optimization Related Messages              ; Off                  ; Off               ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100                  ; 100               ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100                  ; 100               ;
+; Block Design Naming                                          ; Auto                 ; Auto              ;
+; Synthesis Effort                                             ; Auto                 ; Auto              ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                   ; On                ;
+; Analysis & Synthesis Message Level                           ; Medium               ; Medium            ;
++--------------------------------------------------------------+----------------------+-------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-; src/spect_pkg0.vhd               ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg0.vhd                                                           ;
-; src/mag_sqr_fft.vhd              ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd                                                          ;
-; src/spect_pkg.vhd                ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd                                                            ;
-; src/SpectAnalyzer_top.vhd        ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd                                                    ;
-; src/input_buffer.vhd             ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd                                                         ;
-; src/output_buffer.vhd            ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd                                                        ;
-; src/ram_sp.vhd                   ; yes             ; User VHDL File               ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd                                                               ;
-; altdpram.tdf                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altdpram.tdf        ;
-; memmodes.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/others/maxplus2/memmodes.inc      ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_decode.inc      ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mux.inc         ;
-; a_hdffe.inc                      ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_hdffe.inc         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_rdenreg.inc       ;
-; altqpram.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altqpram.inc        ;
-; alt_le_rden_reg.inc              ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/alt_le_rden_reg.inc ;
-; altsyncram.inc                   ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altsyncram.inc      ;
-; aglobal90.inc                    ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/aglobal90.inc       ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mult.tdf        ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_add_sub.inc     ;
-; multcore.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/multcore.inc        ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/bypassff.inc        ;
-; altshift.inc                     ; yes             ; Megafunction                 ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altshift.inc        ;
-; db/mult_6g01.tdf                 ; yes             ; Auto-Generated Megafunction  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/db/mult_6g01.tdf                                                             ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                          ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+; src/SpectAnalyzer_top_dp.vhd     ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top_dp.vhd                                                 ;
+; src/mag_sqr_fft_dp.vhd           ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft_dp.vhd                                                       ;
+; src/ram_dp_optimized.vhd         ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_dp_optimized.vhd                                                     ;
+; src/spect_pkg0.vhd               ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg0.vhd                                                           ;
+; src/spect_pkg.vhd                ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd                                                            ;
+; src/input_buffer.vhd             ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd                                                         ;
+; src/output_buffer.vhd            ; yes             ; User VHDL File  ; G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd                                                        ;
+; altdpram.tdf                     ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altdpram.tdf        ;
+; memmodes.inc                     ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/others/maxplus2/memmodes.inc      ;
+; lpm_decode.inc                   ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_decode.inc      ;
+; lpm_mux.inc                      ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/lpm_mux.inc         ;
+; a_hdffe.inc                      ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_hdffe.inc         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/a_rdenreg.inc       ;
+; altqpram.inc                     ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altqpram.inc        ;
+; alt_le_rden_reg.inc              ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/alt_le_rden_reg.inc ;
+; altsyncram.inc                   ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/altsyncram.inc      ;
+; aglobal90.inc                    ; yes             ; Megafunction    ; g:/dsd/portableapps/quartus90sp2portable/app/quartus/altera/90sp2/quartus/libraries/megafunctions/aglobal90.inc       ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------+
 ; Analysis & Synthesis Resource Usage Summary ;
-+-----------------------------------+---------+
-; Resource                          ; Usage   ;
-+-----------------------------------+---------+
-; Total logic elements              ; 2302    ;
-; Total combinational functions     ; 2173    ;
-;     -- Total 4-input functions    ; 894     ;
-;     -- Total 3-input functions    ; 203     ;
-;     -- Total 2-input functions    ; 877     ;
-;     -- Total 1-input functions    ; 122     ;
-;     -- Total 0-input functions    ; 77      ;
-; Total registers                   ; 260     ;
-; Total logic cells in carry chains ; 994     ;
-; I/O pins                          ; 37      ;
-; Total memory bits                 ; 256     ;
-; Maximum fan-out node              ; clk     ;
-; Maximum fan-out                   ; 276     ;
-; Total fan-out                     ; 7946    ;
-; Average fan-out                   ; 3.37    ;
-+-----------------------------------+---------+
++--------------------------------+------------+
+; Resource                       ; Usage      ;
++--------------------------------+------------+
+; Total logic elements           ; 134        ;
+; Total combinational functions  ; 92         ;
+;     -- Total 4-input functions ; 43         ;
+;     -- Total 3-input functions ; 18         ;
+;     -- Total 2-input functions ; 28         ;
+;     -- Total 1-input functions ; 3          ;
+;     -- Total 0-input functions ; 0          ;
+; Total registers                ; 81         ;
+; I/O pins                       ; 37         ;
+; Total memory bits              ; 256        ;
+; Maximum fan-out node           ; clk        ;
+; Maximum fan-out                ; 97         ;
+; Total fan-out                  ; 644        ;
+; Average fan-out                ; 3.44       ;
++--------------------------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                     ;
-+-------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node          ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                          ; Library Name ;
-+-------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------------------------------------+--------------+
-; |SpectAnalyzer_top                  ; 2302 (27)   ; 260          ; 256         ; 37   ; 0            ; 2042 (24)    ; 129 (0)           ; 131 (3)          ; 994 (0)         ; 0 (0)      ; |SpectAnalyzer_top                                                           ; work         ;
-;    |input_buffer:u_in|              ; 35 (35)     ; 29           ; 0           ; 0    ; 0            ; 6 (6)        ; 20 (20)           ; 9 (9)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top|input_buffer:u_in                                         ; work         ;
-;    |mag_sqr_fft:u_fft|              ; 2214 (617)  ; 204          ; 0           ; 0    ; 0            ; 2010 (413)   ; 91 (91)           ; 113 (113)        ; 994 (153)       ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft                                         ; work         ;
-;       |lpm_mult:Mult0|              ; 319 (0)     ; 0            ; 0           ; 0    ; 0            ; 319 (0)      ; 0 (0)             ; 0 (0)            ; 165 (0)         ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult0                          ; work         ;
-;          |mult_6g01:auto_generated| ; 319 (319)   ; 0            ; 0           ; 0    ; 0            ; 319 (319)    ; 0 (0)             ; 0 (0)            ; 165 (165)       ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult0|mult_6g01:auto_generated ; work         ;
-;       |lpm_mult:Mult1|              ; 318 (0)     ; 0            ; 0           ; 0    ; 0            ; 318 (0)      ; 0 (0)             ; 0 (0)            ; 168 (0)         ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult1                          ; work         ;
-;          |mult_6g01:auto_generated| ; 318 (318)   ; 0            ; 0           ; 0    ; 0            ; 318 (318)    ; 0 (0)             ; 0 (0)            ; 168 (168)       ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult1|mult_6g01:auto_generated ; work         ;
-;       |lpm_mult:Mult2|              ; 319 (0)     ; 0            ; 0           ; 0    ; 0            ; 319 (0)      ; 0 (0)             ; 0 (0)            ; 169 (0)         ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult2                          ; work         ;
-;          |mult_6g01:auto_generated| ; 319 (319)   ; 0            ; 0           ; 0    ; 0            ; 319 (319)    ; 0 (0)             ; 0 (0)            ; 169 (169)       ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult2|mult_6g01:auto_generated ; work         ;
-;       |lpm_mult:Mult3|              ; 321 (0)     ; 0            ; 0           ; 0    ; 0            ; 321 (0)      ; 0 (0)             ; 0 (0)            ; 167 (0)         ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult3                          ; work         ;
-;          |mult_6g01:auto_generated| ; 321 (321)   ; 0            ; 0           ; 0    ; 0            ; 321 (321)    ; 0 (0)             ; 0 (0)            ; 167 (167)       ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult3|mult_6g01:auto_generated ; work         ;
-;       |lpm_mult:Mult4|              ; 160 (0)     ; 0            ; 0           ; 0    ; 0            ; 160 (0)      ; 0 (0)             ; 0 (0)            ; 86 (0)          ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult4                          ; work         ;
-;          |mult_6g01:auto_generated| ; 160 (160)   ; 0            ; 0           ; 0    ; 0            ; 160 (160)    ; 0 (0)             ; 0 (0)            ; 86 (86)         ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated ; work         ;
-;       |lpm_mult:Mult5|              ; 160 (0)     ; 0            ; 0           ; 0    ; 0            ; 160 (0)      ; 0 (0)             ; 0 (0)            ; 86 (0)          ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult5                          ; work         ;
-;          |mult_6g01:auto_generated| ; 160 (160)   ; 0            ; 0           ; 0    ; 0            ; 160 (160)    ; 0 (0)             ; 0 (0)            ; 86 (86)         ; 0 (0)      ; |SpectAnalyzer_top|mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated ; work         ;
-;    |output_buffer:u_out|            ; 26 (26)     ; 24           ; 0           ; 0    ; 0            ; 2 (2)        ; 18 (18)           ; 6 (6)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top|output_buffer:u_out                                       ; work         ;
-;    |ram_sp:ram_inst|                ; 0 (0)       ; 0            ; 256         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top|ram_sp:ram_inst                                           ; work         ;
-;       |altdpram:mem_rtl_0|          ; 0 (0)       ; 0            ; 256         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top|ram_sp:ram_inst|altdpram:mem_rtl_0                        ; work         ;
-+-------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                             ;
++---------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node            ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                ; Library Name ;
++---------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------+--------------+
+; |SpectAnalyzer_top_dp                 ; 134 (25)    ; 81           ; 256         ; 37   ; 0            ; 53 (22)      ; 42 (0)            ; 39 (3)           ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top_dp                                              ; work         ;
+;    |input_buffer:input_buffer_inst|   ; 36 (36)     ; 29           ; 0           ; 0    ; 0            ; 7 (7)        ; 20 (20)           ; 9 (9)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top_dp|input_buffer:input_buffer_inst               ; work         ;
+;    |mag_sqr_fft_dp:fft_inst|          ; 47 (47)     ; 25           ; 0           ; 0    ; 0            ; 22 (22)      ; 4 (4)             ; 21 (21)          ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top_dp|mag_sqr_fft_dp:fft_inst                      ; work         ;
+;    |output_buffer:output_buffer_inst| ; 26 (26)     ; 24           ; 0           ; 0    ; 0            ; 2 (2)        ; 18 (18)           ; 6 (6)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top_dp|output_buffer:output_buffer_inst             ; work         ;
+;    |ram_dp_optimized:ram_inst|        ; 0 (0)       ; 0            ; 256         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top_dp|ram_dp_optimized:ram_inst                    ; work         ;
+;       |altdpram:mem_rtl_0|            ; 0 (0)       ; 0            ; 256         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SpectAnalyzer_top_dp|ram_dp_optimized:ram_inst|altdpram:mem_rtl_0 ; work         ;
++---------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                          ;
-+--------------------------------------------+-----------+--------------+--------------+--------------+--------------+------+-----------------------------------------------+
-; Name                                       ; Mode      ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                           ;
-+--------------------------------------------+-----------+--------------+--------------+--------------+--------------+------+-----------------------------------------------+
-; ram_sp:ram_inst|altdpram:mem_rtl_0|content ; Dual Port ; 16           ; 16           ; 16           ; 16           ; 256  ; db/SpectAnalyzer.ram0_ram_sp_ed4f5dd0.hdl.mif ;
-+--------------------------------------------+-----------+--------------+--------------+--------------+--------------+------+-----------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                           ;
++------------------------------------------------------+-----------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                 ; Mode      ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++------------------------------------------------------+-----------+--------------+--------------+--------------+--------------+------+------+
+; ram_dp_optimized:ram_inst|altdpram:mem_rtl_0|content ; Dual Port ; 16           ; 16           ; 16           ; 16           ; 256  ; none ;
++------------------------------------------------------+-----------+--------------+--------------+--------------+--------------+------+------+
 
 
 Encoding Type:  One-Hot
 +----------------------------------------------------------+
-; State Machine - |SpectAnalyzer_top|phase                 ;
+; State Machine - |SpectAnalyzer_top_dp|phase              ;
 +--------------+--------------+--------------+-------------+
 ; Name         ; phase.PH_OUT ; phase.PH_FFT ; phase.PH_IN ;
 +--------------+--------------+--------------+-------------+
@@ -245,106 +220,67 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------+
-; State Machine - |SpectAnalyzer_top|output_buffer:u_out|st ;
-+-------------+-------------+-------------+-----------------+
-; Name        ; st.READ_OUT ; st.SET_ADDR ; st.IDLE         ;
-+-------------+-------------+-------------+-----------------+
-; st.IDLE     ; 0           ; 0           ; 0               ;
-; st.SET_ADDR ; 0           ; 1           ; 1               ;
-; st.READ_OUT ; 1           ; 0           ; 1               ;
-+-------------+-------------+-------------+-----------------+
++---------------------------------------------------------------------------+
+; State Machine - |SpectAnalyzer_top_dp|output_buffer:output_buffer_inst|st ;
++-------------+-------------+-------------+---------------------------------+
+; Name        ; st.READ_OUT ; st.SET_ADDR ; st.IDLE                         ;
++-------------+-------------+-------------+---------------------------------+
+; st.IDLE     ; 0           ; 0           ; 0                               ;
+; st.SET_ADDR ; 0           ; 1           ; 1                               ;
+; st.READ_OUT ; 1           ; 0           ; 1                               ;
++-------------+-------------+-------------+---------------------------------+
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |SpectAnalyzer_top|mag_sqr_fft:u_fft|st                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
-+-----------------+----------+-----------+-------------+--------------+--------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+---------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+---------+
-; Name            ; st.DONE1 ; st.MAG_WR ; st.MAG_CALC ; st.MAG_RD_IM ; st.MAG_RD_RE ; st.S2_WR_BOT_IM ; st.S2_WR_BOT_RE ; st.S2_WR_TOP_IM ; st.S2_WR_TOP_RE ; st.S2_BUTTERFLY ; st.S2_CALC ; st.S2_RD_BOT_IM ; st.S2_RD_BOT_RE ; st.S2_RD_TOP_IM ; st.S2_RD_TOP_RE ; st.S1_WR_BOT_IM ; st.S1_WR_BOT_RE ; st.S1_WR_TOP_IM ; st.S1_WR_TOP_RE ; st.S1_BUTTERFLY ; st.S1_CALC ; st.S1_RD_BOT_IM ; st.S1_RD_BOT_RE ; st.S1_RD_TOP_IM ; st.S1_RD_TOP_RE ; st.S0_ADVANCE ; st.S0_WR_BOT_IM ; st.S0_WR_BOT_RE ; st.S0_WR_TOP_IM ; st.S0_WR_TOP_RE ; st.S0_CALC ; st.S0_RD_BOT_IM ; st.S0_RD_BOT_RE ; st.S0_RD_TOP_IM ; st.S0_RD_TOP_RE ; st.IDLE ;
-+-----------------+----------+-----------+-------------+--------------+--------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+---------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+---------+
-; st.IDLE         ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0       ;
-; st.S0_RD_TOP_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 1               ; 1       ;
-; st.S0_RD_TOP_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 1               ; 0               ; 1       ;
-; st.S0_RD_BOT_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 1               ; 0               ; 0               ; 1       ;
-; st.S0_RD_BOT_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 1               ; 0               ; 0               ; 0               ; 1       ;
-; st.S0_CALC      ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 1          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S0_WR_TOP_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 1               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S0_WR_TOP_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 1               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S0_WR_BOT_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 1               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S0_WR_BOT_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 1               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S0_ADVANCE   ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_RD_TOP_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 1               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_RD_TOP_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 1               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_RD_BOT_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 1               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_RD_BOT_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 1               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_CALC      ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_BUTTERFLY ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_WR_TOP_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_WR_TOP_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_WR_BOT_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S1_WR_BOT_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_RD_TOP_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_RD_TOP_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_RD_BOT_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_RD_BOT_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_CALC      ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 1          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_BUTTERFLY ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 1               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_WR_TOP_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 1               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_WR_TOP_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 1               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_WR_BOT_RE ; 0        ; 0         ; 0           ; 0            ; 0            ; 0               ; 1               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.S2_WR_BOT_IM ; 0        ; 0         ; 0           ; 0            ; 0            ; 1               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.MAG_RD_RE    ; 0        ; 0         ; 0           ; 0            ; 1            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.MAG_RD_IM    ; 0        ; 0         ; 0           ; 1            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.MAG_CALC     ; 0        ; 0         ; 1           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.MAG_WR       ; 0        ; 1         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-; st.DONE1        ; 1        ; 0         ; 0           ; 0            ; 0            ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 0             ; 0               ; 0               ; 0               ; 0               ; 0          ; 0               ; 0               ; 0               ; 0               ; 1       ;
-+-----------------+----------+-----------+-------------+--------------+--------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+---------------+-----------------+-----------------+-----------------+-----------------+------------+-----------------+-----------------+-----------------+-----------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpectAnalyzer_top_dp|mag_sqr_fft_dp:fft_inst|st                                                                                                                                                                                                           ;
++-----------------+----------+-----------+-------------+----------------+---------------+-----------------+------------+---------------+---------------+-----------------+------------+---------------+---------------+---------------+------------+---------------+---------+
+; Name            ; st.DONE1 ; st.MAG_WR ; st.MAG_CALC ; st.MAG_RD_PAIR ; st.S2_WR_PAIR ; st.S2_BUTTERFLY ; st.S2_CALC ; st.S2_RD_PAIR ; st.S1_WR_PAIR ; st.S1_BUTTERFLY ; st.S1_CALC ; st.S1_RD_PAIR ; st.S0_ADVANCE ; st.S0_WR_PAIR ; st.S0_CALC ; st.S0_RD_PAIR ; st.IDLE ;
++-----------------+----------+-----------+-------------+----------------+---------------+-----------------+------------+---------------+---------------+-----------------+------------+---------------+---------------+---------------+------------+---------------+---------+
+; st.IDLE         ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 0       ;
+; st.S0_RD_PAIR   ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 1             ; 1       ;
+; st.S0_CALC      ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 1          ; 0             ; 1       ;
+; st.S0_WR_PAIR   ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 1             ; 0          ; 0             ; 1       ;
+; st.S0_ADVANCE   ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 1             ; 0             ; 0          ; 0             ; 1       ;
+; st.S1_RD_PAIR   ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 1             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S1_CALC      ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 1          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S1_BUTTERFLY ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 1               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S1_WR_PAIR   ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 1             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S2_RD_PAIR   ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 1             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S2_CALC      ; 0        ; 0         ; 0           ; 0              ; 0             ; 0               ; 1          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S2_BUTTERFLY ; 0        ; 0         ; 0           ; 0              ; 0             ; 1               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.S2_WR_PAIR   ; 0        ; 0         ; 0           ; 0              ; 1             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.MAG_RD_PAIR  ; 0        ; 0         ; 0           ; 1              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.MAG_CALC     ; 0        ; 0         ; 1           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.MAG_WR       ; 0        ; 1         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
+; st.DONE1        ; 1        ; 0         ; 0           ; 0              ; 0             ; 0               ; 0          ; 0             ; 0             ; 0               ; 0          ; 0             ; 0             ; 0             ; 0          ; 0             ; 1       ;
++-----------------+----------+-----------+-------------+----------------+---------------+-----------------+------------+---------------+---------------+-----------------+------------+---------------+---------------+---------------+------------+---------------+---------+
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------+
-; State Machine - |SpectAnalyzer_top|input_buffer:u_in|st ;
-+-------------+-------------+----------+------------------+
-; Name        ; st.WAIT_FFT ; st.WRITE ; st.IDLE          ;
-+-------------+-------------+----------+------------------+
-; st.IDLE     ; 0           ; 0        ; 0                ;
-; st.WRITE    ; 0           ; 1        ; 1                ;
-; st.WAIT_FFT ; 1           ; 0        ; 1                ;
-+-------------+-------------+----------+------------------+
++-------------------------------------------------------------------------+
+; State Machine - |SpectAnalyzer_top_dp|input_buffer:input_buffer_inst|st ;
++-------------+-------------+----------+----------------------------------+
+; Name        ; st.WAIT_FFT ; st.WRITE ; st.IDLE                          ;
++-------------+-------------+----------+----------------------------------+
+; st.IDLE     ; 0           ; 0        ; 0                                ;
+; st.WRITE    ; 0           ; 1        ; 1                                ;
+; st.WAIT_FFT ; 1           ; 0        ; 1                                ;
++-------------+-------------+----------+----------------------------------+
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; mag_sqr_fft:u_fft|w_im[0,7,9,11..12,14] ; Stuck at GND due to stuck port data_in ;
-; mag_sqr_fft:u_fft|a_re[15..16]          ; Merged with mag_sqr_fft:u_fft|a_re[17] ;
-; mag_sqr_fft:u_fft|a_im[15..16]          ; Merged with mag_sqr_fft:u_fft|a_im[17] ;
-; mag_sqr_fft:u_fft|b_re[15..16]          ; Merged with mag_sqr_fft:u_fft|b_re[17] ;
-; mag_sqr_fft:u_fft|b_im[15..16]          ; Merged with mag_sqr_fft:u_fft|b_im[17] ;
-; output_buffer:u_out|addr[3]             ; Merged with output_buffer:u_out|idx[2] ;
-; output_buffer:u_out|addr[2]             ; Merged with output_buffer:u_out|idx[1] ;
-; output_buffer:u_out|addr[1]             ; Merged with output_buffer:u_out|idx[0] ;
-; mag_sqr_fft:u_fft|w_re[7,9,11..12]      ; Merged with mag_sqr_fft:u_fft|w_re[14] ;
-; mag_sqr_fft:u_fft|w_re[2..6,8,10]       ; Merged with mag_sqr_fft:u_fft|w_re[13] ;
-; mag_sqr_fft:u_fft|w_im[1..6,8,10]       ; Merged with mag_sqr_fft:u_fft|w_im[13] ;
-; output_buffer:u_out|addr[0]             ; Stuck at GND due to stuck port data_in ;
-; input_buffer:u_in|st.WRITE              ; Lost fanout                            ;
-; mag_sqr_fft:u_fft|up_im[16..17]         ; Lost fanout                            ;
-; mag_sqr_fft:u_fft|up_re[16..17]         ; Lost fanout                            ;
-; Total Number of Removed Registers = 42  ;                                        ;
-+-----------------------------------------+----------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                     ;
-+----------------------------+---------------------------+----------------------------------------+
-; Register name              ; Reason for Removal        ; Registers Removed due to This Register ;
-+----------------------------+---------------------------+----------------------------------------+
-; mag_sqr_fft:u_fft|w_im[14] ; Stuck at GND              ; mag_sqr_fft:u_fft|up_im[16]            ;
-;                            ; due to stuck port data_in ;                                        ;
-+----------------------------+---------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++------------------------------------------+-----------------------------------------------------+
+; Register name                            ; Reason for Removal                                  ;
++------------------------------------------+-----------------------------------------------------+
+; output_buffer:output_buffer_inst|addr[3] ; Merged with output_buffer:output_buffer_inst|idx[2] ;
+; output_buffer:output_buffer_inst|addr[2] ; Merged with output_buffer:output_buffer_inst|idx[1] ;
+; output_buffer:output_buffer_inst|addr[1] ; Merged with output_buffer:output_buffer_inst|idx[0] ;
+; output_buffer:output_buffer_inst|addr[0] ; Stuck at GND due to stuck port data_in              ;
+; input_buffer:input_buffer_inst|st.WRITE  ; Lost fanout                                         ;
+; Total Number of Removed Registers = 5    ;                                                     ;
++------------------------------------------+-----------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -352,399 +288,394 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 260   ;
-; Number of registers using Synchronous Clear  ; 2     ;
+; Total registers                              ; 81    ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 240   ;
+; Number of registers using Asynchronous Clear ; 61    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 141   ;
+; Number of registers using Clock Enable       ; 43    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; mag_sqr_fft:u_fft|bot_cpx[2]           ; 4       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++-----------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                            ;
++---------------------------------------+------------------------------------------+------+
+; Register Name                         ; Megafunction                             ; Type ;
++---------------------------------------+------------------------------------------+------+
+; ram_dp_optimized:ram_inst|dout_a[0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][0]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][0]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][0]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][0]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][0]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][0]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][0]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][1]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][1]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][1]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][1]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][1]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][1]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][1]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][2]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][2]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][2]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][2]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][2]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][2]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][2]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][3]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][3]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][3]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][3]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][3]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][3]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][3]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][4]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][4]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][4]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][4]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][4]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][4]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][4]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][5]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][5]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][5]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][5]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][5]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][5]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][5]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][6]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][6]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][6]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][6]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][6]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][6]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][6]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][7]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][7]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][7]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][7]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][7]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][7]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][7]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][8]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][8]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][8]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][8]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][8]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][8]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][8]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][9]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][9]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][9]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][9]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][9]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][9]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][9]   ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][10] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][10] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][10] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][10] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][10] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][10] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][10]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][11] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][11] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][11] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][11] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][11] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][11] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][11]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][12] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][12] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][12] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][12] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][12] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][12] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][12]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][13] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][13] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][13] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][13] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][13] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][13] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][13]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][14] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][14] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][14] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][14] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][14] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][14] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][14]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|dout_a[15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[15][15] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[14][15] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[13][15] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[12][15] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[11][15] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[10][15] ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[9][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[8][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[7][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[6][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[5][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[4][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[3][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[2][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[1][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
+; ram_dp_optimized:ram_inst|mem[0][15]  ; ram_dp_optimized:ram_inst|mem[0][0]~1024 ; RAM  ;
++---------------------------------------+------------------------------------------+------+
 
 
-+----------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions             ;
-+--------------------------+------------------------+------+
-; Register Name            ; Megafunction           ; Type ;
-+--------------------------+------------------------+------+
-; ram_sp:ram_inst|dout[0]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[1]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[2]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[3]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[4]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[5]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[6]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[7]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[8]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[9]  ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[10] ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[11] ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[12] ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[13] ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[14] ; ram_sp:ram_inst|mem~21 ; RAM  ;
-; ram_sp:ram_inst|dout[15] ; ram_sp:ram_inst|mem~21 ; RAM  ;
-+--------------------------+------------------------+------+
-
-
-+----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mag_sqr_fft:u_fft ;
-+----------------+-------+---------------------------------------+
-; Parameter Name ; Value ; Type                                  ;
-+----------------+-------+---------------------------------------+
-; width          ; 16    ; Signed Integer                        ;
-; n              ; 8     ; Signed Integer                        ;
-+----------------+-------+---------------------------------------+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mag_sqr_fft_dp:fft_inst ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; width          ; 16    ; Signed Integer                              ;
+; n              ; 8     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: output_buffer:u_out ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; width          ; 16    ; Signed Integer                          ;
-; n              ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: output_buffer:output_buffer_inst ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 16    ; Signed Integer                                       ;
+; n              ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: ram_sp:ram_inst|altdpram:mem_rtl_0                  ;
-+-------------------------------------+-----------------------------------------------+----------------+
-; Parameter Name                      ; Value                                         ; Type           ;
-+-------------------------------------+-----------------------------------------------+----------------+
-; WIDTH_BYTEENA_A                     ; 1                                             ; Untyped        ;
-; WIDTH_BYTEENA_B                     ; 1                                             ; Untyped        ;
-; WIDTH                               ; 16                                            ; Untyped        ;
-; WIDTHAD                             ; 4                                             ; Untyped        ;
-; NUMWORDS                            ; 16                                            ; Untyped        ;
-; FILE                                ; UNUSED                                        ; Untyped        ;
-; LPM_FILE                            ; db/SpectAnalyzer.ram0_ram_sp_ed4f5dd0.hdl.mif ; Untyped        ;
-; INDATA_REG                          ; INCLOCK                                       ; Untyped        ;
-; INDATA_ACLR                         ; OFF                                           ; Untyped        ;
-; WRADDRESS_REG                       ; INCLOCK                                       ; Untyped        ;
-; WRADDRESS_ACLR                      ; OFF                                           ; Untyped        ;
-; WRCONTROL_REG                       ; INCLOCK                                       ; Untyped        ;
-; WRCONTROL_ACLR                      ; OFF                                           ; Untyped        ;
-; RDADDRESS_REG                       ; UNREGISTERED                                  ; Untyped        ;
-; RDADDRESS_ACLR                      ; OFF                                           ; Untyped        ;
-; RDCONTROL_REG                       ; UNREGISTERED                                  ; Untyped        ;
-; RDCONTROL_ACLR                      ; OFF                                           ; Untyped        ;
-; OUTDATA_REG                         ; OUTCLOCK                                      ; Untyped        ;
-; OUTDATA_ACLR                        ; OFF                                           ; Untyped        ;
-; USE_EAB                             ; ON                                            ; Untyped        ;
-; MAXIMUM_DEPTH                       ; 2048                                          ; Untyped        ;
-; DEVICE_FAMILY                       ; APEX20KE                                      ; Untyped        ;
-; SUPPRESS_MEMORY_CONVERSION_WARNINGS ; OFF                                           ; Untyped        ;
-; INTENDED_DEVICE_FAMILY              ; APEX20KE                                      ; Untyped        ;
-; ENABLE_RAM_BENCHMARKING_MODE        ; OFF                                           ; Untyped        ;
-; RAM_BLOCK_TYPE                      ; AUTO                                          ; Untyped        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS  ; DONT_CARE                                     ; Untyped        ;
-; BYTE_SIZE                           ; 8                                             ; Untyped        ;
-; WIDTH_BYTEENA                       ; 1                                             ; Untyped        ;
-; DISABLE_LE_RAM_LIMIT_CHECK          ; OFF                                           ; Untyped        ;
-; CBXI_PARAMETER                      ; NOTHING                                       ; Untyped        ;
-; AUTO_CARRY_CHAINS                   ; ON                                            ; AUTO_CARRY     ;
-; IGNORE_CARRY_BUFFERS                ; OFF                                           ; IGNORE_CARRY   ;
-; AUTO_CASCADE_CHAINS                 ; ON                                            ; AUTO_CASCADE   ;
-; IGNORE_CASCADE_BUFFERS              ; OFF                                           ; IGNORE_CASCADE ;
-+-------------------------------------+-----------------------------------------------+----------------+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ram_dp_optimized:ram_inst|altdpram:mem_rtl_0 ;
++-------------------------------------+--------------+------------------------------------------+
+; Parameter Name                      ; Value        ; Type                                     ;
++-------------------------------------+--------------+------------------------------------------+
+; WIDTH_BYTEENA_A                     ; 1            ; Untyped                                  ;
+; WIDTH_BYTEENA_B                     ; 1            ; Untyped                                  ;
+; WIDTH                               ; 16           ; Untyped                                  ;
+; WIDTHAD                             ; 4            ; Untyped                                  ;
+; NUMWORDS                            ; 16           ; Untyped                                  ;
+; FILE                                ; UNUSED       ; Untyped                                  ;
+; LPM_FILE                            ; UNUSED       ; Untyped                                  ;
+; INDATA_REG                          ; INCLOCK      ; Untyped                                  ;
+; INDATA_ACLR                         ; OFF          ; Untyped                                  ;
+; WRADDRESS_REG                       ; INCLOCK      ; Untyped                                  ;
+; WRADDRESS_ACLR                      ; OFF          ; Untyped                                  ;
+; WRCONTROL_REG                       ; INCLOCK      ; Untyped                                  ;
+; WRCONTROL_ACLR                      ; OFF          ; Untyped                                  ;
+; RDADDRESS_REG                       ; UNREGISTERED ; Untyped                                  ;
+; RDADDRESS_ACLR                      ; OFF          ; Untyped                                  ;
+; RDCONTROL_REG                       ; UNREGISTERED ; Untyped                                  ;
+; RDCONTROL_ACLR                      ; OFF          ; Untyped                                  ;
+; OUTDATA_REG                         ; OUTCLOCK     ; Untyped                                  ;
+; OUTDATA_ACLR                        ; OFF          ; Untyped                                  ;
+; USE_EAB                             ; ON           ; Untyped                                  ;
+; MAXIMUM_DEPTH                       ; 2048         ; Untyped                                  ;
+; DEVICE_FAMILY                       ; APEX20KE     ; Untyped                                  ;
+; SUPPRESS_MEMORY_CONVERSION_WARNINGS ; OFF          ; Untyped                                  ;
+; INTENDED_DEVICE_FAMILY              ; APEX20KE     ; Untyped                                  ;
+; ENABLE_RAM_BENCHMARKING_MODE        ; OFF          ; Untyped                                  ;
+; RAM_BLOCK_TYPE                      ; AUTO         ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS  ; DONT_CARE    ; Untyped                                  ;
+; BYTE_SIZE                           ; 8            ; Untyped                                  ;
+; WIDTH_BYTEENA                       ; 1            ; Untyped                                  ;
+; DISABLE_LE_RAM_LIMIT_CHECK          ; OFF          ; Untyped                                  ;
+; CBXI_PARAMETER                      ; NOTHING      ; Untyped                                  ;
+; AUTO_CARRY_CHAINS                   ; ON           ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS                ; OFF          ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS                 ; ON           ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS              ; OFF          ; IGNORE_CASCADE                           ;
++-------------------------------------+--------------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult4 ;
-+------------------------------------------------+-----------+----------------------+
-; Parameter Name                                 ; Value     ; Type                 ;
-+------------------------------------------------+-----------+----------------------+
-; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY         ;
-; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE       ;
-; LPM_WIDTHA                                     ; 16        ; Untyped              ;
-; LPM_WIDTHB                                     ; 16        ; Untyped              ;
-; LPM_WIDTHP                                     ; 32        ; Untyped              ;
-; LPM_WIDTHR                                     ; 32        ; Untyped              ;
-; LPM_WIDTHS                                     ; 1         ; Untyped              ;
-; LPM_REPRESENTATION                             ; SIGNED    ; Untyped              ;
-; LPM_PIPELINE                                   ; 0         ; Untyped              ;
-; LATENCY                                        ; 0         ; Untyped              ;
-; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped              ;
-; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped              ;
-; USE_EAB                                        ; OFF       ; Untyped              ;
-; MAXIMIZE_SPEED                                 ; 5         ; Untyped              ;
-; DEVICE_FAMILY                                  ; APEX20KE  ; Untyped              ;
-; CARRY_CHAIN                                    ; MANUAL    ; Untyped              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped              ;
-; CBXI_PARAMETER                                 ; mult_6g01 ; Untyped              ;
-; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped              ;
-+------------------------------------------------+-----------+----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "output_buffer:output_buffer_inst"                                                     ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ram_we ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult5 ;
-+------------------------------------------------+-----------+----------------------+
-; Parameter Name                                 ; Value     ; Type                 ;
-+------------------------------------------------+-----------+----------------------+
-; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY         ;
-; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE       ;
-; LPM_WIDTHA                                     ; 16        ; Untyped              ;
-; LPM_WIDTHB                                     ; 16        ; Untyped              ;
-; LPM_WIDTHP                                     ; 32        ; Untyped              ;
-; LPM_WIDTHR                                     ; 32        ; Untyped              ;
-; LPM_WIDTHS                                     ; 1         ; Untyped              ;
-; LPM_REPRESENTATION                             ; SIGNED    ; Untyped              ;
-; LPM_PIPELINE                                   ; 0         ; Untyped              ;
-; LATENCY                                        ; 0         ; Untyped              ;
-; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped              ;
-; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped              ;
-; USE_EAB                                        ; OFF       ; Untyped              ;
-; MAXIMIZE_SPEED                                 ; 5         ; Untyped              ;
-; DEVICE_FAMILY                                  ; APEX20KE  ; Untyped              ;
-; CARRY_CHAIN                                    ; MANUAL    ; Untyped              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped              ;
-; CBXI_PARAMETER                                 ; mult_6g01 ; Untyped              ;
-; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped              ;
-+------------------------------------------------+-----------+----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mag_sqr_fft_dp:fft_inst"                                                                  ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; ram_addr_a ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ram_dout_a ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ram_we_a   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ram_addr_b ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ram_dout_b ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ram_we_b   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult2 ;
-+------------------------------------------------+-----------+----------------------+
-; Parameter Name                                 ; Value     ; Type                 ;
-+------------------------------------------------+-----------+----------------------+
-; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY         ;
-; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE       ;
-; LPM_WIDTHA                                     ; 16        ; Untyped              ;
-; LPM_WIDTHB                                     ; 16        ; Untyped              ;
-; LPM_WIDTHP                                     ; 32        ; Untyped              ;
-; LPM_WIDTHR                                     ; 32        ; Untyped              ;
-; LPM_WIDTHS                                     ; 1         ; Untyped              ;
-; LPM_REPRESENTATION                             ; SIGNED    ; Untyped              ;
-; LPM_PIPELINE                                   ; 0         ; Untyped              ;
-; LATENCY                                        ; 0         ; Untyped              ;
-; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped              ;
-; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped              ;
-; USE_EAB                                        ; OFF       ; Untyped              ;
-; MAXIMIZE_SPEED                                 ; 5         ; Untyped              ;
-; DEVICE_FAMILY                                  ; APEX20KE  ; Untyped              ;
-; CARRY_CHAIN                                    ; MANUAL    ; Untyped              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped              ;
-; CBXI_PARAMETER                                 ; mult_6g01 ; Untyped              ;
-; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped              ;
-+------------------------------------------------+-----------+----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult3 ;
-+------------------------------------------------+-----------+----------------------+
-; Parameter Name                                 ; Value     ; Type                 ;
-+------------------------------------------------+-----------+----------------------+
-; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY         ;
-; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE       ;
-; LPM_WIDTHA                                     ; 16        ; Untyped              ;
-; LPM_WIDTHB                                     ; 16        ; Untyped              ;
-; LPM_WIDTHP                                     ; 32        ; Untyped              ;
-; LPM_WIDTHR                                     ; 32        ; Untyped              ;
-; LPM_WIDTHS                                     ; 1         ; Untyped              ;
-; LPM_REPRESENTATION                             ; SIGNED    ; Untyped              ;
-; LPM_PIPELINE                                   ; 0         ; Untyped              ;
-; LATENCY                                        ; 0         ; Untyped              ;
-; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped              ;
-; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped              ;
-; USE_EAB                                        ; OFF       ; Untyped              ;
-; MAXIMIZE_SPEED                                 ; 5         ; Untyped              ;
-; DEVICE_FAMILY                                  ; APEX20KE  ; Untyped              ;
-; CARRY_CHAIN                                    ; MANUAL    ; Untyped              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped              ;
-; CBXI_PARAMETER                                 ; mult_6g01 ; Untyped              ;
-; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped              ;
-+------------------------------------------------+-----------+----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult0 ;
-+------------------------------------------------+-----------+----------------------+
-; Parameter Name                                 ; Value     ; Type                 ;
-+------------------------------------------------+-----------+----------------------+
-; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY         ;
-; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE       ;
-; LPM_WIDTHA                                     ; 16        ; Untyped              ;
-; LPM_WIDTHB                                     ; 16        ; Untyped              ;
-; LPM_WIDTHP                                     ; 32        ; Untyped              ;
-; LPM_WIDTHR                                     ; 32        ; Untyped              ;
-; LPM_WIDTHS                                     ; 1         ; Untyped              ;
-; LPM_REPRESENTATION                             ; SIGNED    ; Untyped              ;
-; LPM_PIPELINE                                   ; 0         ; Untyped              ;
-; LATENCY                                        ; 0         ; Untyped              ;
-; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped              ;
-; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped              ;
-; USE_EAB                                        ; OFF       ; Untyped              ;
-; MAXIMIZE_SPEED                                 ; 5         ; Untyped              ;
-; DEVICE_FAMILY                                  ; APEX20KE  ; Untyped              ;
-; CARRY_CHAIN                                    ; MANUAL    ; Untyped              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped              ;
-; CBXI_PARAMETER                                 ; mult_6g01 ; Untyped              ;
-; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped              ;
-+------------------------------------------------+-----------+----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mag_sqr_fft:u_fft|lpm_mult:Mult1 ;
-+------------------------------------------------+-----------+----------------------+
-; Parameter Name                                 ; Value     ; Type                 ;
-+------------------------------------------------+-----------+----------------------+
-; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY         ;
-; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE       ;
-; LPM_WIDTHA                                     ; 16        ; Untyped              ;
-; LPM_WIDTHB                                     ; 16        ; Untyped              ;
-; LPM_WIDTHP                                     ; 32        ; Untyped              ;
-; LPM_WIDTHR                                     ; 32        ; Untyped              ;
-; LPM_WIDTHS                                     ; 1         ; Untyped              ;
-; LPM_REPRESENTATION                             ; SIGNED    ; Untyped              ;
-; LPM_PIPELINE                                   ; 0         ; Untyped              ;
-; LATENCY                                        ; 0         ; Untyped              ;
-; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped              ;
-; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped              ;
-; USE_EAB                                        ; OFF       ; Untyped              ;
-; MAXIMIZE_SPEED                                 ; 5         ; Untyped              ;
-; DEVICE_FAMILY                                  ; APEX20KE  ; Untyped              ;
-; CARRY_CHAIN                                    ; MANUAL    ; Untyped              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped              ;
-; CBXI_PARAMETER                                 ; mult_6g01 ; Untyped              ;
-; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped              ;
-+------------------------------------------------+-----------+----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance                           ;
-+---------------------------------------+----------------------------------+
-; Name                                  ; Value                            ;
-+---------------------------------------+----------------------------------+
-; Number of entity instances            ; 6                                ;
-; Entity Instance                       ; mag_sqr_fft:u_fft|lpm_mult:Mult4 ;
-;     -- LPM_WIDTHA                     ; 16                               ;
-;     -- LPM_WIDTHB                     ; 16                               ;
-;     -- LPM_WIDTHP                     ; 32                               ;
-;     -- LPM_REPRESENTATION             ; SIGNED                           ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                               ;
-;     -- USE_EAB                        ; OFF                              ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
-; Entity Instance                       ; mag_sqr_fft:u_fft|lpm_mult:Mult5 ;
-;     -- LPM_WIDTHA                     ; 16                               ;
-;     -- LPM_WIDTHB                     ; 16                               ;
-;     -- LPM_WIDTHP                     ; 32                               ;
-;     -- LPM_REPRESENTATION             ; SIGNED                           ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                               ;
-;     -- USE_EAB                        ; OFF                              ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
-; Entity Instance                       ; mag_sqr_fft:u_fft|lpm_mult:Mult2 ;
-;     -- LPM_WIDTHA                     ; 16                               ;
-;     -- LPM_WIDTHB                     ; 16                               ;
-;     -- LPM_WIDTHP                     ; 32                               ;
-;     -- LPM_REPRESENTATION             ; SIGNED                           ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                               ;
-;     -- USE_EAB                        ; OFF                              ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
-; Entity Instance                       ; mag_sqr_fft:u_fft|lpm_mult:Mult3 ;
-;     -- LPM_WIDTHA                     ; 16                               ;
-;     -- LPM_WIDTHB                     ; 16                               ;
-;     -- LPM_WIDTHP                     ; 32                               ;
-;     -- LPM_REPRESENTATION             ; SIGNED                           ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                               ;
-;     -- USE_EAB                        ; OFF                              ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
-; Entity Instance                       ; mag_sqr_fft:u_fft|lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 16                               ;
-;     -- LPM_WIDTHB                     ; 16                               ;
-;     -- LPM_WIDTHP                     ; 32                               ;
-;     -- LPM_REPRESENTATION             ; SIGNED                           ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                               ;
-;     -- USE_EAB                        ; OFF                              ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
-; Entity Instance                       ; mag_sqr_fft:u_fft|lpm_mult:Mult1 ;
-;     -- LPM_WIDTHA                     ; 16                               ;
-;     -- LPM_WIDTHB                     ; 16                               ;
-;     -- LPM_WIDTHP                     ; 32                               ;
-;     -- LPM_REPRESENTATION             ; SIGNED                           ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                               ;
-;     -- USE_EAB                        ; OFF                              ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
-+---------------------------------------+----------------------------------+
++-------------------------------------------------------+
+; Port Connectivity Checks: "ram_dp_optimized:ram_inst" ;
++--------+-------+----------+---------------------------+
+; Port   ; Type  ; Severity ; Details                   ;
++--------+-------+----------+---------------------------+
+; addr_b ; Input ; Info     ; Stuck at GND              ;
+; din_b  ; Input ; Info     ; Stuck at GND              ;
+; we_b   ; Input ; Info     ; Stuck at GND              ;
++--------+-------+----------+---------------------------+
 
 
 +-------------------------------+
@@ -753,39 +684,45 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sat Jun 28 05:59:12 2025
+    Info: Processing started: Sat Jun 28 07:13:50 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpectAnalyzer -c SpectAnalyzer_top
+Info: Found 2 design units, including 1 entities, in source file src/SpectAnalyzer_top_dp.vhd
+    Info: Found design unit 1: SpectAnalyzer_top_dp-rtl
+    Info: Found entity 1: SpectAnalyzer_top_dp
+Info: Found 2 design units, including 1 entities, in source file src/mag_sqr_fft_dp.vhd
+    Info: Found design unit 1: mag_sqr_fft_dp-rtl
+    Info: Found entity 1: mag_sqr_fft_dp
+Info: Found 2 design units, including 1 entities, in source file src/ram_dp_optimized.vhd
+    Info: Found design unit 1: ram_dp_optimized-rtl
+    Info: Found entity 1: ram_dp_optimized
 Info: Found 2 design units, including 0 entities, in source file src/spect_pkg0.vhd
     Info: Found design unit 1: spect_pkg0
     Info: Found design unit 2: spect_pkg0-body
-Info: Found 2 design units, including 1 entities, in source file src/mag_sqr_fft.vhd
-    Info: Found design unit 1: mag_sqr_fft-rtl
-    Info: Found entity 1: mag_sqr_fft
 Info: Found 2 design units, including 0 entities, in source file src/spect_pkg.vhd
     Info: Found design unit 1: spect_pkg
     Info: Found design unit 2: spect_pkg-body
-Info: Found 2 design units, including 1 entities, in source file src/SpectAnalyzer_top.vhd
-    Info: Found design unit 1: SpectAnalyzer_top-rtl
-    Info: Found entity 1: SpectAnalyzer_top
 Info: Found 2 design units, including 1 entities, in source file src/input_buffer.vhd
     Info: Found design unit 1: input_buffer-rtl
     Info: Found entity 1: input_buffer
 Info: Found 2 design units, including 1 entities, in source file src/output_buffer.vhd
     Info: Found design unit 1: output_buffer-rtl
     Info: Found entity 1: output_buffer
-Info: Found 2 design units, including 1 entities, in source file src/ram_sp.vhd
-    Info: Found design unit 1: ram_sp-rtl
-    Info: Found entity 1: ram_sp
-Info: Elaborating entity "SpectAnalyzer_top" for the top level hierarchy
-Info: Elaborating entity "ram_sp" for hierarchy "ram_sp:ram_inst"
-Info: Elaborating entity "input_buffer" for hierarchy "input_buffer:u_in"
-Info: Elaborating entity "mag_sqr_fft" for hierarchy "mag_sqr_fft:u_fft"
-Warning (10027): Verilog HDL or VHDL warning at the mag_sqr_fft.vhd(217): index expression is not wide enough to address all of the elements in the array
-Warning (10027): Verilog HDL or VHDL warning at the mag_sqr_fft.vhd(218): index expression is not wide enough to address all of the elements in the array
-Warning (10542): VHDL Variable Declaration warning at mag_sqr_fft.vhd(70): used initial value expression for variable "p" because variable was never assigned a value
-Info: Elaborating entity "output_buffer" for hierarchy "output_buffer:u_out"
+Info: Elaborating entity "SpectAnalyzer_top_dp" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at SpectAnalyzer_top_dp.vhd(49): object "fft_ram_addr_a" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SpectAnalyzer_top_dp.vhd(50): object "fft_ram_dout_a" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SpectAnalyzer_top_dp.vhd(51): object "fft_ram_we_a" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SpectAnalyzer_top_dp.vhd(52): object "fft_ram_addr_b" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SpectAnalyzer_top_dp.vhd(53): object "fft_ram_dout_b" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SpectAnalyzer_top_dp.vhd(54): object "fft_ram_we_b" assigned a value but never read
+Info: Elaborating entity "ram_dp_optimized" for hierarchy "ram_dp_optimized:ram_inst"
+Info: Elaborating entity "input_buffer" for hierarchy "input_buffer:input_buffer_inst"
+Info: Elaborating entity "mag_sqr_fft_dp" for hierarchy "mag_sqr_fft_dp:fft_inst"
+Warning (10027): Verilog HDL or VHDL warning at the mag_sqr_fft_dp.vhd(226): index expression is not wide enough to address all of the elements in the array
+Warning (10027): Verilog HDL or VHDL warning at the mag_sqr_fft_dp.vhd(227): index expression is not wide enough to address all of the elements in the array
+Warning (10542): VHDL Variable Declaration warning at mag_sqr_fft_dp.vhd(77): used initial value expression for variable "p" because variable was never assigned a value
+Info: Elaborating entity "output_buffer" for hierarchy "output_buffer:output_buffer_inst"
 Info: Inferred 1 megafunctions from design logic
-    Info: Inferred altdpram megafunction from the following logic: "ram_sp:ram_inst|mem~21" 
+    Info: Inferred altdpram megafunction from the following logic: "ram_dp_optimized:ram_inst|mem[0][0]~1024" 
         Info: Parameter WIDTH set to 16
         Info: Parameter WIDTHAD set to 4
         Info: Parameter NUMWORDS set to 16
@@ -801,16 +738,9 @@ Info: Inferred 1 megafunctions from design logic
         Info: Parameter INDATA_ACLR set to OFF
         Info: Parameter OUTDATA_REG set to OUTCLOCK
         Info: Parameter OUTDATA_ACLR set to OFF
-        Info: Parameter LPM_FILE set to db/SpectAnalyzer.ram0_ram_sp_ed4f5dd0.hdl.mif
-Info: Inferred 6 megafunctions from design logic
-    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "mag_sqr_fft:u_fft|Mult4"
-    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "mag_sqr_fft:u_fft|Mult5"
-    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "mag_sqr_fft:u_fft|Mult2"
-    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "mag_sqr_fft:u_fft|Mult3"
-    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "mag_sqr_fft:u_fft|Mult0"
-    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "mag_sqr_fft:u_fft|Mult1"
-Info: Elaborated megafunction instantiation "ram_sp:ram_inst|altdpram:mem_rtl_0"
-Info: Instantiated megafunction "ram_sp:ram_inst|altdpram:mem_rtl_0" with the following parameter:
+        Info: Parameter LPM_FILE set to UNUSED
+Info: Elaborated megafunction instantiation "ram_dp_optimized:ram_inst|altdpram:mem_rtl_0"
+Info: Instantiated megafunction "ram_dp_optimized:ram_inst|altdpram:mem_rtl_0" with the following parameter:
     Info: Parameter "WIDTH" = "16"
     Info: Parameter "WIDTHAD" = "4"
     Info: Parameter "NUMWORDS" = "16"
@@ -826,202 +756,18 @@ Info: Instantiated megafunction "ram_sp:ram_inst|altdpram:mem_rtl_0" with the fo
     Info: Parameter "INDATA_ACLR" = "OFF"
     Info: Parameter "OUTDATA_REG" = "OUTCLOCK"
     Info: Parameter "OUTDATA_ACLR" = "OFF"
-    Info: Parameter "LPM_FILE" = "db/SpectAnalyzer.ram0_ram_sp_ed4f5dd0.hdl.mif"
-Info: Elaborated megafunction instantiation "mag_sqr_fft:u_fft|lpm_mult:Mult4"
-Info: Instantiated megafunction "mag_sqr_fft:u_fft|lpm_mult:Mult4" with the following parameter:
-    Info: Parameter "LPM_WIDTHA" = "16"
-    Info: Parameter "LPM_WIDTHB" = "16"
-    Info: Parameter "LPM_WIDTHP" = "32"
-    Info: Parameter "LPM_WIDTHR" = "32"
-    Info: Parameter "LPM_WIDTHS" = "1"
-    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info: Parameter "MAXIMIZE_SPEED" = "5"
-    Info: Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "AUTO"
-Info: Found 1 design units, including 1 entities, in source file db/mult_6g01.tdf
-    Info: Found entity 1: mult_6g01
-Info: Elaborated megafunction instantiation "mag_sqr_fft:u_fft|lpm_mult:Mult2"
-Info: Instantiated megafunction "mag_sqr_fft:u_fft|lpm_mult:Mult2" with the following parameter:
-    Info: Parameter "LPM_WIDTHA" = "16"
-    Info: Parameter "LPM_WIDTHB" = "16"
-    Info: Parameter "LPM_WIDTHP" = "32"
-    Info: Parameter "LPM_WIDTHR" = "32"
-    Info: Parameter "LPM_WIDTHS" = "1"
-    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info: Parameter "MAXIMIZE_SPEED" = "5"
-    Info: Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "AUTO"
-Info: Elaborated megafunction instantiation "mag_sqr_fft:u_fft|lpm_mult:Mult3"
-Info: Instantiated megafunction "mag_sqr_fft:u_fft|lpm_mult:Mult3" with the following parameter:
-    Info: Parameter "LPM_WIDTHA" = "16"
-    Info: Parameter "LPM_WIDTHB" = "16"
-    Info: Parameter "LPM_WIDTHP" = "32"
-    Info: Parameter "LPM_WIDTHR" = "32"
-    Info: Parameter "LPM_WIDTHS" = "1"
-    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info: Parameter "MAXIMIZE_SPEED" = "5"
-    Info: Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "AUTO"
-Warning: Synthesized away the following node(s):
-    Warning: Synthesized away the following LCELL buffer node(s):
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[15]"
-Warning: Synthesized away the following node(s):
-    Warning: Synthesized away the following LCELL buffer node(s):
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[7]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[7]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[15]"
-Warning: Synthesized away the following node(s):
-    Warning: Synthesized away the following LCELL buffer node(s):
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[7]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[6]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[5]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le10a[4]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[6]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[5]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[4]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[3]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le3a[2]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le5a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le5a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le5a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le6a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le6a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le6a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le6a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le6a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le7a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le8a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[7]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le9a[6]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[7]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[6]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[5]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le10a[4]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[6]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[5]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[4]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[3]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le3a[2]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le5a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le5a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le5a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le6a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le6a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le6a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le6a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le6a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le7a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[15]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le8a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[14]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[13]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[12]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[11]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[10]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[9]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[8]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[7]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le9a[6]"
-Warning: Synthesized away the following node(s):
-    Warning: Synthesized away the following LCELL buffer node(s):
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult5|mult_6g01:auto_generated|le4a[16]"
-        Warning (14320): Synthesized away node "mag_sqr_fft:u_fft|lpm_mult:Mult4|mult_6g01:auto_generated|le4a[16]"
-Info: Ignored 2008 buffer(s)
-    Info: Ignored 2008 SOFT buffer(s)
-Info: Registers with preset signals will power-up high
-Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Critical Warning: Ignored Power-Up Level option on the following registers
-    Critical Warning: Register mag_sqr_fft:u_fft|bot_cpx[2] will power up to High
-Info: 5 registers lost all their fanouts during netlist optimizations. The first 5 are displayed below.
-    Info: Register "input_buffer:u_in|st.WRITE" lost all its fanouts during netlist optimizations.
-    Info: Register "mag_sqr_fft:u_fft|up_im[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "mag_sqr_fft:u_fft|up_im[16]" lost all its fanouts during netlist optimizations.
-    Info: Register "mag_sqr_fft:u_fft|up_re[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "mag_sqr_fft:u_fft|up_re[16]" lost all its fanouts during netlist optimizations.
-Info: Implemented 2355 device resources after synthesis - the final resource count might be different
+    Info: Parameter "LPM_FILE" = "UNUSED"
+Info: 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
+    Info: Register "input_buffer:input_buffer_inst|st.WRITE" lost all its fanouts during netlist optimizations.
+Info: Implemented 187 device resources after synthesis - the final resource count might be different
     Info: Implemented 19 input pins
     Info: Implemented 18 output pins
-    Info: Implemented 2302 logic cells
+    Info: Implemented 134 logic cells
     Info: Implemented 16 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 141 warnings
-    Info: Peak virtual memory: 256 megabytes
-    Info: Processing ended: Sat Jun 28 05:59:14 2025
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 253 megabytes
+    Info: Processing ended: Sat Jun 28 07:13:51 2025
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

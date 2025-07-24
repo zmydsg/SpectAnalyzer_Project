@@ -39,33 +39,33 @@ Z16 Mx1 4 work 10 spect_pkg0
 R10
 R11
 !s100 E3me1KH1U;dlHjkGKC:O>1
-Emag_sqr_fft
+Emag_sqr_fft_dp
 R1
-Z17 w1751013815
+Z17 w1751065297
 R3
 R4
 R5
 R6
-Z18 8G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd
-Z19 FG:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd
+Z18 8G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft_dp.vhd
+Z19 FG:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft_dp.vhd
 l0
 L6
-V@g[[Ec8m`abM;ciK77LhI2
+VWzAVaYjk2LcSA;B;0`9363
 R9
 R1
 31
 R10
 R11
-!s100 Ie_hNY=`AZlR_;ClMbT]@2
+!s100 XikPfaAXGCg`^`lhXZcKA0
 Artl
 R3
 R4
 R5
 R6
-Z20 DEx4 work 11 mag_sqr_fft 0 22 @g[[Ec8m`abM;ciK77LhI2
-l88
-L23
-VJg`C9ZAO^`c=zO24oJV8Y0
+Z20 DEx4 work 14 mag_sqr_fft_dp 0 22 WzAVaYjk2LcSA;B;0`9363
+l95
+L30
+VV`DK`@X=hPRRakGKKbSm?1
 R9
 31
 R13
@@ -74,7 +74,7 @@ R15
 R16
 R10
 R11
-!s100 :H[>[bO4e8KWez8RjXBMo0
+!s100 k:`H]AdP1eKQbYZZ<hcYl0
 Eoutput_buffer
 R1
 Z21 w1751020126
@@ -111,33 +111,33 @@ R16
 R10
 R11
 !s100 Wc8_HB=O>`AZ]VLB6Ab>`0
-Eram_sp
+Eram_dp_optimized
 R1
-Z25 w1750512980
+Z25 w1751065275
 R3
 R4
 R5
 R6
-Z26 8G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd
-Z27 FG:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd
+Z26 8G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_dp_optimized.vhd
+Z27 FG:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_dp_optimized.vhd
 l0
-L12
-V2]01[29Ji7eb9E=WY`X4P1
+L6
+VPSoI5LfO@]mmb6_hn9:HW3
 R9
 R1
 31
 R10
 R11
-!s100 LQI=DzPlUNi:;d^<Aoh723
+!s100 okf1ZFGi2VNN?nR4Fd_OF0
 Artl
 R3
 R4
 R5
 R6
-Z28 DEx4 work 6 ram_sp 0 22 2]01[29Ji7eb9E=WY`X4P1
-l26
-L22
-Vn]Y;TJB:dAh:Q^dN?iz@b2
+Z28 DEx4 work 16 ram_dp_optimized 0 22 PSoI5LfO@]mmb6_hn9:HW3
+l31
+L24
+Vm2Z=lLl]SV:ZU:eAn3W0m3
 R9
 31
 R13
@@ -146,7 +146,7 @@ R15
 R16
 R10
 R11
-!s100 J_9CB<OgKLjY=S`hh<BPN0
+!s100 ]9P^L2ene;77[OkRn6d2F0
 Pspect_pkg
 R1
 R3
@@ -218,19 +218,19 @@ R10
 R11
 nbody
 !s100 ik]CkdFHVJc`J;GAF5Z2K1
-Espectanalyzer_top
+Espectanalyzer_top_dp
 !s101 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0 -O0
-Z41 w1751023267
+Z41 w1751066018
 R3
 R4
 R5
 R6
-Z42 8G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd
-Z43 FG:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd
+Z42 8G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top_dp.vhd
+Z43 FG:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top_dp.vhd
 l0
 L6
-V5[Z7M2z]ehfcXTX?mC8C;0
-!s100 <28hedZiVE6Om@iCDioX52
+VJI1DgIdH2gmoUWg;l<PA:0
+!s100 A;gg`j]`:DMOgH:]Og`oB2
 R9
 R1
 31
@@ -245,11 +245,11 @@ R3
 R4
 R5
 R6
-DEx4 work 17 spectanalyzer_top 0 22 5[Z7M2z]ehfcXTX?mC8C;0
-l57
+DEx4 work 20 spectanalyzer_top_dp 0 22 JI1DgIdH2gmoUWg;l<PA:0
+l56
 L18
-VCKS^EQoNXY4@ode:RJ`ba1
-!s100 ;3jW<cA<HY6CRdA9?]G7]0
+Vl^G5:i1Z3fZi04;PgoNhN0
+!s100 gDi36N2V[54B`n4P1_NM;2
 R9
 31
 R13

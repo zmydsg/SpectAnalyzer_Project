@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY APEX20KE
 set_global_assignment -name DEVICE "EP20K200EFC672-1"
-set_global_assignment -name TOP_LEVEL_ENTITY SpectAnalyzer_top
+set_global_assignment -name TOP_LEVEL_ENTITY SpectAnalyzer_top_dp
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.0 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:34:37  JUNE 21, 2025"
 set_global_assignment -name LAST_QUARTUS_VERSION "9.0 SP2"
@@ -50,10 +50,10 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 1
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name MISC_FILE "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/SpectAnalyzer_top.dpf"
+set_global_assignment -name VHDL_FILE src/SpectAnalyzer_top_dp.vhd
+set_global_assignment -name VHDL_FILE src/mag_sqr_fft_dp.vhd
+set_global_assignment -name VHDL_FILE src/ram_dp_optimized.vhd
 set_global_assignment -name VHDL_FILE src/spect_pkg0.vhd
-set_global_assignment -name VHDL_FILE src/mag_sqr_fft.vhd
 set_global_assignment -name VHDL_FILE src/spect_pkg.vhd
-set_global_assignment -name VHDL_FILE src/SpectAnalyzer_top.vhd
 set_global_assignment -name VHDL_FILE src/input_buffer.vhd
 set_global_assignment -name VHDL_FILE src/output_buffer.vhd
-set_global_assignment -name VHDL_FILE src/ram_sp.vhd

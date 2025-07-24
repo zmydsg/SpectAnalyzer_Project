@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 7.050 ns
+Actual Time    : 5.908 ns
 From           : adc_valid
-To             : input_buffer:u_in|ram_dout[10]
+To             : input_buffer:input_buffer_inst|ram_dout[2]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 7.924 ns
-From           : output_buffer:u_out|dout_reg[3]
-To             : dout[3]
+Actual Time    : 7.977 ns
+From           : output_buffer:output_buffer_inst|dout_reg[14]
+To             : dout[14]
 From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
@@ -25,9 +25,9 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -1.362 ns
+Actual Time    : -1.140 ns
 From           : rst_n
-To             : input_buffer:u_in|ram_addr[3]
+To             : input_buffer:input_buffer_inst|ram_dout[15]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -35,9 +35,9 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 31.42 MHz ( period = 31.823 ns )
-From           : mag_sqr_fft:u_fft|w_re[14]
-To             : mag_sqr_fft:u_fft|up_im[15]
+Actual Time    : 170.13 MHz ( period = 5.878 ns )
+From           : phase.PH_IN
+To             : ram_dp_optimized:ram_inst|altdpram:mem_rtl_0|segment[0][15]
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0

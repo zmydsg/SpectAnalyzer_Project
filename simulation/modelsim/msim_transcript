@@ -24,15 +24,24 @@
 # -- Compiling package spect_pkg
 # -- Compiling package body spect_pkg
 # -- Loading package spect_pkg
-# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd}
+# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft_dp.vhd}
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
 # -- Loading package spect_pkg0
 # -- Loading package spect_pkg
-# -- Compiling entity mag_sqr_fft
-# -- Compiling architecture rtl of mag_sqr_fft
+# -- Compiling entity mag_sqr_fft_dp
+# -- Compiling architecture rtl of mag_sqr_fft_dp
+# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_dp_optimized.vhd}
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity ram_dp_optimized
+# -- Compiling architecture rtl of ram_dp_optimized
 # vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd}
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
 # -- Loading package standard
@@ -51,28 +60,24 @@
 # -- Loading package spect_pkg
 # -- Compiling entity output_buffer
 # -- Compiling architecture rtl of output_buffer
-# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd}
+# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top_dp.vhd}
 # Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
 # -- Loading package spect_pkg0
 # -- Loading package spect_pkg
-# -- Compiling entity ram_sp
-# -- Compiling architecture rtl of ram_sp
-# vcom -93 -work work {G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd}
-# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package spect_pkg0
-# -- Loading package spect_pkg
-# -- Compiling entity spectanalyzer_top
-# -- Compiling architecture rtl of spectanalyzer_top
-# -- Loading entity ram_sp
+# -- Compiling entity spectanalyzer_top_dp
+# -- Compiling architecture rtl of spectanalyzer_top_dp
+# -- Loading entity ram_dp_optimized
 # -- Loading entity input_buffer
-# -- Loading entity mag_sqr_fft
+# -- Loading entity mag_sqr_fft_dp
 # -- Loading entity output_buffer
 # 
-project open G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/input/test-input
-# Loading project test-input
+cd simulation/modelsim
+# couldn't change working directory to "simulation/modelsim": no such file or directory
+vsim work.SpectAnalyzer_top
+# vsim work.SpectAnalyzer_top 
+# ** Error: (vsim-3170) Could not find 'G:\DSD\EXPERIMENTS\SpectAnalyzer_Project\simulation\modelsim\rtl_work.SpectAnalyzer_top'.
+# Error loading design
+# Loading project dp_test

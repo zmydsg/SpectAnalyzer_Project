@@ -1,0 +1,53 @@
+# after#631
+view wave
+# .main_pane.mdi.interior.cs.vm.paneset.cli_4.wf.clip.cs.pw.wf
+do fft_run.do
+# Modifying G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/fft/FFT_IntTest.mpf
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity mag_sqr_fft
+# -- Compiling architecture rtl of mag_sqr_fft
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity tb_mag_sqr_fft_int
+# -- Compiling architecture tb of tb_mag_sqr_fft_int
+# -- Loading entity mag_sqr_fft
+# vsim -novopt work.tb_mag_sqr_fft_int 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.spect_pkg0(body)
+# Loading work.spect_pkg(body)
+# Loading work.tb_mag_sqr_fft_int(tb)
+# Loading work.mag_sqr_fft(rtl)
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_mag_sqr_fft_int
+# ** Note: >>>> SIMULATION COMPLETE <<<<
+#    Time: 1085 ns  Iteration: 1  Instance: /tb_mag_sqr_fft_int
+#  0:   7513      0 -16284      0  29832 -17374  -8111      0 -20283  17374
+# 10:  -8183      0  -8183      0      1      0 
+# ===== fft_run.do finished ===== 
+quit -sim

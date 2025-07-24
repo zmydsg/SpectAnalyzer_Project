@@ -1,0 +1,384 @@
+# Compile of spect_pkg0.vhd was successful.
+# Compile of spect_pkg.vhd was successful.
+# Compile of input_buffer.vhd was successful.
+# Compile of mag_sqr_fft_dp.vhd was successful.
+# Compile of output_buffer.vhd was successful.
+# Compile of ram_dp_optimized.vhd was successful.
+# Compile of SpectAnalyzer_top_dp.vhd was successful.
+# Compile of tb_ram_dp.vhd was successful.
+vsim work.SpectAnalyzer_top
+# vsim work.SpectAnalyzer_top 
+# ** Error: (vsim-3170) Could not find 'G:\DSD\EXPERIMENTS\SpectAnalyzer_Project\src\tb\double\work.SpectAnalyzer_top'.
+# Error loading design
+do sim_dp.do
+# Modifying G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/dp_test.mpf
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity ram_dp_optimized
+# -- Compiling architecture rtl of ram_dp_optimized
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity input_buffer
+# -- Compiling architecture rtl of input_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity mag_sqr_fft_dp
+# -- Compiling architecture rtl of mag_sqr_fft_dp
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity output_buffer
+# -- Compiling architecture rtl of output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity spectanalyzer_top_dp
+# -- Compiling architecture rtl of spectanalyzer_top_dp
+# -- Loading entity ram_dp_optimized
+# -- Loading entity input_buffer
+# -- Loading entity mag_sqr_fft_dp
+# -- Loading entity output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity tb_spectanalyzer_top_dp
+# -- Compiling architecture sim of tb_spectanalyzer_top_dp
+# -- Loading entity spectanalyzer_top_dp
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/tb_SpectAnalyzer_top_dp.vhd(137): String literal has a character with value 0xffffff8f not in the enumeration type std.standard.character.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/tb_SpectAnalyzer_top_dp.vhd(138): String literal has a character with value 0xffffff93 not in the enumeration type std.standard.character.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/tb_SpectAnalyzer_top_dp.vhd(139): String literal has a character with value 0xffffff93 not in the enumeration type std.standard.character.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/tb_SpectAnalyzer_top_dp.vhd(140): String literal has a character with value 0xffffff9c not in the enumeration type std.standard.character.
+# ** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/tb_SpectAnalyzer_top_dp.vhd(145): VHDL Compiler exiting
+# ** Error: G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./dp_test.do line 25
+# G:/DSD/PortableApps/Quartus90sp2Portable/App/Quartus/altera/90sp2/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -2002 "G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/tb_SpectAnalyzer_top_dp.vhd""
+do sim_dp.do
+# Modifying G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/dp_test.mpf
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity ram_dp_optimized
+# -- Compiling architecture rtl of ram_dp_optimized
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity input_buffer
+# -- Compiling architecture rtl of input_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity mag_sqr_fft_dp
+# -- Compiling architecture rtl of mag_sqr_fft_dp
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity output_buffer
+# -- Compiling architecture rtl of output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity spectanalyzer_top_dp
+# -- Compiling architecture rtl of spectanalyzer_top_dp
+# -- Loading entity ram_dp_optimized
+# -- Loading entity input_buffer
+# -- Loading entity mag_sqr_fft_dp
+# -- Loading entity output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity tb_spectanalyzer_top_dp
+# -- Compiling architecture sim of tb_spectanalyzer_top_dp
+# -- Loading entity spectanalyzer_top_dp
+# ---------- DP Version Compile Done ---------- 
+# vsim -novopt work.tb_SpectAnalyzer_top_dp 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.spect_pkg0(body)
+# Loading work.spect_pkg(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb_spectanalyzer_top_dp(sim)
+# Loading work.spectanalyzer_top_dp(rtl)
+# Loading work.ram_dp_optimized(rtl)
+# Loading work.input_buffer(rtl)
+# Loading work.mag_sqr_fft_dp(rtl)
+# Loading work.output_buffer(rtl)
+# ** Error: (vish-4014) No objects found matching '/tb_SpectAnalyzer_top_dp/uut/current_phase'.
+# Error in macro ./sim_dp.do line 28
+# (vish-4014) No objects found matching '/tb_SpectAnalyzer_top_dp/uut/current_phase'.
+#     while executing
+# "add wave /tb_SpectAnalyzer_top_dp/uut/current_phase"
+do sim_dp.do
+# Modifying G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/dp_test.mpf
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity ram_dp_optimized
+# -- Compiling architecture rtl of ram_dp_optimized
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity input_buffer
+# -- Compiling architecture rtl of input_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity mag_sqr_fft_dp
+# -- Compiling architecture rtl of mag_sqr_fft_dp
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity output_buffer
+# -- Compiling architecture rtl of output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity spectanalyzer_top_dp
+# -- Compiling architecture rtl of spectanalyzer_top_dp
+# -- Loading entity ram_dp_optimized
+# -- Loading entity input_buffer
+# -- Loading entity mag_sqr_fft_dp
+# -- Loading entity output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity tb_spectanalyzer_top_dp
+# -- Compiling architecture sim of tb_spectanalyzer_top_dp
+# -- Loading entity spectanalyzer_top_dp
+# ---------- DP Version Compile Done ---------- 
+# vsim -novopt work.tb_SpectAnalyzer_top_dp 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.spect_pkg0(body)
+# Loading work.spect_pkg(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb_spectanalyzer_top_dp(sim)
+# Loading work.spectanalyzer_top_dp(rtl)
+# Loading work.ram_dp_optimized(rtl)
+# Loading work.input_buffer(rtl)
+# Loading work.mag_sqr_fft_dp(rtl)
+# Loading work.output_buffer(rtl)
+# ** Error: (vish-4014) No objects found matching '/tb_SpectAnalyzer_top_dp/uut/current_phase'.
+# Error in macro ./sim_dp.do line 28
+# (vish-4014) No objects found matching '/tb_SpectAnalyzer_top_dp/uut/current_phase'.
+#     while executing
+# "add wave /tb_SpectAnalyzer_top_dp/uut/current_phase"
+do sim_dp.do
+# Modifying G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/double/dp_test.mpf
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity ram_dp_optimized
+# -- Compiling architecture rtl of ram_dp_optimized
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity input_buffer
+# -- Compiling architecture rtl of input_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity mag_sqr_fft_dp
+# -- Compiling architecture rtl of mag_sqr_fft_dp
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity output_buffer
+# -- Compiling architecture rtl of output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity spectanalyzer_top_dp
+# -- Compiling architecture rtl of spectanalyzer_top_dp
+# -- Loading entity ram_dp_optimized
+# -- Loading entity input_buffer
+# -- Loading entity mag_sqr_fft_dp
+# -- Loading entity output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity tb_spectanalyzer_top_dp
+# -- Compiling architecture sim of tb_spectanalyzer_top_dp
+# -- Loading entity spectanalyzer_top_dp
+# ---------- DP Version Compile Done ---------- 
+# vsim -novopt work.tb_SpectAnalyzer_top_dp 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.spect_pkg0(body)
+# Loading work.spect_pkg(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb_spectanalyzer_top_dp(sim)
+# Loading work.spectanalyzer_top_dp(rtl)
+# Loading work.ram_dp_optimized(rtl)
+# Loading work.input_buffer(rtl)
+# Loading work.mag_sqr_fft_dp(rtl)
+# Loading work.output_buffer(rtl)
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 70 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 110 ns  Iteration: 1  Instance: /tb_spectanalyzer_top_dp/uut/ram_inst
+# === ÌïãRAMH,ÿŒ === 

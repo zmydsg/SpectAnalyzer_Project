@@ -3,65 +3,60 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.spect_pkg.all;
 
---------------------------------------------------------------------
--- ¶¥²ãÊµÌå£º¸ù¾İÊµ¼Ê°å¿¨ IO ×ÔĞĞÔöÉ¾¶Ë¿Ú
---------------------------------------------------------------------
 entity SpectAnalyzer_top is
     port (
         clk        : in  std_logic;
         rst_n      : in  std_logic;
-
         adc_sample : in  signed(DATA_WIDTH-1 downto 0);
         adc_valid  : in  std_logic;
         adc_ready  : out std_logic;
-
         dout       : out signed(DATA_WIDTH-1 downto 0);
         dout_valid : out std_logic
     );
 end entity;
 
---------------------------------------------------------------------
 architecture rtl of SpectAnalyzer_top is
---------------------------------------------------------------------
     ----------------------------------------------------------------
-    -- 1) ¸÷½×¶Î¡°Ë½ÓĞ¡± RAM ĞÅºÅ
+    -- å„é˜¶æ®µRAMæ¥å£ä¿¡å·
     ----------------------------------------------------------------
-    -- INPUT Ğ´½×¶Î
+    -- INPUTé˜¶æ®µ
     signal ram_addr_in  : addr_t;
     signal ram_dout_in  : signed(DATA_WIDTH-1 downto 0);
     signal ram_we_in    : std_logic;
 
-    -- FFT ¼ÆËã½×¶Î
+    -- FFTé˜¶æ®µ
     signal ram_addr_fft : addr_t;
     signal ram_dout_fft : signed(DATA_WIDTH-1 downto 0);
     signal ram_we_fft   : std_logic;
 
-    -- OUTPUT ¶Á½×¶Î£¨Ö»¶ÁµØÖ·£©
+    -- OUTPUTé˜¶æ®µ
     signal ram_addr_out : addr_t;
+    signal ram_we_out   : std_logic;  -- æ·»åŠ ç¼ºå¤±çš„ä¿¡å·
 
     ----------------------------------------------------------------
-    -- 2) ¹«¹² RAM ×ÜÏß
+    -- ç»Ÿä¸€RAMæ§åˆ¶ä¿¡å·
     ----------------------------------------------------------------
-    signal ram_addr  : addr_t;
-    signal ram_dout  : signed(DATA_WIDTH-1 downto 0);
-    signal ram_we    : std_logic;
-    signal ram_din   : signed(DATA_WIDTH-1 downto 0);      -- RAM ¶ÁÊı¾İ
+    signal ram_addr     : addr_t;
+    signal ram_din      : signed(DATA_WIDTH-1 downto 0);  -- RAMå†™å…¥æ•°æ®
+    signal ram_dout     : signed(DATA_WIDTH-1 downto 0);  -- RAMè¯»å‡ºæ•°æ®
+    signal ram_we       : std_logic;
 
     ----------------------------------------------------------------
-    -- 3) Ä£¿é¼äÎÕÊÖ
+    -- æ¨¡å—é—´æ§åˆ¶ä¿¡å·
     ----------------------------------------------------------------
-    signal start_sig  : std_logic;  -- input_buffer ¡ú FFT
-    signal done_sig   : std_logic;  -- FFT ¡ú input/output
-    signal done_out   : std_logic;  -- output_buffer ¡ú phase FSM
+    signal start_sig    : std_logic;
+    signal done_sig     : std_logic;
+    signal done_out     : std_logic;
 
     ----------------------------------------------------------------
-    -- 4) ÏàÎ» FSM£¨PH_IN¡úPH_FFT¡úPH_OUT£©
+    -- é˜¶æ®µçŠ¶æ€æœº
     ----------------------------------------------------------------
     type phase_t is (PH_IN, PH_FFT, PH_OUT);
     signal phase : phase_t := PH_IN;
+
 begin
     --------------------------------------------------------------
-    -- 4-1 ÏàÎ»ÇĞ»»
+    -- é˜¶æ®µçŠ¶æ€æœº
     --------------------------------------------------------------
     process(clk, rst_n)
     begin
@@ -86,34 +81,34 @@ begin
     end process;
 
     --------------------------------------------------------------
-    -- 4-2 ×ÜÏßÈıÑ¡Ò» MUX
+    -- RAMæ¥å£MUXï¼ˆä¿®æ­£ç‰ˆï¼‰
     --------------------------------------------------------------
     ram_addr <= ram_addr_in  when phase = PH_IN  else
                 ram_addr_fft when phase = PH_FFT else
-                ram_addr_out;                     -- ¶Á½×¶Î
+                ram_addr_out;
 
-    ram_dout <= ram_dout_in  when phase = PH_IN  else
+    ram_din  <= ram_dout_in  when phase = PH_IN  else
                 ram_dout_fft when phase = PH_FFT else
-                (others => '0');                  -- ¶Á½×¶Î²»Ğ´
+                (others => '0');  -- è¾“å‡ºé˜¶æ®µä¸å†™
 
     ram_we   <= ram_we_in    when phase = PH_IN  else
                 ram_we_fft   when phase = PH_FFT else
-                '0';
+                ram_we_out;   -- ä¿®æ­£ï¼šè¿æ¥è¾“å‡ºé˜¶æ®µå†™ä½¿èƒ½
 
     --------------------------------------------------------------
-    -- 5) µ¥¶Ë¿ÚÍ¬²½ RAM£¨ÍÆ¶Ï»ò×Ô¼ºÌæ»» IP£©
+    -- RAMå®ä¾‹
     --------------------------------------------------------------
     ram_inst : entity work.ram_sp
         port map (
             clk  => clk,
             addr => ram_addr,
-            din  => ram_dout,
+            din  => ram_din,   -- ä¿®æ­£ï¼šå†™å…¥æ•°æ®
             we   => ram_we,
-            dout => ram_din
+            dout => ram_dout   -- ä¿®æ­£ï¼šè¯»å‡ºæ•°æ®
         );
 
     --------------------------------------------------------------
-    -- 6) INPUT »º³å
+    -- INPUT BUFFERæ¨¡å—
     --------------------------------------------------------------
     u_in : entity work.input_buffer
         port map (
@@ -122,17 +117,15 @@ begin
             din        => adc_sample,
             din_valid  => adc_valid,
             din_ready  => adc_ready,
-
             start_fft  => start_sig,
-            fft_done   => done_sig,
-
+            fft_done   => done_sig,    -- ä¿®æ­£ï¼šæ·»åŠ ç¼ºå¤±è¿æ¥
             ram_addr   => ram_addr_in,
             ram_dout   => ram_dout_in,
             ram_we     => ram_we_in
         );
 
     --------------------------------------------------------------
-    -- 7) FFT + |X|2
+    -- FFTæ¨¡å—
     --------------------------------------------------------------
     u_fft : entity work.mag_sqr_fft
         port map (
@@ -140,28 +133,26 @@ begin
             rst_n    => rst_n,
             start    => start_sig,
             done     => done_sig,
-
             ram_addr => ram_addr_fft,
-            ram_din  => ram_din,
+            ram_din  => ram_dout,      -- ä¿®æ­£ï¼šè¿æ¥RAMè¯»å‡ºæ•°æ®
             ram_dout => ram_dout_fft,
             ram_we   => ram_we_fft
         );
 
     --------------------------------------------------------------
-    -- 8) OUTPUT
+    -- OUTPUT BUFFERæ¨¡å—
     --------------------------------------------------------------
     u_out : entity work.output_buffer
         port map (
             clk        => clk,
             rst_n      => rst_n,
-            start_in   => done_sig,   -- ¿ªÊ¼Êä³ö
-            done_out   => done_out,   -- Í¨ÖªÏàÎ» FSM
-
+            start_in   => done_sig,
+            done_out   => done_out,
             ram_addr   => ram_addr_out,
-            ram_din    => ram_din,
-            ram_we     => open,       -- Ö»¶Á
-
+            ram_din    => ram_dout,    -- ä¿®æ­£ï¼šè¿æ¥RAMè¯»å‡ºæ•°æ®
+            ram_we     => ram_we_out,  -- ä¿®æ­£ï¼šè¿æ¥åˆ°ä¿¡å·è€Œéopen
             dout       => dout,
             dout_valid => dout_valid
         );
+
 end architecture;

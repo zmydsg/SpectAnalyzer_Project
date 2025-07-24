@@ -1,0 +1,93 @@
+G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/output_buffer.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package spect_pkg0
+-- Loading package spect_pkg
+-- Compiling entity output_buffer
+-- Compiling architecture rtl of output_buffer
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/ram_sp.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package spect_pkg0
+-- Loading package spect_pkg
+-- Compiling entity ram_sp
+-- Compiling architecture rtl of ram_sp
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/SpectAnalyzer_top.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package spect_pkg0
+-- Loading package spect_pkg
+-- Compiling entity spectanalyzer_top
+-- Compiling architecture rtl of spectanalyzer_top
+-- Loading entity ram_sp
+-- Loading entity input_buffer
+-- Loading entity mag_sqr_fft
+-- Loading entity output_buffer
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg0.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg0.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Compiling package spect_pkg0
+-- Compiling package body spect_pkg0
+-- Loading package spect_pkg0
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/spect_pkg.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package spect_pkg0
+-- Compiling package spect_pkg
+-- Compiling package body spect_pkg
+-- Loading package spect_pkg
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/input_buffer.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package spect_pkg0
+-- Loading package spect_pkg
+-- Compiling entity input_buffer
+-- Compiling architecture rtl of input_buffer
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd {1 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/mag_sqr_fft.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package spect_pkg0
+-- Loading package spect_pkg
+-- Compiling entity mag_sqr_fft
+-- Compiling architecture rtl of mag_sqr_fft
+
+} {} {}} G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd {0 {vcom -work work -2002 -explicit G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd
+Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Loading package textio
+-- Loading package std_logic_textio
+-- Compiling entity top_tb
+-- Compiling architecture sim of top_tb
+-- Loading package spect_pkg0
+-- Loading package spect_pkg
+-- Loading entity spectanalyzer_top
+** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd(63): Signal "adc_sample" is type ieee.std_logic_1164.std_logic_vector; expecting type ieee.numeric_std.signed.
+** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd(66): Signal "dout" is type ieee.std_logic_1164.std_logic_vector; expecting type ieee.numeric_std.signed.
+** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd(82): No feasible entries for subprogram "hread".
+** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd(83): Illegal type conversion from std.standard.bit_vector to ieee.std_logic_1164.std_logic_vector (array element type difference).
+** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd(109): No feasible entries for subprogram "hwrite".
+** Error: G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/system/top_tb.vhd(115): VHDL Compiler exiting
+
+} {13.0 19.0} {}}

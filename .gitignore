@@ -1,0 +1,5 @@
+simulation/
+work/
+*.wlf
+*.bin
+*.mem

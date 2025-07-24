@@ -1,0 +1,46 @@
+# after#32276
+do test_output.do
+# G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/
+# G:/DSD/EXPERIMENTS/SpectAnalyzer_Project/src/tb/output
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package spect_pkg0
+# -- Compiling package body spect_pkg0
+# -- Loading package spect_pkg0
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Compiling package spect_pkg
+# -- Compiling package body spect_pkg
+# -- Loading package spect_pkg
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity output_buffer
+# -- Compiling architecture rtl of output_buffer
+# Model Technology ModelSim ALTERA vcom 6.4a Compiler 2008.08 Oct 22 2008
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package spect_pkg0
+# -- Loading package spect_pkg
+# -- Compiling entity tb_output_buffer
+# -- Compiling architecture sim of tb_output_buffer
+# -- Loading entity output_buffer
+# vsim -voptargs=\"+acc\" work.tb_output_buffer 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.spect_pkg0(body)
+# Loading work.spect_pkg(body)
+# Loading work.tb_output_buffer(sim)
+# Loading work.output_buffer(rtl)
+# ** Note: Simulation reached observation point; manual stop when done.
+#    Time: 610 ns  Iteration: 0  Instance: /tb_output_buffer
